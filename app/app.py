@@ -30,11 +30,8 @@ def team():
     return render_template('team.html')
 
 @app.route("/results.html/<county>")
-
-
-        return render_template('results.html', array=array)
-    else:
-        return render_template('index.html')
+def results():
+    return render_template('results.html', array=array)
 
 if __name__ == '__main__':
     app.run(debug=True)
