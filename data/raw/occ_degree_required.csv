@@ -1,0 +1,810 @@
+code,occupation,degree required,work experience required
+11-1011,Chief executives,Bachelor's degree,5 years or more
+11-1021,General and operations managers,Bachelor's degree,5 years or more
+11-1031,Legislators,Bachelor's degree,Less than 5 years
+11-2011,Advertising and promotions managers,Bachelor's degree,Less than 5 years
+11-2021,Marketing managers,Bachelor's degree,5 years or more
+11-2022,Sales managers,Bachelor's degree,Less than 5 years
+11-2031,Public relations and fundraising managers,Bachelor's degree,5 years or more
+11-3011,Administrative services managers,Bachelor's degree,Less than 5 years
+11-3021,Computer and information systems managers,Bachelor's degree,5 years or more
+11-3031,Financial managers,Bachelor's degree,5 years or more
+11-3051,Industrial production managers,Bachelor's degree,5 years or more
+11-3061,Purchasing managers,Bachelor's degree,5 years or more
+11-3071,"Transportation, storage, and distribution managers",High school diploma or equivalent,5 years or more
+11-3111,Compensation and benefits managers,Bachelor's degree,5 years or more
+11-3121,Human resources managers,Bachelor's degree,5 years or more
+11-3131,Training and development managers,Bachelor's degree,5 years or more
+11-9013,"Farmers, ranchers, and other agricultural managers",High school diploma or equivalent,5 years or more
+11-9021,Construction managers,Bachelor's degree,None
+11-9031,"Education administrators, preschool and childcare center/program",Bachelor's degree,Less than 5 years
+11-9032,"Education administrators, elementary and secondary school",Master's degree,5 years or more
+11-9033,"Education administrators, postsecondary",Master's degree,Less than 5 years
+11-9039,"Education administrators, all other",Bachelor's degree,Less than 5 years
+11-9041,Architectural and engineering managers,Bachelor's degree,5 years or more
+11-9051,Food service managers,High school diploma or equivalent,Less than 5 years
+11-9061,Funeral service managers,Associate's degree,Less than 5 years
+11-9071,Gaming managers,High school diploma or equivalent,Less than 5 years
+11-9081,Lodging managers,High school diploma or equivalent,Less than 5 years
+11-9111,Medical and health services managers,Bachelor's degree,Less than 5 years
+11-9121,Natural sciences managers,Bachelor's degree,5 years or more
+11-9131,Postmasters and mail superintendents,High school diploma or equivalent,Less than 5 years
+11-9141,"Property, real estate, and community association managers",High school diploma or equivalent,Less than 5 years
+11-9151,Social and community service managers,Bachelor's degree,Less than 5 years
+11-9161,Emergency management directors,Bachelor's degree,5 years or more
+11-9199,"Managers, all other",Bachelor's degree,Less than 5 years
+13-1011,"Agents and business managers of artists, performers, and athletes",Bachelor's degree,Less than 5 years
+13-1020,Buyers and purchasing agents,Bachelor's degree,None
+13-1031,"Claims adjusters, examiners, and investigators",High school diploma or equivalent,None
+13-1032,"Insurance appraisers, auto damage",Postsecondary nondegree award,None
+13-1041,Compliance officers,Bachelor's degree,None
+13-1051,Cost estimators,Bachelor's degree,None
+13-1071,Human resources specialists,Bachelor's degree,None
+13-1074,Farm labor contractors,No formal educational credential,Less than 5 years
+13-1075,Labor relations specialists,Bachelor's degree,Less than 5 years
+13-1081,Logisticians,Bachelor's degree,None
+13-1111,Management analysts,Bachelor's degree,Less than 5 years
+13-1121,"Meeting, convention, and event planners",Bachelor's degree,None
+13-1131,Fundraisers,Bachelor's degree,None
+13-1141,"Compensation, benefits, and job analysis specialists",Bachelor's degree,Less than 5 years
+13-1151,Training and development specialists,Bachelor's degree,Less than 5 years
+13-1161,Market research analysts and marketing specialists,Bachelor's degree,None
+13-1199,"Business operations specialists, all other",Bachelor's degree,None
+13-2011,Accountants and auditors,Bachelor's degree,None
+13-2021,Appraisers and assessors of real estate,Bachelor's degree,None
+13-2031,Budget analysts,Bachelor's degree,None
+13-2041,Credit analysts,Bachelor's degree,None
+13-2051,Financial analysts,Bachelor's degree,None
+13-2052,Personal financial advisors,Bachelor's degree,None
+13-2053,Insurance underwriters,Bachelor's degree,None
+13-2061,Financial examiners,Bachelor's degree,None
+13-2071,Credit counselors,Bachelor's degree,None
+13-2072,Loan officers,Bachelor's degree,None
+13-2081,"Tax examiners and collectors, and revenue agents",Bachelor's degree,None
+13-2082,Tax preparers,High school diploma or equivalent,None
+13-2099,"Financial specialists, all other",Bachelor's degree,None
+15-1111,Computer and information research scientists,Master's degree,None
+15-1121,Computer systems analysts,Bachelor's degree,None
+15-1122,Information security analysts,Bachelor's degree,Less than 5 years
+15-1131,Computer programmers,Bachelor's degree,None
+15-1132,"Software developers, applications",Bachelor's degree,None
+15-1133,"Software developers, systems software",Bachelor's degree,None
+15-1134,Web developers,Associate's degree,None
+15-1141,Database administrators,Bachelor's degree,None
+15-1142,Network and computer systems administrators,Bachelor's degree,None
+15-1143,Computer network architects,Bachelor's degree,5 years or more
+15-1151,Computer user support specialists,"Some college, no degree",None
+15-1152,Computer network support specialists,Associate's degree,None
+15-1199,"Computer occupations, all other",Bachelor's degree,None
+15-2011,Actuaries,Bachelor's degree,None
+15-2021,Mathematicians,Master's degree,None
+15-2031,Operations research analysts,Bachelor's degree,None
+15-2041,Statisticians,Master's degree,None
+15-2090,Miscellaneous mathematical science occupations,Bachelor's degree,None
+17-1011,"Architects, except landscape and naval",Bachelor's degree,None
+17-1012,Landscape architects,Bachelor's degree,None
+17-1021,Cartographers and photogrammetrists,Bachelor's degree,None
+17-1022,Surveyors,Bachelor's degree,None
+17-2011,Aerospace engineers,Bachelor's degree,None
+17-2021,Agricultural engineers,Bachelor's degree,None
+17-2031,Biomedical engineers,Bachelor's degree,None
+17-2041,Chemical engineers,Bachelor's degree,None
+17-2051,Civil engineers,Bachelor's degree,None
+17-2061,Computer hardware engineers,Bachelor's degree,None
+17-2071,Electrical engineers,Bachelor's degree,None
+17-2072,"Electronics engineers, except computer",Bachelor's degree,None
+17-2081,Environmental engineers,Bachelor's degree,None
+17-2111,"Health and safety engineers, except mining safety engineers and inspectors",Bachelor's degree,None
+17-2112,Industrial engineers,Bachelor's degree,None
+17-2121,Marine engineers and naval architects,Bachelor's degree,None
+17-2131,Materials engineers,Bachelor's degree,None
+17-2141,Mechanical engineers,Bachelor's degree,None
+17-2151,"Mining and geological engineers, including mining safety engineers",Bachelor's degree,None
+17-2161,Nuclear engineers,Bachelor's degree,None
+17-2171,Petroleum engineers,Bachelor's degree,None
+17-2199,"Engineers, all other",Bachelor's degree,None
+17-3011,Architectural and civil drafters,Associate's degree,None
+17-3012,Electrical and electronics drafters,Associate's degree,None
+17-3013,Mechanical drafters,Associate's degree,None
+17-3019,"Drafters, all other",Associate's degree,None
+17-3021,Aerospace engineering and operations technicians,Associate's degree,None
+17-3022,Civil engineering technicians,Associate's degree,None
+17-3023,Electrical and electronics engineering technicians,Associate's degree,None
+17-3024,Electro-mechanical technicians,Associate's degree,None
+17-3025,Environmental engineering technicians,Associate's degree,None
+17-3026,Industrial engineering technicians,Associate's degree,None
+17-3027,Mechanical engineering technicians,Associate's degree,None
+17-3029,"Engineering technicians, except drafters, all other",Associate's degree,None
+17-3031,Surveying and mapping technicians,High school diploma or equivalent,None
+19-1011,Animal scientists,Bachelor's degree,None
+19-1012,Food scientists and technologists,Bachelor's degree,None
+19-1013,Soil and plant scientists,Bachelor's degree,None
+19-1021,Biochemists and biophysicists,Doctoral or professional degree,None
+19-1022,Microbiologists,Bachelor's degree,None
+19-1023,Zoologists and wildlife biologists,Bachelor's degree,None
+19-1029,"Biological scientists, all other",Bachelor's degree,None
+19-1031,Conservation scientists,Bachelor's degree,None
+19-1032,Foresters,Bachelor's degree,None
+19-1041,Epidemiologists,Master's degree,None
+19-1042,"Medical scientists, except epidemiologists",Doctoral or professional degree,None
+19-1099,"Life scientists, all other",Bachelor's degree,None
+19-2011,Astronomers,Doctoral or professional degree,None
+19-2012,Physicists,Doctoral or professional degree,None
+19-2021,Atmospheric and space scientists,Bachelor's degree,None
+19-2031,Chemists,Bachelor's degree,None
+19-2032,Materials scientists,Bachelor's degree,None
+19-2041,"Environmental scientists and specialists, including health",Bachelor's degree,None
+19-2042,"Geoscientists, except hydrologists and geographers",Bachelor's degree,None
+19-2043,Hydrologists,Bachelor's degree,None
+19-2099,"Physical scientists, all other",Bachelor's degree,None
+19-3011,Economists,Master's degree,None
+19-3022,Survey researchers,Master's degree,None
+19-3031,"Clinical, counseling, and school psychologists",Doctoral or professional degree,None
+19-3032,Industrial-organizational psychologists,Master's degree,None
+19-3039,"Psychologists, all other",Master's degree,None
+19-3041,Sociologists,Master's degree,None
+19-3051,Urban and regional planners,Master's degree,None
+19-3091,Anthropologists and archeologists,Master's degree,None
+19-3092,Geographers,Bachelor's degree,None
+19-3093,Historians,Master's degree,None
+19-3094,Political scientists,Master's degree,None
+19-3099,"Social scientists and related workers, all other",Bachelor's degree,None
+19-4011,Agricultural and food science technicians,Associate's degree,None
+19-4021,Biological technicians,Bachelor's degree,None
+19-4031,Chemical technicians,Associate's degree,None
+19-4041,Geological and petroleum technicians,Associate's degree,None
+19-4051,Nuclear technicians,Associate's degree,None
+19-4061,Social science research assistants,Bachelor's degree,None
+19-4091,"Environmental science and protection technicians, including health",Associate's degree,None
+19-4092,Forensic science technicians,Bachelor's degree,None
+19-4093,Forest and conservation technicians,Associate's degree,None
+19-4099,"Life, physical, and social science technicians, all other",Associate's degree,None
+21-1012,"Educational, guidance, school, and vocational counselors",Master's degree,None
+21-1013,Marriage and family therapists,Master's degree,None
+21-1015,Rehabilitation counselors,Master's degree,None
+21-1018,"Substance abuse, behavioral disorder, and mental health counselors",Bachelor's degree,None
+21-1019,"Counselors, all other",Master's degree,None
+21-1021,"Child, family, and school social workers",Bachelor's degree,None
+21-1022,Healthcare social workers,Master's degree,None
+21-1023,Mental health and substance abuse social workers,Master's degree,None
+21-1029,"Social workers, all other",Bachelor's degree,None
+21-1091,Health educators,Bachelor's degree,None
+21-1092,Probation officers and correctional treatment specialists,Bachelor's degree,None
+21-1093,Social and human service assistants,High school diploma or equivalent,None
+21-1094,Community health workers,High school diploma or equivalent,None
+21-1099,"Community and social service specialists, all other",Bachelor's degree,None
+21-2011,Clergy,Bachelor's degree,None
+21-2021,"Directors, religious activities and education",Bachelor's degree,Less than 5 years
+21-2099,"Religious workers, all other",Bachelor's degree,None
+23-1011,Lawyers,Doctoral or professional degree,None
+23-1012,Judicial law clerks,Doctoral or professional degree,None
+23-1021,"Administrative law judges, adjudicators, and hearing officers",Doctoral or professional degree,5 years or more
+23-1022,"Arbitrators, mediators, and conciliators",Bachelor's degree,Less than 5 years
+23-1023,"Judges, magistrate judges, and magistrates",Doctoral or professional degree,5 years or more
+23-2011,Paralegals and legal assistants,Associate's degree,None
+23-2091,Court reporters,Postsecondary nondegree award,None
+23-2093,"Title examiners, abstractors, and searchers",High school diploma or equivalent,None
+23-2099,"Legal support workers, all other",Associate's degree,None
+25-1011,"Business teachers, postsecondary",Doctoral or professional degree,None
+25-1021,"Computer science teachers, postsecondary",Doctoral or professional degree,None
+25-1022,"Mathematical science teachers, postsecondary",Doctoral or professional degree,None
+25-1031,"Architecture teachers, postsecondary",Doctoral or professional degree,None
+25-1032,"Engineering teachers, postsecondary",Doctoral or professional degree,None
+25-1041,"Agricultural sciences teachers, postsecondary",Doctoral or professional degree,None
+25-1042,"Biological science teachers, postsecondary",Doctoral or professional degree,None
+25-1043,"Forestry and conservation science teachers, postsecondary",Doctoral or professional degree,None
+25-1051,"Atmospheric, earth, marine, and space sciences teachers, postsecondary",Doctoral or professional degree,None
+25-1052,"Chemistry teachers, postsecondary",Doctoral or professional degree,None
+25-1053,"Environmental science teachers, postsecondary",Doctoral or professional degree,None
+25-1054,"Physics teachers, postsecondary",Doctoral or professional degree,None
+25-1061,"Anthropology and archeology teachers, postsecondary",Doctoral or professional degree,None
+25-1062,"Area, ethnic, and cultural studies teachers, postsecondary",Doctoral or professional degree,None
+25-1063,"Economics teachers, postsecondary",Doctoral or professional degree,None
+25-1064,"Geography teachers, postsecondary",Doctoral or professional degree,None
+25-1065,"Political science teachers, postsecondary",Doctoral or professional degree,None
+25-1066,"Psychology teachers, postsecondary",Doctoral or professional degree,None
+25-1067,"Sociology teachers, postsecondary",Doctoral or professional degree,None
+25-1069,"Social sciences teachers, postsecondary, all other",Doctoral or professional degree,None
+25-1071,"Health specialties teachers, postsecondary",Doctoral or professional degree,Less than 5 years
+25-1072,"Nursing instructors and teachers, postsecondary",Doctoral or professional degree,Less than 5 years
+25-1081,"Education teachers, postsecondary",Doctoral or professional degree,Less than 5 years
+25-1082,"Library science teachers, postsecondary",Doctoral or professional degree,None
+25-1111,"Criminal justice and law enforcement teachers, postsecondary",Doctoral or professional degree,None
+25-1112,"Law teachers, postsecondary",Doctoral or professional degree,Less than 5 years
+25-1113,"Social work teachers, postsecondary",Doctoral or professional degree,None
+25-1121,"Art, drama, and music teachers, postsecondary",Master's degree,None
+25-1122,"Communications teachers, postsecondary",Doctoral or professional degree,None
+25-1123,"English language and literature teachers, postsecondary",Doctoral or professional degree,None
+25-1124,"Foreign language and literature teachers, postsecondary",Doctoral or professional degree,None
+25-1125,"History teachers, postsecondary",Doctoral or professional degree,None
+25-1126,"Philosophy and religion teachers, postsecondary",Doctoral or professional degree,None
+25-1191,Graduate teaching assistants,Bachelor's degree,None
+25-1192,"Home economics teachers, postsecondary",Master's degree,None
+25-1193,"Recreation and fitness studies teachers, postsecondary",Doctoral or professional degree,None
+25-1194,"Vocational education teachers, postsecondary",Bachelor's degree,Less than 5 years
+25-1199,"Postsecondary teachers, all other",Doctoral or professional degree,None
+25-2011,"Preschool teachers, except special education",Associate's degree,None
+25-2012,"Kindergarten teachers, except special education",Bachelor's degree,None
+25-2021,"Elementary school teachers, except special education",Bachelor's degree,None
+25-2022,"Middle school teachers, except special and career/technical education",Bachelor's degree,None
+25-2023,"Career/technical education teachers, middle school",Bachelor's degree,Less than 5 years
+25-2031,"Secondary school teachers, except special and career/technical education",Bachelor's degree,None
+25-2032,"Career/technical education teachers, secondary school",Bachelor's degree,Less than 5 years
+25-2051,"Special education teachers, preschool",Bachelor's degree,None
+25-2052,"Special education teachers, kindergarten and elementary school",Bachelor's degree,None
+25-2053,"Special education teachers, middle school",Bachelor's degree,None
+25-2054,"Special education teachers, secondary school",Bachelor's degree,None
+25-2059,"Special education teachers, all other",Bachelor's degree,None
+25-3011,Adult basic and secondary education and literacy teachers and instructors,Bachelor's degree,None
+25-3021,Self-enrichment education teachers,High school diploma or equivalent,Less than 5 years
+25-3097,"Teachers and Instructors, All Other, Except Substitute Teachers",Bachelor's degree,None
+25-3098,Substitute Teachers,Bachelor's degree,None
+25-4011,Archivists,Master's degree,None
+25-4012,Curators,Master's degree,None
+25-4013,Museum technicians and conservators,Bachelor's degree,None
+25-4021,Librarians,Master's degree,None
+25-4031,Library technicians,Postsecondary nondegree award,None
+25-9011,Audio-visual and multimedia collections specialists,Bachelor's degree,Less than 5 years
+25-9021,Farm and home management advisors,Master's degree,None
+25-9031,Instructional coordinators,Master's degree,5 years or more
+25-9041,Teacher assistants,"Some college, no degree",None
+25-9099,"Education, training, and library workers, all other",Bachelor's degree,None
+27-1011,Art directors,Bachelor's degree,5 years or more
+27-1012,Craft artists,No formal educational credential,None
+27-1013,"Fine artists, including painters, sculptors, and illustrators",Bachelor's degree,None
+27-1014,Multimedia artists and animators,Bachelor's degree,None
+27-1019,"Artists and related workers, all other",No formal educational credential,None
+27-1021,Commercial and industrial designers,Bachelor's degree,None
+27-1022,Fashion designers,Bachelor's degree,None
+27-1023,Floral designers,High school diploma or equivalent,None
+27-1024,Graphic designers,Bachelor's degree,None
+27-1025,Interior designers,Bachelor's degree,None
+27-1026,Merchandise displayers and window trimmers,High school diploma or equivalent,None
+27-1027,Set and exhibit designers,Bachelor's degree,None
+27-1029,"Designers, all other",Bachelor's degree,None
+27-2011,Actors,"Some college, no degree",None
+27-2012,Producers and directors,Bachelor's degree,Less than 5 years
+27-2021,Athletes and sports competitors,No formal educational credential,None
+27-2022,Coaches and scouts,Bachelor's degree,None
+27-2023,"Umpires, referees, and other sports officials",High school diploma or equivalent,None
+27-2031,Dancers,No formal educational credential,None
+27-2032,Choreographers,High school diploma or equivalent,5 years or more
+27-2041,Music directors and composers,Bachelor's degree,Less than 5 years
+27-2042,Musicians and singers,No formal educational credential,None
+27-2099,"Entertainers and performers, sports and related workers, all other",No formal educational credential,None
+27-3011,Radio and television announcers,Bachelor's degree,None
+27-3012,Public address system and other announcers,High school diploma or equivalent,None
+27-3021,Broadcast news analysts,Bachelor's degree,None
+27-3022,Reporters and correspondents,Bachelor's degree,None
+27-3031,Public relations specialists,Bachelor's degree,None
+27-3041,Editors,Bachelor's degree,Less than 5 years
+27-3042,Technical writers,Bachelor's degree,Less than 5 years
+27-3043,Writers and authors,Bachelor's degree,None
+27-3091,Interpreters and translators,Bachelor's degree,None
+27-3099,"Media and communication workers, all other",High school diploma or equivalent,None
+27-4011,Audio and video equipment technicians,Postsecondary nondegree award,None
+27-4012,Broadcast technicians,Associate's degree,None
+27-4013,Radio operators,High school diploma or equivalent,None
+27-4014,Sound engineering technicians,Postsecondary nondegree award,None
+27-4021,Photographers,High school diploma or equivalent,None
+27-4031,"Camera operators, television, video, and motion picture",Bachelor's degree,None
+27-4032,Film and video editors,Bachelor's degree,None
+27-4099,"Media and communication equipment workers, all other",High school diploma or equivalent,None
+29-1011,Chiropractors,Doctoral or professional degree,None
+29-1021,"Dentists, general",Doctoral or professional degree,None
+29-1022,Oral and maxillofacial surgeons,Doctoral or professional degree,None
+29-1023,Orthodontists,Doctoral or professional degree,None
+29-1024,Prosthodontists,Doctoral or professional degree,None
+29-1029,"Dentists, all other specialists",Doctoral or professional degree,None
+29-1031,Dietitians and nutritionists,Bachelor's degree,None
+29-1041,Optometrists,Doctoral or professional degree,None
+29-1051,Pharmacists,Doctoral or professional degree,None
+29-1061,Anesthesiologists,Doctoral or professional degree,None
+29-1062,Family and general practitioners,Doctoral or professional degree,None
+29-1063,"Internists, general",Doctoral or professional degree,None
+29-1064,Obstetricians and gynecologists,Doctoral or professional degree,None
+29-1065,"Pediatricians, general",Doctoral or professional degree,None
+29-1066,Psychiatrists,Doctoral or professional degree,None
+29-1067,Surgeons,Doctoral or professional degree,None
+29-1069,"Physicians and surgeons, all other",Doctoral or professional degree,None
+29-1071,Physician assistants,Master's degree,None
+29-1081,Podiatrists,Doctoral or professional degree,None
+29-1122,Occupational therapists,Master's degree,None
+29-1123,Physical therapists,Doctoral or professional degree,None
+29-1124,Radiation therapists,Associate's degree,None
+29-1125,Recreational therapists,Bachelor's degree,None
+29-1126,Respiratory therapists,Associate's degree,None
+29-1127,Speech-language pathologists,Master's degree,None
+29-1128,Exercise physiologists,Bachelor's degree,None
+29-1129,"Therapists, all other",Bachelor's degree,None
+29-1131,Veterinarians,Doctoral or professional degree,None
+29-1141,Registered nurses,Bachelor's degree,None
+29-1151,Nurse anesthetists,Master's degree,None
+29-1161,Nurse midwives,Master's degree,None
+29-1171,Nurse practitioners,Master's degree,None
+29-1181,Audiologists,Doctoral or professional degree,None
+29-1199,"Health diagnosing and treating practitioners, all other",Master's degree,None
+29-2010,Clinical laboratory technologists and technicians,Bachelor's degree,None
+29-2021,Dental hygienists,Associate's degree,None
+29-2031,Cardiovascular technologists and technicians,Associate's degree,None
+29-2032,Diagnostic medical sonographers,Associate's degree,None
+29-2033,Nuclear medicine technologists,Associate's degree,None
+29-2034,Radiologic technologists,Associate's degree,None
+29-2035,Magnetic resonance imaging technologists,Associate's degree,Less than 5 years
+29-2041,Emergency medical technicians and paramedics,Postsecondary nondegree award,None
+29-2051,Dietetic technicians,Associate's degree,None
+29-2052,Pharmacy technicians,High school diploma or equivalent,None
+29-2053,Psychiatric technicians,Postsecondary nondegree award,Less than 5 years
+29-2054,Respiratory therapy technicians,Associate's degree,None
+29-2055,Surgical technologists,Postsecondary nondegree award,None
+29-2056,Veterinary technologists and technicians,Associate's degree,None
+29-2057,Ophthalmic medical technicians,Postsecondary nondegree award,None
+29-2061,Licensed practical and licensed vocational nurses,Postsecondary nondegree award,None
+29-2071,Medical records and health information technicians,Postsecondary nondegree award,None
+29-2081,"Opticians, dispensing",High school diploma or equivalent,None
+29-2091,Orthotists and prosthetists,Master's degree,None
+29-2092,Hearing aid specialists,High school diploma or equivalent,None
+29-2099,"Health technologists and technicians, all other",Postsecondary nondegree award,None
+29-9011,Occupational health and safety specialists,Bachelor's degree,None
+29-9012,Occupational health and safety technicians,High school diploma or equivalent,None
+29-9091,Athletic trainers,Bachelor's degree,None
+29-9092,Genetic counselors,Master's degree,None
+29-9099,"Healthcare practitioners and technical workers, all other",Postsecondary nondegree award,None
+31-1011,Home health aides,High school diploma or equivalent,None
+31-1013,Psychiatric aides,High school diploma or equivalent,None
+31-1014,Nursing assistants,Postsecondary nondegree award,None
+31-1015,Orderlies,High school diploma or equivalent,None
+31-2011,Occupational therapy assistants,Associate's degree,None
+31-2012,Occupational therapy aides,High school diploma or equivalent,None
+31-2021,Physical therapist assistants,Associate's degree,None
+31-2022,Physical therapist aides,High school diploma or equivalent,None
+31-9011,Massage therapists,Postsecondary nondegree award,None
+31-9091,Dental assistants,Postsecondary nondegree award,None
+31-9092,Medical assistants,Postsecondary nondegree award,None
+31-9093,Medical equipment preparers,High school diploma or equivalent,None
+31-9094,Medical transcriptionists,Postsecondary nondegree award,None
+31-9095,Pharmacy aides,High school diploma or equivalent,None
+31-9096,Veterinary assistants and laboratory animal caretakers,High school diploma or equivalent,None
+31-9097,Phlebotomists,Postsecondary nondegree award,None
+31-9099,"Healthcare support workers, all other",High school diploma or equivalent,None
+33-1011,First-line supervisors of correctional officers,High school diploma or equivalent,Less than 5 years
+33-1012,First-line supervisors of police and detectives,High school diploma or equivalent,Less than 5 years
+33-1021,First-line supervisors of fire fighting and prevention workers,Postsecondary nondegree award,Less than 5 years
+33-1099,"First-line supervisors of protective service workers, all other",High school diploma or equivalent,Less than 5 years
+33-2011,Firefighters,Postsecondary nondegree award,None
+33-2021,Fire inspectors and investigators,Postsecondary nondegree award,5 years or more
+33-2022,Forest fire inspectors and prevention specialists,High school diploma or equivalent,Less than 5 years
+33-3011,Bailiffs,High school diploma or equivalent,None
+33-3012,Correctional officers and jailers,High school diploma or equivalent,None
+33-3021,Detectives and criminal investigators,High school diploma or equivalent,Less than 5 years
+33-3031,Fish and game wardens,Bachelor's degree,None
+33-3041,Parking enforcement workers,High school diploma or equivalent,None
+33-3051,Police and sheriff's patrol officers,High school diploma or equivalent,None
+33-3052,Transit and railroad police,High school diploma or equivalent,None
+33-9011,Animal control workers,High school diploma or equivalent,None
+33-9021,Private detectives and investigators,High school diploma or equivalent,Less than 5 years
+33-9031,Gaming surveillance officers and gaming investigators,High school diploma or equivalent,Less than 5 years
+33-9032,Security guards,High school diploma or equivalent,None
+33-9091,Crossing guards,No formal educational credential,None
+33-9092,"Lifeguards, ski patrol, and other recreational protective service workers",No formal educational credential,None
+33-9093,Transportation security screeners,High school diploma or equivalent,None
+33-9099,"Protective service workers, all other",High school diploma or equivalent,None
+35-1011,Chefs and head cooks,High school diploma or equivalent,5 years or more
+35-1012,First-line supervisors of food preparation and serving workers,High school diploma or equivalent,Less than 5 years
+35-2011,"Cooks, fast food",No formal educational credential,None
+35-2012,"Cooks, institution and cafeteria",No formal educational credential,None
+35-2013,"Cooks, private household",Postsecondary nondegree award,Less than 5 years
+35-2014,"Cooks, restaurant",No formal educational credential,Less than 5 years
+35-2015,"Cooks, short order",No formal educational credential,None
+35-2019,"Cooks, all other",No formal educational credential,None
+35-2021,Food preparation workers,No formal educational credential,None
+35-3011,Bartenders,No formal educational credential,None
+35-3021,"Combined food preparation and serving workers, including fast food",No formal educational credential,None
+35-3022,"Counter attendants, cafeteria, food concession, and coffee shop",No formal educational credential,None
+35-3031,Waiters and waitresses,No formal educational credential,None
+35-3041,"Food servers, nonrestaurant",No formal educational credential,None
+35-9011,Dining room and cafeteria attendants and bartender helpers,No formal educational credential,None
+35-9021,Dishwashers,No formal educational credential,None
+35-9031,"Hosts and hostesses, restaurant, lounge, and coffee shop",No formal educational credential,None
+35-9099,"Food preparation and serving related workers, all other",No formal educational credential,None
+37-1011,First-line supervisors of housekeeping and janitorial workers,High school diploma or equivalent,Less than 5 years
+37-1012,"First-line supervisors of landscaping, lawn service, and groundskeeping workers",High school diploma or equivalent,Less than 5 years
+37-2011,"Janitors and cleaners, except maids and housekeeping cleaners",No formal educational credential,None
+37-2012,Maids and housekeeping cleaners,No formal educational credential,None
+37-2019,"Building cleaning workers, all other",No formal educational credential,None
+37-2021,Pest control workers,High school diploma or equivalent,None
+37-3011,Landscaping and groundskeeping workers,No formal educational credential,None
+37-3012,"Pesticide handlers, sprayers, and applicators, vegetation",High school diploma or equivalent,None
+37-3013,Tree trimmers and pruners,High school diploma or equivalent,None
+37-3019,"Grounds maintenance workers, all other",No formal educational credential,None
+39-1010,First-line supervisors of gaming workers,High school diploma or equivalent,Less than 5 years
+39-1021,First-line supervisors of personal service workers,High school diploma or equivalent,Less than 5 years
+39-2011,Animal trainers,High school diploma or equivalent,None
+39-2021,Nonfarm animal caretakers,High school diploma or equivalent,None
+39-3011,Gaming dealers,High school diploma or equivalent,None
+39-3012,Gaming and sports book writers and runners,High school diploma or equivalent,None
+39-3019,"Gaming service workers, all other",High school diploma or equivalent,None
+39-3021,Motion picture projectionists,No formal educational credential,None
+39-3031,"Ushers, lobby attendants, and ticket takers",No formal educational credential,None
+39-3091,Amusement and recreation attendants,No formal educational credential,None
+39-3092,Costume attendants,High school diploma or equivalent,None
+39-3093,"Locker room, coatroom, and dressing room attendants",High school diploma or equivalent,None
+39-3099,"Entertainment attendants and related workers, all other",High school diploma or equivalent,None
+39-4011,Embalmers,Associate's degree,None
+39-4021,Funeral attendants,High school diploma or equivalent,None
+39-4031,"Morticians, undertakers, and funeral directors",Associate's degree,None
+39-5011,Barbers,Postsecondary nondegree award,None
+39-5012,"Hairdressers, hairstylists, and cosmetologists",Postsecondary nondegree award,None
+39-5091,"Makeup artists, theatrical and performance",Postsecondary nondegree award,None
+39-5092,Manicurists and pedicurists,Postsecondary nondegree award,None
+39-5093,Shampooers,No formal educational credential,None
+39-5094,Skincare specialists,Postsecondary nondegree award,None
+39-6011,Baggage porters and bellhops,High school diploma or equivalent,None
+39-6012,Concierges,High school diploma or equivalent,None
+39-7010,Tour and travel guides,High school diploma or equivalent,None
+39-9011,Childcare workers,High school diploma or equivalent,None
+39-9021,Personal care aides,High school diploma or equivalent,None
+39-9031,Fitness trainers and aerobics instructors,High school diploma or equivalent,None
+39-9032,Recreation workers,High school diploma or equivalent,None
+39-9041,Residential advisors,High school diploma or equivalent,None
+39-9099,"Personal care and service workers, all other",High school diploma or equivalent,None
+41-1011,First-line supervisors of retail sales workers,High school diploma or equivalent,Less than 5 years
+41-1012,First-line supervisors of non-retail sales workers,High school diploma or equivalent,Less than 5 years
+41-2011,Cashiers,No formal educational credential,None
+41-2012,Gaming change persons and booth cashiers,No formal educational credential,None
+41-2021,Counter and rental clerks,No formal educational credential,None
+41-2022,Parts salespersons,No formal educational credential,None
+41-2031,Retail salespersons,No formal educational credential,None
+41-3011,Advertising sales agents,High school diploma or equivalent,None
+41-3021,Insurance sales agents,High school diploma or equivalent,None
+41-3031,"Securities, commodities, and financial services sales agents",Bachelor's degree,None
+41-3041,Travel agents,High school diploma or equivalent,None
+41-3099,"Sales representatives, services, all other",High school diploma or equivalent,None
+41-4011,"Sales representatives, wholesale and manufacturing, technical and scientific products",Bachelor's degree,None
+41-4012,"Sales representatives, wholesale and manufacturing, except technical and scientific products",High school diploma or equivalent,None
+41-9011,Demonstrators and product promoters,No formal educational credential,None
+41-9012,Models,No formal educational credential,None
+41-9021,Real estate brokers,High school diploma or equivalent,Less than 5 years
+41-9022,Real estate sales agents,High school diploma or equivalent,None
+41-9031,Sales engineers,Bachelor's degree,None
+41-9041,Telemarketers,No formal educational credential,None
+41-9091,"Door-to-door sales workers, news and street vendors, and related workers",No formal educational credential,None
+41-9099,"Sales and related workers, all other",High school diploma or equivalent,None
+43-1011,First-line supervisors of office and administrative support workers,High school diploma or equivalent,Less than 5 years
+43-2011,"Switchboard operators, including answering service",High school diploma or equivalent,None
+43-2021,Telephone operators,High school diploma or equivalent,None
+43-2099,"Communications equipment operators, all other",High school diploma or equivalent,None
+43-3011,Bill and account collectors,High school diploma or equivalent,None
+43-3021,Billing and posting clerks,High school diploma or equivalent,None
+43-3031,"Bookkeeping, accounting, and auditing clerks","Some college, no degree",None
+43-3041,Gaming cage workers,High school diploma or equivalent,None
+43-3051,Payroll and timekeeping clerks,High school diploma or equivalent,None
+43-3061,Procurement clerks,High school diploma or equivalent,None
+43-3071,Tellers,High school diploma or equivalent,None
+43-3099,"Financial clerks, all other",High school diploma or equivalent,None
+43-4011,Brokerage clerks,High school diploma or equivalent,None
+43-4021,Correspondence clerks,High school diploma or equivalent,None
+43-4031,"Court, municipal, and license clerks",High school diploma or equivalent,None
+43-4041,"Credit authorizers, checkers, and clerks",High school diploma or equivalent,None
+43-4051,Customer service representatives,High school diploma or equivalent,None
+43-4061,"Eligibility interviewers, government programs",High school diploma or equivalent,None
+43-4071,File clerks,High school diploma or equivalent,None
+43-4081,"Hotel, motel, and resort desk clerks",High school diploma or equivalent,None
+43-4111,"Interviewers, except eligibility and loan",High school diploma or equivalent,None
+43-4121,"Library assistants, clerical",High school diploma or equivalent,None
+43-4131,Loan interviewers and clerks,High school diploma or equivalent,None
+43-4141,New accounts clerks,High school diploma or equivalent,None
+43-4151,Order clerks,"Some college, no degree",None
+43-4161,"Human resources assistants, except payroll and timekeeping",Associate's degree,None
+43-4171,Receptionists and information clerks,High school diploma or equivalent,None
+43-4181,Reservation and transportation ticket agents and travel clerks,High school diploma or equivalent,None
+43-4199,"Information and record clerks, all other",High school diploma or equivalent,None
+43-5011,Cargo and freight agents,High school diploma or equivalent,None
+43-5021,Couriers and messengers,High school diploma or equivalent,None
+43-5031,"Police, fire, and ambulance dispatchers",High school diploma or equivalent,None
+43-5032,"Dispatchers, except police, fire, and ambulance",High school diploma or equivalent,None
+43-5041,"Meter readers, utilities",High school diploma or equivalent,None
+43-5051,Postal service clerks,High school diploma or equivalent,None
+43-5052,Postal service mail carriers,High school diploma or equivalent,None
+43-5053,"Postal service mail sorters, processors, and processing machine operators",High school diploma or equivalent,None
+43-5061,"Production, planning, and expediting clerks",High school diploma or equivalent,None
+43-5071,"Shipping, receiving, and traffic clerks",High school diploma or equivalent,None
+43-5081,Stock clerks and order fillers,High school diploma or equivalent,None
+43-5111,"Weighers, measurers, checkers, and samplers, recordkeeping",High school diploma or equivalent,None
+43-6011,Executive secretaries and executive administrative assistants,High school diploma or equivalent,Less than 5 years
+43-6012,Legal secretaries,High school diploma or equivalent,None
+43-6013,Medical secretaries,High school diploma or equivalent,None
+43-6014,"Secretaries and administrative assistants, except legal, medical, and executive",High school diploma or equivalent,None
+43-9011,Computer operators,High school diploma or equivalent,None
+43-9021,Data entry keyers,High school diploma or equivalent,None
+43-9022,Word processors and typists,High school diploma or equivalent,None
+43-9031,Desktop publishers,Associate's degree,None
+43-9041,Insurance claims and policy processing clerks,High school diploma or equivalent,None
+43-9051,"Mail clerks and mail machine operators, except postal service",High school diploma or equivalent,None
+43-9061,"Office clerks, general",High school diploma or equivalent,None
+43-9071,"Office machine operators, except computer",High school diploma or equivalent,None
+43-9081,Proofreaders and copy markers,Bachelor's degree,None
+43-9111,Statistical assistants,Bachelor's degree,None
+43-9199,"Office and administrative support workers, all other",High school diploma or equivalent,None
+45-1011,"First-line supervisors of farming, fishing, and forestry workers",High school diploma or equivalent,Less than 5 years
+45-2011,Agricultural inspectors,Bachelor's degree,None
+45-2021,Animal breeders,High school diploma or equivalent,None
+45-2041,"Graders and sorters, agricultural products",No formal educational credential,None
+45-2091,Agricultural equipment operators,No formal educational credential,None
+45-2092,"Farmworkers and laborers, crop, nursery, and greenhouse",No formal educational credential,None
+45-2093,"Farmworkers, farm, ranch, and aquacultural animals",No formal educational credential,None
+45-2099,"Agricultural workers, all other",No formal educational credential,None
+45-3000,Fishing and hunting workers,No formal educational credential,None
+45-4011,Forest and conservation workers,High school diploma or equivalent,None
+45-4021,Fallers,High school diploma or equivalent,None
+45-4022,Logging equipment operators,High school diploma or equivalent,None
+45-4023,Log graders and scalers,High school diploma or equivalent,None
+45-4029,"Logging workers, all other",High school diploma or equivalent,None
+47-1011,First-line supervisors of construction trades and extraction workers,High school diploma or equivalent,5 years or more
+47-2011,Boilermakers,High school diploma or equivalent,None
+47-2021,Brickmasons and blockmasons,High school diploma or equivalent,None
+47-2022,Stonemasons,High school diploma or equivalent,None
+47-2031,Carpenters,High school diploma or equivalent,None
+47-2041,Carpet installers,No formal educational credential,None
+47-2042,"Floor layers, except carpet, wood, and hard tiles",No formal educational credential,None
+47-2043,Floor sanders and finishers,No formal educational credential,None
+47-2044,Tile and marble setters,No formal educational credential,None
+47-2051,Cement masons and concrete finishers,No formal educational credential,None
+47-2053,Terrazzo workers and finishers,High school diploma or equivalent,None
+47-2061,Construction laborers,No formal educational credential,None
+47-2071,"Paving, surfacing, and tamping equipment operators",High school diploma or equivalent,None
+47-2072,Pile-driver operators,High school diploma or equivalent,None
+47-2073,Operating engineers and other construction equipment operators,High school diploma or equivalent,None
+47-2081,Drywall and ceiling tile installers,No formal educational credential,None
+47-2082,Tapers,No formal educational credential,None
+47-2111,Electricians,High school diploma or equivalent,None
+47-2121,Glaziers,High school diploma or equivalent,None
+47-2131,"Insulation workers, floor, ceiling, and wall",No formal educational credential,None
+47-2132,"Insulation workers, mechanical",High school diploma or equivalent,None
+47-2141,"Painters, construction and maintenance",No formal educational credential,None
+47-2142,Paperhangers,No formal educational credential,None
+47-2151,Pipelayers,No formal educational credential,None
+47-2152,"Plumbers, pipefitters, and steamfitters",High school diploma or equivalent,None
+47-2161,Plasterers and stucco masons,No formal educational credential,None
+47-2171,Reinforcing iron and rebar workers,High school diploma or equivalent,None
+47-2181,Roofers,No formal educational credential,None
+47-2211,Sheet metal workers,High school diploma or equivalent,None
+47-2221,Structural iron and steel workers,High school diploma or equivalent,None
+47-2231,Solar photovoltaic installers,High school diploma or equivalent,None
+47-3011,"Helpers--brickmasons, blockmasons, stonemasons, and tile and marble setters",No formal educational credential,None
+47-3012,Helpers--carpenters,No formal educational credential,None
+47-3013,Helpers--electricians,High school diploma or equivalent,None
+47-3014,"Helpers--painters, paperhangers, plasterers, and stucco masons",No formal educational credential,None
+47-3015,"Helpers--pipelayers, plumbers, pipefitters, and steamfitters",High school diploma or equivalent,None
+47-3016,Helpers--roofers,No formal educational credential,None
+47-3019,"Helpers, construction trades, all other",No formal educational credential,None
+47-4011,Construction and building inspectors,High school diploma or equivalent,5 years or more
+47-4021,Elevator installers and repairers,High school diploma or equivalent,None
+47-4031,Fence erectors,No formal educational credential,None
+47-4041,Hazardous materials removal workers,High school diploma or equivalent,None
+47-4051,Highway maintenance workers,High school diploma or equivalent,None
+47-4061,Rail-track laying and maintenance equipment operators,High school diploma or equivalent,None
+47-4071,Septic tank servicers and sewer pipe cleaners,High school diploma or equivalent,None
+47-4090,Miscellaneous construction and related workers,High school diploma or equivalent,None
+47-5011,"Derrick operators, oil and gas",No formal educational credential,None
+47-5012,"Rotary drill operators, oil and gas",No formal educational credential,None
+47-5013,"Service unit operators, oil, gas, and mining",No formal educational credential,None
+47-5021,"Earth drillers, except oil and gas",High school diploma or equivalent,None
+47-5031,"Explosives workers, ordnance handling experts, and blasters",High school diploma or equivalent,Less than 5 years
+47-5041,Continuous mining machine operators,No formal educational credential,None
+47-5042,Mine cutting and channeling machine operators,High school diploma or equivalent,None
+47-5049,"Mining machine operators, all other",High school diploma or equivalent,None
+47-5051,"Rock splitters, quarry",No formal educational credential,None
+47-5061,"Roof bolters, mining",High school diploma or equivalent,None
+47-5071,"Roustabouts, oil and gas",No formal educational credential,None
+47-5081,Helpers--extraction workers,High school diploma or equivalent,None
+47-5099,"Extraction workers, all other",High school diploma or equivalent,None
+49-1011,"First-line supervisors of mechanics, installers, and repairers",High school diploma or equivalent,Less than 5 years
+49-2011,"Computer, automated teller, and office machine repairers","Some college, no degree",None
+49-2021,"Radio, cellular, and tower equipment installers and repairers",Associate's degree,None
+49-2022,"Telecommunications equipment installers and repairers, except line installers",Postsecondary nondegree award,None
+49-2091,Avionics technicians,Associate's degree,None
+49-2092,"Electric motor, power tool, and related repairers",High school diploma or equivalent,Less than 5 years
+49-2093,"Electrical and electronics installers and repairers, transportation equipment",Postsecondary nondegree award,None
+49-2094,"Electrical and electronics repairers, commercial and industrial equipment",Postsecondary nondegree award,None
+49-2095,"Electrical and electronics repairers, powerhouse, substation, and relay",Postsecondary nondegree award,Less than 5 years
+49-2096,"Electronic equipment installers and repairers, motor vehicles",High school diploma or equivalent,None
+49-2097,Electronic home entertainment equipment installers and repairers,Postsecondary nondegree award,None
+49-2098,Security and fire alarm systems installers,High school diploma or equivalent,None
+49-3011,Aircraft mechanics and service technicians,Postsecondary nondegree award,None
+49-3021,Automotive body and related repairers,High school diploma or equivalent,None
+49-3022,Automotive glass installers and repairers,High school diploma or equivalent,None
+49-3023,Automotive service technicians and mechanics,Postsecondary nondegree award,None
+49-3031,Bus and truck mechanics and diesel engine specialists,High school diploma or equivalent,None
+49-3041,Farm equipment mechanics and service technicians,High school diploma or equivalent,None
+49-3042,"Mobile heavy equipment mechanics, except engines",High school diploma or equivalent,None
+49-3043,Rail car repairers,High school diploma or equivalent,None
+49-3051,Motorboat mechanics and service technicians,High school diploma or equivalent,None
+49-3052,Motorcycle mechanics,Postsecondary nondegree award,None
+49-3053,Outdoor power equipment and other small engine mechanics,High school diploma or equivalent,None
+49-3091,Bicycle repairers,High school diploma or equivalent,None
+49-3092,Recreational vehicle service technicians,High school diploma or equivalent,None
+49-3093,Tire repairers and changers,High school diploma or equivalent,None
+49-9011,Mechanical door repairers,High school diploma or equivalent,None
+49-9012,"Control and valve installers and repairers, except mechanical door",High school diploma or equivalent,None
+49-9021,"Heating, air conditioning, and refrigeration mechanics and installers",Postsecondary nondegree award,None
+49-9031,Home appliance repairers,High school diploma or equivalent,None
+49-9041,Industrial machinery mechanics,High school diploma or equivalent,None
+49-9043,"Maintenance workers, machinery",High school diploma or equivalent,None
+49-9044,Millwrights,High school diploma or equivalent,None
+49-9045,"Refractory materials repairers, except brickmasons",High school diploma or equivalent,None
+49-9051,Electrical power-line installers and repairers,High school diploma or equivalent,None
+49-9052,Telecommunications line installers and repairers,High school diploma or equivalent,None
+49-9061,Camera and photographic equipment repairers,High school diploma or equivalent,None
+49-9062,Medical equipment repairers,Associate's degree,None
+49-9063,Musical instrument repairers and tuners,High school diploma or equivalent,None
+49-9064,Watch repairers,High school diploma or equivalent,None
+49-9069,"Precision instrument and equipment repairers, all other",High school diploma or equivalent,None
+49-9071,"Maintenance and repair workers, general",High school diploma or equivalent,None
+49-9081,Wind turbine service technicians,Postsecondary nondegree award,None
+49-9091,"Coin, vending, and amusement machine servicers and repairers",High school diploma or equivalent,None
+49-9092,Commercial divers,Postsecondary nondegree award,None
+49-9093,"Fabric menders, except garment",High school diploma or equivalent,None
+49-9094,Locksmiths and safe repairers,High school diploma or equivalent,None
+49-9095,Manufactured building and mobile home installers,High school diploma or equivalent,None
+49-9096,Riggers,High school diploma or equivalent,None
+49-9097,Signal and track switch repairers,High school diploma or equivalent,None
+49-9098,"Helpers--installation, maintenance, and repair workers",High school diploma or equivalent,None
+49-9099,"Installation, maintenance, and repair workers, all other",High school diploma or equivalent,None
+51-1011,First-line supervisors of production and operating workers,High school diploma or equivalent,Less than 5 years
+51-2011,"Aircraft structure, surfaces, rigging, and systems assemblers",High school diploma or equivalent,None
+51-2021,"Coil winders, tapers, and finishers",High school diploma or equivalent,None
+51-2028,"Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers",High school diploma or equivalent,None
+51-2031,Engine and other machine assemblers,High school diploma or equivalent,None
+51-2041,Structural metal fabricators and fitters,High school diploma or equivalent,None
+51-2091,Fiberglass laminators and fabricators,High school diploma or equivalent,None
+51-2093,Timing device assemblers and adjusters,High school diploma or equivalent,None
+51-2098,"Assemblers and fabricators, all other, including team assemblers",High school diploma or equivalent,None
+51-3011,Bakers,No formal educational credential,None
+51-3021,Butchers and meat cutters,No formal educational credential,None
+51-3022,"Meat, poultry, and fish cutters and trimmers",No formal educational credential,None
+51-3023,Slaughterers and meat packers,No formal educational credential,None
+51-3091,"Food and tobacco roasting, baking, and drying machine operators and tenders",No formal educational credential,None
+51-3092,Food batchmakers,High school diploma or equivalent,None
+51-3093,Food cooking machine operators and tenders,High school diploma or equivalent,None
+51-3099,"Food processing workers, all other",No formal educational credential,None
+51-4011,"Computer-controlled machine tool operators, metal and plastic",High school diploma or equivalent,None
+51-4012,"Computer numerically controlled machine tool programmers, metal and plastic",Postsecondary nondegree award,None
+51-4021,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4022,"Forging machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4023,"Rolling machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4031,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4032,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4033,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4034,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4035,"Milling and planing machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4041,Machinists,High school diploma or equivalent,None
+51-4051,Metal-refining furnace operators and tenders,High school diploma or equivalent,None
+51-4052,"Pourers and casters, metal",High school diploma or equivalent,None
+51-4061,"Model makers, metal and plastic",High school diploma or equivalent,None
+51-4062,"Patternmakers, metal and plastic",High school diploma or equivalent,None
+51-4071,Foundry mold and coremakers,High school diploma or equivalent,None
+51-4072,"Molding, coremaking, and casting machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4081,"Multiple machine tool setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4111,Tool and die makers,Postsecondary nondegree award,None
+51-4121,"Welders, cutters, solderers, and brazers",High school diploma or equivalent,None
+51-4122,"Welding, soldering, and brazing machine setters, operators, and tenders",High school diploma or equivalent,None
+51-4191,"Heat treating equipment setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4192,"Layout workers, metal and plastic",High school diploma or equivalent,None
+51-4193,"Plating and coating machine setters, operators, and tenders, metal and plastic",High school diploma or equivalent,None
+51-4194,"Tool grinders, filers, and sharpeners",High school diploma or equivalent,None
+51-4199,"Metal workers and plastic workers, all other",High school diploma or equivalent,None
+51-5111,Prepress technicians and workers,Postsecondary nondegree award,None
+51-5112,Printing press operators,High school diploma or equivalent,None
+51-5113,Print binding and finishing workers,High school diploma or equivalent,None
+51-6011,Laundry and dry-cleaning workers,No formal educational credential,None
+51-6021,"Pressers, textile, garment, and related materials",No formal educational credential,None
+51-6031,Sewing machine operators,No formal educational credential,None
+51-6041,Shoe and leather workers and repairers,High school diploma or equivalent,None
+51-6042,Shoe machine operators and tenders,High school diploma or equivalent,None
+51-6051,"Sewers, hand",No formal educational credential,None
+51-6052,"Tailors, dressmakers, and custom sewers",No formal educational credential,None
+51-6061,Textile bleaching and dyeing machine operators and tenders,High school diploma or equivalent,None
+51-6062,"Textile cutting machine setters, operators, and tenders",High school diploma or equivalent,None
+51-6063,"Textile knitting and weaving machine setters, operators, and tenders",High school diploma or equivalent,None
+51-6064,"Textile winding, twisting, and drawing out machine setters, operators, and tenders",High school diploma or equivalent,None
+51-6091,"Extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",High school diploma or equivalent,None
+51-6092,Fabric and apparel patternmakers,High school diploma or equivalent,None
+51-6093,Upholsterers,High school diploma or equivalent,None
+51-6099,"Textile, apparel, and furnishings workers, all other",High school diploma or equivalent,None
+51-7011,Cabinetmakers and bench carpenters,High school diploma or equivalent,None
+51-7021,Furniture finishers,High school diploma or equivalent,None
+51-7031,"Model makers, wood",High school diploma or equivalent,None
+51-7032,"Patternmakers, wood",High school diploma or equivalent,None
+51-7041,"Sawing machine setters, operators, and tenders, wood",High school diploma or equivalent,None
+51-7042,"Woodworking machine setters, operators, and tenders, except sawing",High school diploma or equivalent,None
+51-7099,"Woodworkers, all other",High school diploma or equivalent,None
+51-8011,Nuclear power reactor operators,High school diploma or equivalent,None
+51-8012,Power distributors and dispatchers,High school diploma or equivalent,None
+51-8013,Power plant operators,High school diploma or equivalent,None
+51-8021,Stationary engineers and boiler operators,High school diploma or equivalent,None
+51-8031,Water and wastewater treatment plant and system operators,High school diploma or equivalent,None
+51-8091,Chemical plant and system operators,High school diploma or equivalent,None
+51-8092,Gas plant operators,High school diploma or equivalent,None
+51-8093,"Petroleum pump system operators, refinery operators, and gaugers",High school diploma or equivalent,None
+51-8099,"Plant and system operators, all other",High school diploma or equivalent,None
+51-9011,Chemical equipment operators and tenders,High school diploma or equivalent,None
+51-9012,"Separating, filtering, clarifying, precipitating, and still machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9021,"Crushing, grinding, and polishing machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9022,"Grinding and polishing workers, hand",No formal educational credential,None
+51-9023,"Mixing and blending machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9031,"Cutters and trimmers, hand",No formal educational credential,None
+51-9032,"Cutting and slicing machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9041,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9051,"Furnace, kiln, oven, drier, and kettle operators and tenders",High school diploma or equivalent,None
+51-9061,"Inspectors, testers, sorters, samplers, and weighers",High school diploma or equivalent,None
+51-9071,Jewelers and precious stone and metal workers,High school diploma or equivalent,None
+51-9081,Dental laboratory technicians,High school diploma or equivalent,None
+51-9082,Medical appliance technicians,High school diploma or equivalent,None
+51-9083,Ophthalmic laboratory technicians,High school diploma or equivalent,None
+51-9111,Packaging and filling machine operators and tenders,High school diploma or equivalent,None
+51-9121,"Coating, painting, and spraying machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9122,"Painters, transportation equipment",High school diploma or equivalent,None
+51-9123,"Painting, coating, and decorating workers",No formal educational credential,None
+51-9141,Semiconductor processors,High school diploma or equivalent,None
+51-9151,Photographic process workers and processing machine operators,High school diploma or equivalent,None
+51-9191,Adhesive bonding machine operators and tenders,High school diploma or equivalent,None
+51-9192,"Cleaning, washing, and metal pickling equipment operators and tenders",High school diploma or equivalent,None
+51-9193,Cooling and freezing equipment operators and tenders,High school diploma or equivalent,None
+51-9194,Etchers and engravers,High school diploma or equivalent,None
+51-9195,"Molders, shapers, and casters, except metal and plastic",High school diploma or equivalent,None
+51-9196,"Paper goods machine setters, operators, and tenders",High school diploma or equivalent,None
+51-9197,Tire builders,High school diploma or equivalent,None
+51-9198,Helpers--production workers,High school diploma or equivalent,None
+51-9199,"Production workers, all other",High school diploma or equivalent,None
+53-1011,Aircraft cargo handling supervisors,High school diploma or equivalent,Less than 5 years
+53-1048,"First-Line supervisors of transportation and material moving workers, except aircraft cargo handling supervisors",High school diploma or equivalent,Less than 5 years
+53-2011,"Airline pilots, copilots, and flight engineers",Bachelor's degree,Less than 5 years
+53-2012,Commercial pilots,High school diploma or equivalent,None
+53-2021,Air traffic controllers,Associate's degree,None
+53-2022,Airfield operations specialists,High school diploma or equivalent,None
+53-2031,Flight attendants,High school diploma or equivalent,Less than 5 years
+53-3011,"Ambulance drivers and attendants, except emergency medical technicians",High school diploma or equivalent,None
+53-3021,"Bus drivers, transit and intercity",High school diploma or equivalent,None
+53-3022,"Bus drivers, school or special client",High school diploma or equivalent,None
+53-3031,Driver/sales workers,High school diploma or equivalent,None
+53-3032,Heavy and tractor-trailer truck drivers,Postsecondary nondegree award,None
+53-3033,Light truck or delivery services drivers,High school diploma or equivalent,None
+53-3041,Taxi drivers and chauffeurs,No formal educational credential,None
+53-3099,"Motor vehicle operators, all other",No formal educational credential,None
+53-4011,Locomotive engineers,High school diploma or equivalent,Less than 5 years
+53-4012,Locomotive firers,High school diploma or equivalent,None
+53-4013,"Rail yard engineers, dinkey operators, and hostlers",High school diploma or equivalent,None
+53-4021,"Railroad brake, signal, and switch operators",High school diploma or equivalent,None
+53-4031,Railroad conductors and yardmasters,High school diploma or equivalent,None
+53-4041,Subway and streetcar operators,High school diploma or equivalent,None
+53-4099,"Rail transportation workers, all other",High school diploma or equivalent,None
+53-5011,Sailors and marine oilers,No formal educational credential,None
+53-5021,"Captains, mates, and pilots of water vessels",Postsecondary nondegree award,Less than 5 years
+53-5022,Motorboat operators,Postsecondary nondegree award,Less than 5 years
+53-5031,Ship engineers,Postsecondary nondegree award,Less than 5 years
+53-6011,Bridge and lock tenders,High school diploma or equivalent,None
+53-6021,Parking lot attendants,No formal educational credential,None
+53-6031,Automotive and watercraft service attendants,No formal educational credential,None
+53-6041,Traffic technicians,High school diploma or equivalent,None
+53-6051,Transportation inspectors,High school diploma or equivalent,None
+53-6061,"Transportation attendants, except flight attendants",High school diploma or equivalent,None
+53-6099,"Transportation workers, all other",High school diploma or equivalent,None
+53-7011,Conveyor operators and tenders,No formal educational credential,None
+53-7021,Crane and tower operators,High school diploma or equivalent,Less than 5 years
+53-7031,Dredge operators,High school diploma or equivalent,None
+53-7032,Excavating and loading machine and dragline operators,High school diploma or equivalent,Less than 5 years
+53-7033,"Loading machine operators, underground mining",No formal educational credential,None
+53-7041,Hoist and winch operators,No formal educational credential,None
+53-7051,Industrial truck and tractor operators,No formal educational credential,None
+53-7061,Cleaners of vehicles and equipment,No formal educational credential,None
+53-7062,"Laborers and freight, stock, and material movers, hand",No formal educational credential,None
+53-7063,Machine feeders and offbearers,No formal educational credential,None
+53-7064,"Packers and packagers, hand",No formal educational credential,None
+53-7071,Gas compressor and gas pumping station operators,High school diploma or equivalent,None
+53-7072,"Pump operators, except wellhead pumpers",High school diploma or equivalent,None
+53-7073,Wellhead pumpers,High school diploma or equivalent,Less than 5 years
+53-7081,Refuse and recyclable material collectors,No formal educational credential,None
+53-7111,Mine shuttle car operators,No formal educational credential,None
+53-7121,"Tank car, truck, and ship loaders",No formal educational credential,None
+53-7199,"Material moving workers, all other",No formal educational credential,None
