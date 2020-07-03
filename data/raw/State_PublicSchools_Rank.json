@@ -1,0 +1,296 @@
+[
+  {
+    "State": "Massachusetts",
+    "overallRank": 1,
+    "qualityRank": 2,
+    "safetyRank": 1
+  },
+  {
+    "State": "New Jersey",
+    "overallRank": 2,
+    "qualityRank": 1,
+    "safetyRank": 11
+  },
+  {
+    "State": "Connecticut",
+    "overallRank": 3,
+    "qualityRank": 3,
+    "safetyRank": 12
+  },
+  {
+    "State": "Virginia",
+    "overallRank": 4,
+    "qualityRank": 7,
+    "safetyRank": 2
+  },
+  {
+    "State": "Vermont",
+    "overallRank": 5,
+    "qualityRank": 6,
+    "safetyRank": 4
+  },
+  {
+    "State": "Minnesota",
+    "overallRank": 6,
+    "qualityRank": 7,
+    "safetyRank": 23
+  },
+  {
+    "State": "New Hampshire",
+    "overallRank": 7,
+    "qualityRank": 9,
+    "safetyRank": 6
+  },
+  {
+    "State": "Nebraska",
+    "overallRank": 8,
+    "qualityRank": 11,
+    "safetyRank": 7
+  },
+  {
+    "State": "North Dakota",
+    "overallRank": 9,
+    "qualityRank": 5,
+    "safetyRank": 43
+  },
+  {
+    "State": "Wyoming",
+    "overallRank": 10,
+    "qualityRank": 8,
+    "safetyRank": 29
+  },
+  {
+    "State": "Wisconsin",
+    "overallRank": 11,
+    "qualityRank": 10,
+    "safetyRank": 27
+  },
+  {
+    "State": "Delaware",
+    "overallRank": 12,
+    "qualityRank": 22,
+    "safetyRank": 3
+  },
+  {
+    "State": "Kentucky",
+    "overallRank": 13,
+    "qualityRank": 13,
+    "safetyRank": 18
+  },
+  {
+    "State": "Iowa",
+    "overallRank": 14,
+    "qualityRank": 12,
+    "safetyRank": 33
+  },
+  {
+    "State": "Maine",
+    "overallRank": 15,
+    "qualityRank": 20,
+    "safetyRank": 5
+  },
+  {
+    "State": "Illinois",
+    "overallRank": 16,
+    "qualityRank": 14,
+    "safetyRank": 30
+  },
+  {
+    "State": "Colorado",
+    "overallRank": 17,
+    "qualityRank": 17,
+    "safetyRank": 10
+  },
+  {
+    "State": "Rhode Island",
+    "overallRank": 18,
+    "qualityRank": 19,
+    "safetyRank": 9
+  },
+  {
+    "State": "Maryland",
+    "overallRank": 19,
+    "qualityRank": 15,
+    "safetyRank": 17
+  },
+  {
+    "State": "Kansas",
+    "overallRank": 20,
+    "qualityRank": 18,
+    "safetyRank": 16
+  },
+  {
+    "State": "South Dakota",
+    "overallRank": 21,
+    "qualityRank": 16,
+    "safetyRank": 25
+  },
+  {
+    "State": "Indiana",
+    "overallRank": 22,
+    "qualityRank": 21,
+    "safetyRank": 28
+  },
+  {
+    "State": "Utah",
+    "overallRank": 23,
+    "qualityRank": 24,
+    "safetyRank": 13
+  },
+  {
+    "State": "New York",
+    "overallRank": 24,
+    "qualityRank": 23,
+    "safetyRank": 14
+  },
+  {
+    "State": "Montana",
+    "overallRank": 25,
+    "qualityRank": 25,
+    "safetyRank": 36
+  },
+  {
+    "State": "Florida",
+    "overallRank": 26,
+    "qualityRank": 28,
+    "safetyRank": 20
+  },
+  {
+    "State": "Pennsylvania",
+    "overallRank": 27,
+    "qualityRank": 26,
+    "safetyRank": 35
+  },
+  {
+    "State": "Ohio",
+    "overallRank": 28,
+    "qualityRank": 30,
+    "safetyRank": 19
+  },
+  {
+    "State": "Washington",
+    "overallRank": 29,
+    "qualityRank": 31,
+    "safetyRank": 8
+  },
+  {
+    "State": "Missouri",
+    "overallRank": 30,
+    "qualityRank": 27,
+    "safetyRank": 44
+  },
+  {
+    "State": "North Carolina",
+    "overallRank": 31,
+    "qualityRank": 29,
+    "safetyRank": 39
+  },
+  {
+    "State": "Idaho",
+    "overallRank": 32,
+    "qualityRank": 35,
+    "safetyRank": 22
+  },
+  {
+    "State": "Texas",
+    "overallRank": 33,
+    "qualityRank": 33,
+    "safetyRank": 31
+  },
+  {
+    "State": "Tennessee",
+    "overallRank": 34,
+    "qualityRank": 36,
+    "safetyRank": 26
+  },
+  {
+    "State": "Georgia",
+    "overallRank": 35,
+    "qualityRank": 34,
+    "safetyRank": 38
+  },
+  {
+    "State": "Hawaii",
+    "overallRank": 36,
+    "qualityRank": 38,
+    "safetyRank": 32
+  },
+  {
+    "State": "Michigan",
+    "overallRank": 37,
+    "qualityRank": 32,
+    "safetyRank": 49
+  },
+  {
+    "State": "California",
+    "overallRank": 38,
+    "qualityRank": 40,
+    "safetyRank": 37
+  },
+  {
+    "State": "South Carolina",
+    "overallRank": 39,
+    "qualityRank": 39,
+    "safetyRank": 41
+  },
+  {
+    "State": "Oklahoma",
+    "overallRank": 40,
+    "qualityRank": 45,
+    "safetyRank": 15
+  },
+  {
+    "State": "Arkansas",
+    "overallRank": 41,
+    "qualityRank": 37,
+    "safetyRank": 50
+  },
+  {
+    "State": "Alaska",
+    "overallRank": 42,
+    "qualityRank": 46,
+    "safetyRank": 21
+  },
+  {
+    "State": "Nevada",
+    "overallRank": 43,
+    "qualityRank": 42,
+    "safetyRank": 40
+  },
+  {
+    "State": "Oregon",
+    "overallRank": 44,
+    "qualityRank": 41,
+    "safetyRank": 46
+  },
+  {
+    "State": "Alabama",
+    "overallRank": 46,
+    "qualityRank": 44,
+    "safetyRank": 47
+  },
+  {
+    "State": "West Virginia",
+    "overallRank": 47,
+    "qualityRank": 48,
+    "safetyRank": 24
+  },
+  {
+    "State": "Arizona",
+    "overallRank": 48,
+    "qualityRank": 50,
+    "safetyRank": 34
+  },
+  {
+    "State": "Louisiana",
+    "overallRank": 49,
+    "qualityRank": 49,
+    "safetyRank": 51
+  },
+  {
+    "State": "New Mexico",
+    "overallRank": 50,
+    "qualityRank": 51,
+    "safetyRank": 45
+  }
+]
