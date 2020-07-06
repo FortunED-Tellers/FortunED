@@ -1,0 +1,167 @@
+<!-- 
+  parameters to collect for HS Students:
+
+  1. Where do you live?  State drop down
+  2. In state / Out of State (radio button )
+  3. Industry of Choice (drop down)
+  4. When are you thinking of enrolling in college (drop down)
+
+  "The best majors for your industry of choice are {{ list of Top majors }}. Also based on your choice of out of state, the best ranked university is
+  {{university}}."
+  Top 
+  Collecge Options
+  Cost of Tuition
+
+  parameters to collect for College Students:
+
+  1. Where do you live?  State drop down
+  2. In state / Out of State (radio button )
+  3. Major (drop down)
+  4. When are you thinking of enrolling in college (drop down)
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/c9b3d792e6.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>HS Student Parameters</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="logo-bar" class="navbar navbar-dark bg-dark">
+        <img src="../static/img/logo_transparent.png" id="logo" alt="fortunED logo" />
+      </div>
+      <h1 class="txt-heading">Choose your Options:</h1>
+
+      <form>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Starting Point?</label>
+          <select id="inputState" class="form-control">
+            <option selected>By University</option>
+            <option>By Major Category</option>
+            <option>Cost</option>
+            <option>Earning Potential</option>
+            >
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">What State do you live in?</label>
+          <select id="inputState" class="form-control">
+            <option selected>New York</option>
+            <option>New Jersey</option>
+            <option>Connecticut</option>
+            <option>Washington DC</option>
+            <option>Maryland</option>
+          </select>
+        </div>
+        <div id="coll-location">
+        College Location
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="in_or_out_state"
+            id="io_state1"
+            value="option1"
+            checked
+          >
+        </input>
+          <label class="form-check-label" for="exampleRadios1">
+            In-State
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="in_or_out_state"
+            id="io_state2"
+            value="option2"
+          />
+          <label class="form-check-label" for="exampleRadios2">
+            Out-of-State
+          </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">What industry are you interested in?</label>
+          <select id="inputState" class="form-control">
+            <option>Finance</option>
+            <option>Medical</option>
+            <option selected>Technology</option>
+            <option>Advertisement</option>
+            <option>Sales</option>
+            <option>...</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">When are you interested in enrolling?</label>
+          <select id="inputState" class="form-control">
+            <option selected>In 6 months</option>
+            <option>In a year</option>
+            <option>In 2 years</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <hr>
+      <div id="results">
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Degree Requirement</div>
+        <div class="card-body">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+          </p>
+        </div>
+      </div>
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Career Options</div>
+        <div class="card-body">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+          </p>
+        </div>
+      </div>
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">College Cost</div>
+        <div class="card-body">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+          </p>
+        </div>
+      </div>
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Salaries</div>
+        <div class="card-body">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+          </p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
