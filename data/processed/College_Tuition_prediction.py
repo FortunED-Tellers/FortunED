@@ -4,8 +4,7 @@ from sklearn.linear_model import LinearRegression
 from pprint import pprint
 import warnings
 warnings.filterwarnings("ignore")
-import pymongo
-from pymongo import MongoClient
+
 
 
 def College_Tuition_prediction():
@@ -256,7 +255,10 @@ def College_Tuition_prediction():
 
     return Tuition_dict
 
-pprint(College_Tuition_prediction())
+# pprint(College_Tuition_prediction())
+
+# import pymongo
+# from pymongo import MongoClient
 
 # # connect to mongodb
 # client = MongoClient('mongodb://localhost:27017')
@@ -266,11 +268,13 @@ pprint(College_Tuition_prediction())
 
 # # set reference to collection
 # Universities = db['Universities']
-# Universities_data = College_Tuition_prediction()
-# Universities.delete_many({})     
-# for record in Universities_data:
-#     Universities.insert_one(record) 
+# Universities.delete_many({})   
 
+# Universities_data = College_Tuition_prediction()
+# # Universities.update_many({},Universities_data,upsert=True)
+
+# for record in Universities_data:
+#     Universities.insert_one(record)
 
 
 

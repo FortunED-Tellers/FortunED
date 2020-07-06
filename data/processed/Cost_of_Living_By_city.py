@@ -19,4 +19,21 @@ def Cost_of_Living_By_city():
     COL_City_dict = COL_df_by_City.to_dict("records")
     return COL_City_dict
 
-pprint(Cost_of_Living_By_city())
+# pprint(Cost_of_Living_By_city())
+
+import pymongo
+from pymongo import MongoClient
+
+# connect to mongodb
+client = MongoClient('mongodb://localhost:27017')
+
+# set db connection
+db = client['FortuneEd']
+
+# set reference to collection
+LivingCost_ByCity = db['LivingCost_ByCity']
+LivingCost_ByCity.delete_many({})
+
+COL_data = Cost_of_Living_By_city()
+for record in COL_data:
+    LivingCost_ByCity.insert_one(record)
