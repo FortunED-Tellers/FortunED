@@ -16,4 +16,23 @@ def Cost_of_Living_By_State():
     COL_State_dict = COL_df_by_State.to_dict("records")
     return COL_State_dict
 
-pprint(Cost_of_Living_By_State())
+# pprint(Cost_of_Living_By_State())
+
+import pymongo
+from pymongo import MongoClient
+
+# connect to mongodb
+client = MongoClient('mongodb://localhost:27017')
+
+# set db connection
+db = client['FortuneEd']
+
+# set reference to collection
+LivingCost = db['LivingCost']
+LivingCost.delete_many({})
+
+COL_data = Cost_of_Living_By_State()
+for record in COL_data:
+    LivingCost.insert_one(record)
+
+# LivingCost.update({},COL_data,upsert=True)
