@@ -4,7 +4,6 @@ from sklearn.linear_model import LinearRegression
 from pprint import pprint
 import warnings
 warnings.filterwarnings("ignore")
-import json
 
 
 
@@ -58,7 +57,7 @@ def College_Tuition_prediction():
     X_new_inputs_reduced = X_new_inputs[["Ave.","Total","IR"]]
 
     #Read In State College Tuition
-    Tuition_df =  pd.read_excel('college_Tuition_in_State.xlsx')  
+    Tuition_df =  pd.read_excel('../processed/college_Tuition_in_State.xlsx')  
 
     #Prediction for In-State Tuition Fees
     university = {}
@@ -111,7 +110,7 @@ def College_Tuition_prediction():
 
 
     # read out of state Tuition data
-    Out_State_Tuition_df = pd.read_excel('college_Tuition_out_of_State.xlsx')  
+    Out_State_Tuition_df = pd.read_excel('../processed/college_Tuition_out_of_State.xlsx')  
 
     #Prediction for Out-of-State Tuition Fees
     out_university = {}
@@ -200,8 +199,8 @@ def College_Tuition_prediction():
         In_Cost_2017 = Final_Tuition_df['2017-18'][i]
         In_Cost_2018 = Final_Tuition_df['2018-19'][i]
         In_Cost_2019 = Final_Tuition_df['2019-20'][i]
-        In_Cost_2020 = Final_Tuition_df['2020-21'][i]
-        In_Cost_2021 = Final_Tuition_df['2021-22'][i]
+        In_Cost_2020 = round(Final_Tuition_df['2020-21'][i])
+        In_Cost_2021 = round(Final_Tuition_df['2021-22'][i])
         
         Out_Cost_2007 = Final_Tuition_df["Out_2007_08"][i]
         Out_Cost_2008 = Final_Tuition_df['Out_2008_09'][i]
@@ -216,78 +215,68 @@ def College_Tuition_prediction():
         Out_Cost_2017 = Final_Tuition_df['Out_2017_2018'][i]
         Out_Cost_2018 = Final_Tuition_df['Out_2018_2019'][i]
         Out_Cost_2019 = Final_Tuition_df['Out_2019_2020'][i]
-        Out_Cost_2020 = Final_Tuition_df['Out_2020_2021'][i]
-        Out_Cost_2021 = Final_Tuition_df['Out_2021_2022'][i]
+        Out_Cost_2020 = round(Final_Tuition_df['Out_2020_2021'][i])
+        Out_Cost_2021 = round(Final_Tuition_df['Out_2021_2022'][i])
             
                     
         Tuition_dict[State] = {"State_ID" : State,
                             "State_name" : STATE_NAME,
                             "University":Univ,
-                            "In_State_Tuition_2007-2008":int(In_Cost_2007),
-                            "In_State_Tuition_2008-2009":int(In_Cost_2008),
-                            "In_State_Tuition_2009-2010":int(In_Cost_2009),
-                            "In_State_Tuition_2010-2011":int(In_Cost_2010),
-                            "In_State_Tuition_2011-2012":int(In_Cost_2011),
-                            "In_State_Tuition_2012-2013":int(In_Cost_2012),
-                            "In_State_Tuition_2013-2014":int(In_Cost_2013),
-                            "In_State_Tuition_2014-2015":int(In_Cost_2014),
-                            "In_State_Tuition_2015-2016":int(In_Cost_2015),
-                            "In_State_Tuition_2016-2017":int(In_Cost_2016),
-                            "In_State_Tuition_2017-2018":int(In_Cost_2017),
-                            "In_State_Tuition_2018-2019":int(In_Cost_2018),
-                            "In_State_Tuition_2019-2020":int(In_Cost_2019),
-                            "In_State_Tuition_2020-2021":int(In_Cost_2020),
-                            "In_State_Tuition_2021-2022":int(In_Cost_2021),
-                            "Out_of_State_Tuition_2007-2008":int(Out_Cost_2007),
-                            "Out_of_State_Tuition_2008-2009":int(Out_Cost_2008),
-                            "Out_of_State_Tuition_2009-2010":int(Out_Cost_2009),
-                            "Out_of_State_Tuition_2010-2011":int(Out_Cost_2010),
-                            "Out_of_State_Tuition_2011-2012":int(Out_Cost_2011),
-                            "Out_of_State_Tuition_2012-2013":int(Out_Cost_2012),
-                            "Out_of_State_Tuition_2013-2014":int(Out_Cost_2013),
-                            "Out_of_State_Tuition_2014-2015":int(Out_Cost_2014),
-                            "Out_of_State_Tuition_2015-2016":int(Out_Cost_2015),
-                            "Out_of_State_Tuition_2016-2017":int(Out_Cost_2016),
-                            "Out_of_State_Tuition_2017-2018":int(Out_Cost_2017),
-                            "Out_of_State_Tuition_2018-2019":int(Out_Cost_2018),
-                            "Out_of_State_Tuition_2019-2020":int(Out_Cost_2019),
-                            "Out_of_State_Tuition_2020-2021":int(Out_Cost_2020),
-                            "Out_of_State_Tuition_2021-2022":int(Out_Cost_2021)
-                            }    
+                            "In_State_Tuition_2007-2008":In_Cost_2007,
+                            "In_State_Tuition_2008-2009":In_Cost_2008,
+                            "In_State_Tuition_2009-2010":In_Cost_2009,
+                            "In_State_Tuition_2010-2011":In_Cost_2010,
+                            "In_State_Tuition_2011-2012":In_Cost_2011,
+                            "In_State_Tuition_2012-2013":In_Cost_2012,
+                            "In_State_Tuition_2013-2014":In_Cost_2013,
+                            "In_State_Tuition_2014-2015":In_Cost_2014,
+                            "In_State_Tuition_2015-2016":In_Cost_2015,
+                            "In_State_Tuition_2016-2017":In_Cost_2016,
+                            "In_State_Tuition_2017-2018":In_Cost_2017,
+                            "In_State_Tuition_2018-2019":In_Cost_2018,
+                            "In_State_Tuition_2019-2020":In_Cost_2019,
+                            "In_State_Tuition_2020-2021":In_Cost_2020,
+                            "In_State_Tuition_2021-2022":In_Cost_2021,
+                            "Out_of_State_Tuition_2007-2008":Out_Cost_2007,
+                            "Out_of_State_Tuition_2008-2009":Out_Cost_2008,
+                            "Out_of_State_Tuition_2009-2010":Out_Cost_2009,
+                            "Out_of_State_Tuition_2010-2011":Out_Cost_2010,
+                            "Out_of_State_Tuition_2011-2012":Out_Cost_2011,
+                            "Out_of_State_Tuition_2012-2013":Out_Cost_2012,
+                            "Out_of_State_Tuition_2013-2014":Out_Cost_2013,
+                            "Out_of_State_Tuition_2014-2015":Out_Cost_2014,
+                            "Out_of_State_Tuition_2015-2016":Out_Cost_2015,
+                            "Out_of_State_Tuition_2016-2017":Out_Cost_2016,
+                            "Out_of_State_Tuition_2017-2018":Out_Cost_2017,
+                            "Out_of_State_Tuition_2018-2019":Out_Cost_2018,
+                            "Out_of_State_Tuition_2019-2020":Out_Cost_2019,
+                            "Out_of_State_Tuition_2020-2021":Out_Cost_2020,
+                            "Out_of_State_Tuition_2021-2022":Out_Cost_2021}    
 
     return Tuition_dict
 
 # pprint(College_Tuition_prediction())
 
-# import pymongo
-# from pymongo import MongoClient
+import pymongo
+from pymongo import MongoClient
 
-# # connect to mongodb
-# client = MongoClient('mongodb://localhost:27017')
+# connect to mongodb
+client = MongoClient('mongodb://localhost:27017')
 
-# # set db connection
-# db = client['FortunEd']
+# set db connection
+db = client['FortunEd']
 
 # set reference to collection
-# Universities = db['Universities']
-# Universities.delete_many({})   
+Universities = db['Universities']
+Universities.delete_many({})   
 
 Universities_data = College_Tuition_prediction()
-# Universities.update({},Universities_data,upsert=True)
+Universities.update({},Universities_data,upsert=True)
 
-with open('UniversitiesTuition.json', 'w') as f:
-    json.dump(Universities_data, f)
-
-
-
-
-# for record in Universities_data.values():
+# for record in Universities_data:
 #     Universities.insert_one(record)
 
-    
 
-# pprint(Universities_data)
-# print(type(Universities_data))
 
 
 
