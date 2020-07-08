@@ -179,81 +179,94 @@ def College_Tuition_prediction():
 
     # final Tuition DataFrame with merged State name 
     Final_Tuition_df = pd.merge(In_Out_Tuition_df,stateInitial,how = "inner")
+    Final_Tuition_df = Final_Tuition_df.astype({'2007-08':'int','2008-09':'int','2009-10':'int',
+                                           '2010-11':'int','2011-12':'int','2012-13':'int',
+                                           '2013-14':'int','2014-15':'int','2015-16':'int',
+                                           '2016-17':'int','2017-18':'int','2018-19':'int',
+                                            '2019-20':'int','2020-21':'int','2021-22':'int',
+                                           'Out_2007_08':'int',"Out_2008_09":"int","Out_2009_10":"int",
+                                             "Out_2010_11":"int","Out_2011_12":"int","Out_2012_13":"int",
+                                            "Out_2013_14":"int","Out_2014_2015":"int","Out_2015_2016":"int",
+                                            "Out_2016_2017":"int","Out_2017_2018":"int","Out_2018_2019":"int",
+                                            "Out_2019_2020":"int","Out_2020_2021":"int","Out_2021_2022":"int"
+                                           })
+    Tuition_dict = Final_Tuition_df.to_dict("records")
 
-    #Final Tuition Dictionary by State
-    Tuition_dict = {}
-    for i in Final_Tuition_df.index:
-        State = Final_Tuition_df['STATE'][i]
-        STATE_NAME = Final_Tuition_df['STATE_NAME'][i]
-        Univ = Final_Tuition_df['University'][i]
+
+    # #Final Tuition Dictionary by State
+    # Tuition_dict = {}
+    # for i in Final_Tuition_df.index:
+    #     State = Final_Tuition_df['STATE'][i]
+    #     STATE_NAME = Final_Tuition_df['STATE_NAME'][i]
+    #     Univ = Final_Tuition_df['University'][i]
         
-        In_Cost_2007 = Final_Tuition_df['2007-08'][i]
-        In_Cost_2008 = Final_Tuition_df['2008-09'][i]
-        In_Cost_2009 = Final_Tuition_df['2009-10'][i]
-        In_Cost_2010 = Final_Tuition_df['2010-11'][i]
-        In_Cost_2011 = Final_Tuition_df['2011-12'][i]
-        In_Cost_2012 = Final_Tuition_df['2012-13'][i]
-        In_Cost_2013 = Final_Tuition_df['2013-14'][i]
-        In_Cost_2014 = Final_Tuition_df['2014-15'][i]
-        In_Cost_2015 = Final_Tuition_df['2015-16'][i]
-        In_Cost_2016 = Final_Tuition_df['2016-17'][i]
-        In_Cost_2017 = Final_Tuition_df['2017-18'][i]
-        In_Cost_2018 = Final_Tuition_df['2018-19'][i]
-        In_Cost_2019 = Final_Tuition_df['2019-20'][i]
-        In_Cost_2020 = Final_Tuition_df['2020-21'][i]
-        In_Cost_2021 = Final_Tuition_df['2021-22'][i]
+    #     In_Cost_2007 = Final_Tuition_df['2007-08'][i]
+    #     In_Cost_2008 = Final_Tuition_df['2008-09'][i]
+    #     In_Cost_2009 = Final_Tuition_df['2009-10'][i]
+    #     In_Cost_2010 = Final_Tuition_df['2010-11'][i]
+    #     In_Cost_2011 = Final_Tuition_df['2011-12'][i]
+    #     In_Cost_2012 = Final_Tuition_df['2012-13'][i]
+    #     In_Cost_2013 = Final_Tuition_df['2013-14'][i]
+    #     In_Cost_2014 = Final_Tuition_df['2014-15'][i]
+    #     In_Cost_2015 = Final_Tuition_df['2015-16'][i]
+    #     In_Cost_2016 = Final_Tuition_df['2016-17'][i]
+    #     In_Cost_2017 = Final_Tuition_df['2017-18'][i]
+    #     In_Cost_2018 = Final_Tuition_df['2018-19'][i]
+    #     In_Cost_2019 = Final_Tuition_df['2019-20'][i]
+    #     In_Cost_2020 = Final_Tuition_df['2020-21'][i]
+    #     In_Cost_2021 = Final_Tuition_df['2021-22'][i]
         
-        Out_Cost_2007 = Final_Tuition_df["Out_2007_08"][i]
-        Out_Cost_2008 = Final_Tuition_df['Out_2008_09'][i]
-        Out_Cost_2009 = Final_Tuition_df['Out_2009_10'][i]
-        Out_Cost_2010 = Final_Tuition_df['Out_2010_11'][i]
-        Out_Cost_2011 = Final_Tuition_df['Out_2011_12'][i]
-        Out_Cost_2012 = Final_Tuition_df['Out_2012_13'][i]
-        Out_Cost_2013 = Final_Tuition_df['Out_2013_14'][i]
-        Out_Cost_2014 = Final_Tuition_df['Out_2014_2015'][i]
-        Out_Cost_2015 = Final_Tuition_df['Out_2015_2016'][i]
-        Out_Cost_2016 = Final_Tuition_df['Out_2016_2017'][i]
-        Out_Cost_2017 = Final_Tuition_df['Out_2017_2018'][i]
-        Out_Cost_2018 = Final_Tuition_df['Out_2018_2019'][i]
-        Out_Cost_2019 = Final_Tuition_df['Out_2019_2020'][i]
-        Out_Cost_2020 = Final_Tuition_df['Out_2020_2021'][i]
-        Out_Cost_2021 = Final_Tuition_df['Out_2021_2022'][i]
+    #     Out_Cost_2007 = Final_Tuition_df["Out_2007_08"][i]
+    #     Out_Cost_2008 = Final_Tuition_df['Out_2008_09'][i]
+    #     Out_Cost_2009 = Final_Tuition_df['Out_2009_10'][i]
+    #     Out_Cost_2010 = Final_Tuition_df['Out_2010_11'][i]
+    #     Out_Cost_2011 = Final_Tuition_df['Out_2011_12'][i]
+    #     Out_Cost_2012 = Final_Tuition_df['Out_2012_13'][i]
+    #     Out_Cost_2013 = Final_Tuition_df['Out_2013_14'][i]
+    #     Out_Cost_2014 = Final_Tuition_df['Out_2014_2015'][i]
+    #     Out_Cost_2015 = Final_Tuition_df['Out_2015_2016'][i]
+    #     Out_Cost_2016 = Final_Tuition_df['Out_2016_2017'][i]
+    #     Out_Cost_2017 = Final_Tuition_df['Out_2017_2018'][i]
+    #     Out_Cost_2018 = Final_Tuition_df['Out_2018_2019'][i]
+    #     Out_Cost_2019 = Final_Tuition_df['Out_2019_2020'][i]
+    #     Out_Cost_2020 = Final_Tuition_df['Out_2020_2021'][i]
+    #     Out_Cost_2021 = Final_Tuition_df['Out_2021_2022'][i]
             
                     
-        Tuition_dict[State] = {"State_ID" : State,
-                            "State_name" : STATE_NAME,
-                            "University":Univ,
-                            "In_State_Tuition_2007-2008":int(In_Cost_2007),
-                            "In_State_Tuition_2008-2009":int(In_Cost_2008),
-                            "In_State_Tuition_2009-2010":int(In_Cost_2009),
-                            "In_State_Tuition_2010-2011":int(In_Cost_2010),
-                            "In_State_Tuition_2011-2012":int(In_Cost_2011),
-                            "In_State_Tuition_2012-2013":int(In_Cost_2012),
-                            "In_State_Tuition_2013-2014":int(In_Cost_2013),
-                            "In_State_Tuition_2014-2015":int(In_Cost_2014),
-                            "In_State_Tuition_2015-2016":int(In_Cost_2015),
-                            "In_State_Tuition_2016-2017":int(In_Cost_2016),
-                            "In_State_Tuition_2017-2018":int(In_Cost_2017),
-                            "In_State_Tuition_2018-2019":int(In_Cost_2018),
-                            "In_State_Tuition_2019-2020":int(In_Cost_2019),
-                            "In_State_Tuition_2020-2021":int(In_Cost_2020),
-                            "In_State_Tuition_2021-2022":int(In_Cost_2021),
-                            "Out_of_State_Tuition_2007-2008":int(Out_Cost_2007),
-                            "Out_of_State_Tuition_2008-2009":int(Out_Cost_2008),
-                            "Out_of_State_Tuition_2009-2010":int(Out_Cost_2009),
-                            "Out_of_State_Tuition_2010-2011":int(Out_Cost_2010),
-                            "Out_of_State_Tuition_2011-2012":int(Out_Cost_2011),
-                            "Out_of_State_Tuition_2012-2013":int(Out_Cost_2012),
-                            "Out_of_State_Tuition_2013-2014":int(Out_Cost_2013),
-                            "Out_of_State_Tuition_2014-2015":int(Out_Cost_2014),
-                            "Out_of_State_Tuition_2015-2016":int(Out_Cost_2015),
-                            "Out_of_State_Tuition_2016-2017":int(Out_Cost_2016),
-                            "Out_of_State_Tuition_2017-2018":int(Out_Cost_2017),
-                            "Out_of_State_Tuition_2018-2019":int(Out_Cost_2018),
-                            "Out_of_State_Tuition_2019-2020":int(Out_Cost_2019),
-                            "Out_of_State_Tuition_2020-2021":int(Out_Cost_2020),
-                            "Out_of_State_Tuition_2021-2022":int(Out_Cost_2021)
-                            }    
+    #     Tuition_dict[State] = {"State_ID" : State,
+    #                         "State_name" : STATE_NAME,
+    #                         "University":Univ,
+    #                         "In_State_Tuition_2007-2008":int(In_Cost_2007),
+    #                         "In_State_Tuition_2008-2009":int(In_Cost_2008),
+    #                         "In_State_Tuition_2009-2010":int(In_Cost_2009),
+    #                         "In_State_Tuition_2010-2011":int(In_Cost_2010),
+    #                         "In_State_Tuition_2011-2012":int(In_Cost_2011),
+    #                         "In_State_Tuition_2012-2013":int(In_Cost_2012),
+    #                         "In_State_Tuition_2013-2014":int(In_Cost_2013),
+    #                         "In_State_Tuition_2014-2015":int(In_Cost_2014),
+    #                         "In_State_Tuition_2015-2016":int(In_Cost_2015),
+    #                         "In_State_Tuition_2016-2017":int(In_Cost_2016),
+    #                         "In_State_Tuition_2017-2018":int(In_Cost_2017),
+    #                         "In_State_Tuition_2018-2019":int(In_Cost_2018),
+    #                         "In_State_Tuition_2019-2020":int(In_Cost_2019),
+    #                         "In_State_Tuition_2020-2021":int(In_Cost_2020),
+    #                         "In_State_Tuition_2021-2022":int(In_Cost_2021),
+    #                         "Out_of_State_Tuition_2007-2008":int(Out_Cost_2007),
+    #                         "Out_of_State_Tuition_2008-2009":int(Out_Cost_2008),
+    #                         "Out_of_State_Tuition_2009-2010":int(Out_Cost_2009),
+    #                         "Out_of_State_Tuition_2010-2011":int(Out_Cost_2010),
+    #                         "Out_of_State_Tuition_2011-2012":int(Out_Cost_2011),
+    #                         "Out_of_State_Tuition_2012-2013":int(Out_Cost_2012),
+    #                         "Out_of_State_Tuition_2013-2014":int(Out_Cost_2013),
+    #                         "Out_of_State_Tuition_2014-2015":int(Out_Cost_2014),
+    #                         "Out_of_State_Tuition_2015-2016":int(Out_Cost_2015),
+    #                         "Out_of_State_Tuition_2016-2017":int(Out_Cost_2016),
+    #                         "Out_of_State_Tuition_2017-2018":int(Out_Cost_2017),
+    #                         "Out_of_State_Tuition_2018-2019":int(Out_Cost_2018),
+    #                         "Out_of_State_Tuition_2019-2020":int(Out_Cost_2019),
+    #                         "Out_of_State_Tuition_2020-2021":int(Out_Cost_2020),
+    #                         "Out_of_State_Tuition_2021-2022":int(Out_Cost_2021)
+    #                         }    
 
     return Tuition_dict
 

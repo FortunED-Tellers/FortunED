@@ -165,4 +165,6 @@ stateWage_data=stateWage()
 wageByState.update({}, stateWage_data, upsert=True)
 
 uniTuition_data=universityTuition()
-tuitionUniversity.update({}, uniTuition_data, upsert=True)
+# tuitionUniversity.update({}, uniTuition_data, upsert=True)
+for record in uniTuition_data:
+    tuitionUniversity.insert_one(record)
