@@ -20,14 +20,7 @@ def Cost_of_Living_By_State():
     return COL_State_dict
 
 
-# -- LIVING WAGE AND MEDIAN INCOME
 
-def stateWage():
-    with open('../../data/processed/state_wage_data.json') as json_file: 
-        state_wage = json.load(json_file)
-        
-
-    return state_wage
 
 def universityTuition():
     with open('../../data/processed/UniversitiesTuition.json') as json_file: 
@@ -66,6 +59,22 @@ LivingCost.delete_many({})
 wageByState = db['StateWage']
 wageByState.delete_many({})
 
+# -- LIVING WAGE AND MEDIAN INCOME
+
+def stateWage():
+    with open('../../data/processed/state_wage_data.json') as json_file: 
+        state_wage = json.load(json_file)
+        state_wage_list = state_wage["data"]
+        
+        for records in state_wage_list:
+            wageByState.insert(records)
+        
+
+    return state_wage
+
+stateWage()
+
+
 tuitionUniversity = db['Universities']
 tuitionUniversity.delete_many({})
 
@@ -75,8 +84,8 @@ COL_data = Cost_of_Living_By_State()
 for record in COL_data:
     LivingCost.insert_one(record)
 
-stateWage_data=stateWage()
-wageByState.update({}, stateWage_data, upsert=True)
+# stateWage_data=stateWage()
+# wageByState.update({}, stateWage_data, upsert=True)
 
 uniTuition_data=universityTuition()
 # tuitionUniversity.update({}, uniTuition_data, upsert=True)
