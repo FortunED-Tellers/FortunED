@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="txt-heading">Choose your Options:</h2>
+    
+    <form>
+      <div class="form-group col-md-4">
+        <label for="inputState">What State do you plan to live in
+          <?/label>
+              <select id="inputState" class="form-control">
+              </select>
+            </div>
+    
+            <div class="form-group col-md-4">
+              <label for="inputMajor">What is your Major?</label>
+              <select id="inputMajor" class="form-control">
+              </select>
+            </div>
+    
+            <div class="form-group col-md-4">
+              <label for="inputState">What is your student loan debt?</label>
+              <input type="text" name="inputLoan" id="" />
+            </div>
+    
+            <br />
+    
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <hr />
+
+          <div id="results">
+            <div class="row" style="margin-bottom: 30px;">
+              <div class="col-sm">
+                <div class="card" style="width: 18rem; margin:10px;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Visualization # 1 goes here.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Visualization # 2 goes here.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Visualization # 3 goes here.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Visualization # 4 goes here..
+                    </p>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">State</th>
+                  <th scope="col">Major</th>
+                  <th scope="col">Option</th>
+                  <th scope="col">Median Salary</th>
+                  <th scope="col">Recommended</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Financial Analyst</td>
+                  <td>Finance</td>
+                  <td>130000</td>
+                  <td>New York</td>
+                  <td>124.6</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Data Scientist</td>
+                  <td>Technology</td>
+                  <td>110000</td>
+                  <td>New York</td>
+                  <td>124.6</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Pharmacist</td>
+                  <td>Medicine</td>
+                  <td>175000</td>
+                  <td>New Jersey</td>
+                  <td>120</td>
+                </tr>
+              </tbody>
+            </table>
+    
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">Career Options</div>
+              <div class="card-body">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+              </div>
+            </div>
+    
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">College Cost</div>
+              <div class="card-body">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+              </div>
+            </div>
+    
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">Salaries</div>
+              <div class="card-body">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+
+          //set reference to the dropdown
+          let select = document.getElementById('inputMajor');
+
+          //clear existing options if page is reloaded
+          select.options.length = 0;
+
+          //set the major categories - will pull from major_category_only
+          let major_category = [
+            'Agriculture & Natural Resources',
+            'Arts',
+            'Biology & Life Science',
+            'Communications & Journalism',
+            'Computers & Mathematics',
+            'Education',
+            'Engineering',
+            'Humanities & Liberal Arts',
+            'Industrial Arts & Consumer Services',
+            'Law & Public Policy',
+            'Physical Sciences',
+            'Psychology & Social Work',
+            'Social Science',
+          ];
+          for (index in major_category) {
+            select.options[select.options.length] = new Option(major_category[index], index);
+          }
+
+          let stateSelect = document.getElementById('inputState');
+
+          //clear existing options if page is reloaded
+          stateSelect.options.length = 0;
+
+          let states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Federated States of Micronesia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+          for (index in states) {
+            stateSelect.options[stateSelect.options.length] = new Option(states[index], index);
+          }
+
+        </script>
+{% endblock %}

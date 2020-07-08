@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/c9b3d792e6.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <title>FortunED - know your worth</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="logo-bar" class="navbar navbar-dark bg-dark">
+        <img
+          src="/static/img/logo_transparent.png"
+          id="logo"
+          alt="fortunED logo"
+        />
+      </div>
+            
+            <div class="row">
+              <div class="col-sm">
+                <span class="dot"><a id="high-school" href="#"><i class="fas fa-user-graduate"
+                      style="font-size:100px;30px;color:rgb(86, 83, 241)"></i></a></span>
+              </div>
+              <div class="col-sm">
+                <span class="dot"><a id="college" href="#"><i class="fas fa-dollar-sign"
+                      style="font-size: 100px; color: rgb(86, 83, 241);"></i></a></span>
+              </div>
+              <div class="col-sm">
+                <span class="dot"><a id="guardian" href="#"><i class="fas fa-chalkboard-teacher"
+                      style="font-size: 100px; color: rgb(86, 83, 241);"></i></a></span>
+              </div>
+      <br/>
+      <br/>       
+    </div>
+    {% block content %}
+    
+    {% endblock %}
+
+   
+  </body>
+</html>

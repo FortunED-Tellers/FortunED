@@ -1,0 +1,116 @@
+{% extends "base.html" %} {% block content %}
+<h2
+  style="
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-right: 5%;
+    color: rgb(234, 212, 15);
+  "
+>
+  Summary
+</h2>
+<hr>
+<h4>
+  Based on your desire to attend college in
+  <span style="color: blue; font-size: larger; font-weight: 500;"
+    >{{ college_data.STATE_NAME }}</span
+  >, the Cost is projected to be: <br/><br/>
+  <span style="color: blue; font-size: larger; font-weight: 500;"
+    >{{ timing.In_State_Tuition_Cost}}</span
+  > for In-State Tuition rate and <span style="color: blue; font-size: larger; font-weight: 500;"
+    >{{ timing.Out_State_Tuition_Cost}}</span
+  > for Out-Of-State Tuition rate. <br/><br/>
+  If you decide to attend {{college_data.University}}, here are some possible career occupations that match your <span style="color: blue; font-size: larger; font-weight: 700;">{{job_majors[0].Major_Category}}</span> major you selected:
+</h4>
+
+<hr />
+
+<div id="results">
+
+  <div class="row" style="margin-bottom: 30px; margin-top:30px;">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem; margin:10px;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 1 goes here.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 2 goes here.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="row" style="margin-bottom: 30px; margin-top:30px;">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 3 goes here.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 4 goes here..
+            </p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Major</th>
+          <th scope="col">Career Option</th>
+          <th scope="col">Low Salary Range</th>
+          <th scope="col">Median Income</th>
+          <th scope="col">High Salary Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for jm in job_majors[0].Majors %}
+    
+        <tr>
+          <th scope="row">i</th>
+          <td>{{ job_majors[0].Major_Category }}</td>
+          <td>{{ jm.Major }}</td>         
+          <td>{{ jm.Low_25_Salary }}</td>
+          <td>{{ jm.Median_Salary }}</td>
+          <td>{{ jm.High_25_Salary }}</td>
+        </tr>
+    
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <hr />
+  
+{% endblock %}
+
+{% block javascript %}
+<script>
+      // load the objects like you would with a normal jinja template i.e. {{ object }}, but add | tojson
+      // pass it into the parse function
+      // labels = {{ pop_label | tojson }};
+      // data = {{ population | tojson }};
+
+
+</script>
+
+{% endblock %}
+</body>
+</html>

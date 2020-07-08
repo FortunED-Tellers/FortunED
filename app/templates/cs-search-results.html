@@ -1,0 +1,106 @@
+{% extends "base.html" %} {% block content %}
+<h2
+  style="
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-right: 5%;
+    color: rgb(234, 212, 15);
+  "
+>
+  Summary
+</h2>
+<h4>
+  Based on your desire to live and work in
+  <span style="color: blue; font-size: larger; font-weight: 700;"
+    >{{ coli_data.State }}</span
+  >, the cost of housing index is:
+  <span style="color: blue; font-size: larger; font-weight: 700;"
+    >{{ coli_data.Housing}}</span
+  >
+  , here are some options for consideration. Additonally we have provided a
+  recommendation aligned to each of the possible occupations you could consider
+  while job hunting, given utilities index is:
+  <span style="color: blue; font-size: larger; font-weight: 700;"
+    >{{ coli_data.Utilities }}</span
+  >.
+</h4>
+
+<hr />
+
+<div id="results">
+
+  <div class="row" style="margin-bottom: 30px; margin-top:30px;">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem; margin:10px;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 1 goes here.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 2 goes here.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="row" style="margin-bottom: 30px; margin-top:30px;">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 3 goes here.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Visualization # 4 goes here..
+            </p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Major</th>
+          <th scope="col">Career Option</th>
+          <th scope="col">Median Income</th>
+          <th scope="col">Low Salary Range</th>
+          <th scope="col">High Salary Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for jm in job_majors[0].Majors %}
+    
+        <tr>
+          <th scope="row">i</th>
+          <td>{{ job_majors[0].Major_Category }}</td>
+          <td>{{ jm.Major }}</td>
+          <td>{{ jm.Median_Salary }}</td>
+          <td>{{ jm.Low_25_Salary }}</td>
+          <td>{{ jm.High_25_Salary }}</td>
+        </tr>
+    
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <hr />
+  
+{% endblock %}
+</body>
+</html>
