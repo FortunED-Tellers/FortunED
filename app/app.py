@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, url_for, jsonify
 
 # Import our pymongo library, which lets us connect our Flask app to our Mongo database.
 import pymongo
@@ -20,17 +20,83 @@ dbconn = pymongo.MongoClient(conn)
 db = dbconn.FortunEd
 
 majors = db.Majors
+coli = db.LivingCost
+university = db.Universities
+job_majors = db.Majors
+state_wages = db.StateWage
+
+# print(type(state_wages))
+state_wage_list = []
+state_wage_list = list(state_wages.find())
+result_values = [i['Alabama']
+                 for i in state_wage_list[0]['data'] if 'Alabama' in i]
+print(type(result_values))
+print(result_values)
+# create a dict to hold the major options which are currently stored as keys
+options = {}
+# get the list of keys from the list of dictionaries
+options = {k for d in result_values for k in d.keys()}
+print(options)
+# printing the actual values major or key, these will be parametized on the templates
+print(result_values[0]['living wage'])
+print(result_values[0]['Management'])
+
+
+# options.update({})
+
 
 # Define routes
-# @app.route("/")
-# def welcome():
-#     return render_template('index.html')
-
-
 @app.route("/")
+def welcome():
+    return render_template('index.html')
+
+
+@app.route("/results")
 def results():
     majors_data = majors.find_one()
     return render_template('results.html', master_major_data=majors_data)
+
+
+@app.route("/csoptions")
+def collect_cs_params():
+    return render_template('cs-search-params.html')
+
+
+@app.route("/csresults/<state>/<major>")
+def show_cs_results(state, major):
+    coli_data = coli.find_one({"State": state})
+    jm_data = job_majors.find({"Major_Category": major})
+    job_majors_list = []
+    for record in jm_data:
+        job_majors_list.append(record)
+    print(job_majors_list[0]['Majors'])
+    return render_template('cs-search-results.html',  coli_data=coli_data, job_majors=job_majors_list)
+
+
+@app.route("/hsoptions")
+def collect_hs_params():
+    return render_template('hs-search-params.html')
+
+
+@app.route("/hsresults/<state>/<major>/<timing>")
+def show_hs_results(state, major, timing):
+    pref = {}
+    college_data = university.find_one({"STATE_NAME": state})
+    coli_data = coli.find_one({"State": state})
+    if timing == "< 1 Year":
+        pref.update({"In_State_Tuition_Cost": college_data["2020-21"],
+                     "Out_State_Tuition_Cost": college_data["Out_2020_2021"]})
+    else:
+        pref.update({"In_State_Tuition_Cost": college_data["2021-22"],
+                     "Out_State_Tuition_Cost": college_data["Out_2021_2022"]})
+
+    jm_data = job_majors.find({"Major_Category": major})
+
+    job_majors_list = []
+    for record in jm_data:
+        job_majors_list.append(record)
+    # print(job_majors_list[0]['Majors'])
+    return render_template('hs-search-results.html',  coli_data=coli_data, job_majors=job_majors_list, college_data=college_data, timing=pref)
 
 
 # @app.route("/hs.html")
