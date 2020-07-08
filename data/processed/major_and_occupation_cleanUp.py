@@ -62,59 +62,57 @@ def majorsFunction():
         else:
             MajorCategoryArray.append(row.Major_Category)
 
-
-    mainDict={}
+    mainList=[]
     for MC in MajorCategoryArray:
-        majorDict={}
+        mainDict={}
+        majorList=[]
         for index,row in merged_df.iterrows():
+            majorDict={}
             if row.Major_Category == MC:
-                majorDict[row.Major]={
-                    'Major_Id':row.FOD1P,
-                    'Unemployment_Rate':row.Unemployment_rate,
-                    'Median_Salary':row.Median,
-                    'Low_25_Salary':row.P25th,
-                    'High_25_Salary':row.P75th
-                }
+                majorDict["Major"]=row.Major
+                majorDict["Major_Id"]=row.FOD1P
+                majorDict["Unemployment_Rate"]=row.Unemployment_rate
+                majorDict["Median_Salary"]=row.Median
+                majorDict["Low_25_Salary"]=row.P25th
+                majorDict["High_25_Salary"]=row.P75th
+
                 ocupationID=row.OcupationID
                 ocupationIndustry=row.Ocupation
-        mainDict[MC]={'Ocupation_ID':ocupationID,
-                'OcupationIndustry':ocupationIndustry,
-                'Majors':majorDict}
+                majorList.append(majorDict)
+        mainDict["Major_Category"]=MC
+        mainDict["Ocupation_ID"]=ocupationID
+        mainDict["OcupationIndustry"]=ocupationIndustry
+        mainDict["Majors"]=majorList
+        mainList.append(mainDict)
+
+    # pp.pprint(mainList)
 
 
-    for key,value in mainDict.items():
-        ocupationID=value['Ocupation_ID']
-        possibleOcupations={}
+    for MajCat in mainList:
+        ocupationID=MajCat['Ocupation_ID']
+        occlist=[]
         for index,row in occupations_df.iterrows():
+            possibleOcupations={}
             if row.occ_category_id==ocupationID:
-                possibleOcupations[row.occ_title]={
-                    'Occ_Code':row.occ_code,
-                    'Occ_Sub_Code':row.subid,
-                    'Recommended_Education':row['Recomende Education'],
-                    'Median_Occ_Salary':row.a_median,
-                    'Low_25_Occ_Salary':row.a_pct25,
-                    'High_25_Occ_Salary':row.a_pct75
-                }
-        mainDict[key]['Possible_Occupations']=possibleOcupations
+                possibleOcupations['Occupation']=row.occ_title
+                possibleOcupations['Occ_Code']=row.occ_code
+                possibleOcupations['Occ_Sub_Code']=row.subid
+                possibleOcupations['Recommended_Education']=row['Recomende Education']
+                possibleOcupations['Median_Occ_Salary']=row.a_median
+                possibleOcupations['Low_25_Occ_Salary']=row.a_pct25
+                possibleOcupations['High_25_Occ_Salary']=row.a_pct75
+                occlist.append(possibleOcupations)
         
-    return mainDict
+        MajCat['Possible_Occupations']=occlist
+
+    majorsOccupations_dict={}
+    majorsOccupations_dict["MajorCategories"]=mainList
+
+    # pp.pprint(majorsOccupations_dict)
+
+    return majorsOccupations_dict
 
 majors_data = majorsFunction()
 
 with open('majors.json', 'w') as f:
     json.dump(majors_data, f)
-
-
-# test = majorsFunction()
-# pp.pprint(test)
-
-# from pymongo import MongoClient
-
-# client = MongoClient("mongodb://localhost:27017")
-# db = client['FortunEd']
-
-# majors = db['Majors']
-# majors.delete_many({})
-
-# majors_data=majorsFunction()
-# majors.update({}, majors_data, upsert=True)
