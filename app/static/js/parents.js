@@ -59,8 +59,70 @@ function getData() {
     console.log(subgroups)
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
-    var groups = d3.map(data, function(d){return(d.Employment_status)}).keys()
+    var groups = d3.map(data, function(d){return(d.Degree_Attainment)}).keys()
     console.log(groups)
+
+    columns=[]
+    rows=[]
+
+    for (i in data) {
+      if (data[i].Degree_Attainment.startsWith("Total")) {
+        rows.push(data.Employed, data.Unemployed)
+        // console.log(data[i])
+    }}
+    console.log(rows)
+
+    for (i in groups){
+      if (groups[i].startsWith("Total")){
+        columns.push(groups[i])
+      }}
+      console.log(columns)
+
+    // Add X axis
+  var x = d3.scaleBand()
+  .domain(columns)
+  .range([0, width])
+  .padding([0.5])
+
+  svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x).tickSize(5));
+
+// Add Y axis
+  var y = d3.scaleLinear()
+  .domain([0, 100])
+  .range([ height, 0 ]);
+  svg.append("g")
+  .call(d3.axisLeft(y));
+
+// Another scale for subgroup position?
+  var xSubgroup = d3.scaleBand()
+  .domain(subgroups)
+  .range([0, x.bandwidth()])
+  .padding([0.05])
+
+// color palette = one color per subgroup
+  var color = d3.scaleOrdinal()
+  .domain(subgroups)
+  .range(['#E41A1C','#377EB8'])
+
+// Show the bars
+  svg.append("g")
+  .selectAll("g")
+// Enter in data = loop group per group
+  .data(data)
+  .enter()
+  .append("g")
+    .attr("transform", function(d)  {if (d.Degree_Attainment.startsWith("Total")) { return "translate(" + x(d.Degree_Attainment) + ",0)"; }})
+  .selectAll("rect")
+  .data(function(d) { return subgroups.map(function(key) {console.log(key) ;return {key: key, value: d[key]}; }); })
+  .enter().append("rect")
+    .attr("x", function(d) { return xSubgroup(d.key); })
+    .attr("y", function(d) { return y(d.value); })
+    .attr("width", xSubgroup.bandwidth())
+    .attr("height", function(d) { return height - y(d.value); })
+    .attr("fill", function(d) { return color(d.key); });  
+    
     
     // // Parse Data/Cast as numbers
     // data.forEach(function(item) {
