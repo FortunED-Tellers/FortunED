@@ -16,6 +16,13 @@
   color: rgb(234, 212, 15);
 }
 
+.txt-results-heading {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 5%;
+  color: rgb(234, 212, 15);
+}
+
 #who-you {
   width: 80%;
   padding: 15px;
@@ -50,4 +57,14 @@ form button {
 #coll-location {
   padding-left: 20px;
   margin-bottom: 10px;
+}
+
+.output_params_txt {
+  color: blue;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.chart-visual {
+  margin-bottom: 30px;
 }
