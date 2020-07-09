@@ -135,10 +135,15 @@ function update(label){
       .domain(subgroups)
       .range(['#E41A1C','#377EB8'])
   
+    
+    chartGroup.select(".bars").remove()
+
     // variable u: map data to existing bars
-    var u = chartGroup.selectAll("rect")
+    var u = chartGroup.append("g")
+      .classed("bars", true)
+      .selectAll("g")
       .data(table)
-        
+    
     // Show the bars
     u.enter()
     .merge(u)
