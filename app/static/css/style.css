@@ -11,7 +11,7 @@
 .txt-heading {
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 20%;
+  /* margin-left: 10%; */
   margin-right: 5%;
   color: rgb(234, 212, 15);
 }
@@ -19,6 +19,13 @@
 .txt-results-heading {
   margin-top: 30px;
   margin-bottom: 30px;
+  margin-right: 5%;
+  color: rgb(234, 212, 15);
+}
+.frm-heading {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 5%;
   margin-right: 5%;
   color: rgb(234, 212, 15);
 }
@@ -46,8 +53,8 @@
 }
 
 form {
-  margin-left: 130px;
-  margin-right: auto;
+  
+  margin: 30px auto 30px auto;
 }
 
 form button {
@@ -67,4 +74,10 @@ form button {
 
 .chart-visual {
   margin-bottom: 30px;
+}
+
+
+#frm-options {
+  margin-left: 50px;
+  padding-left: 0px;
 }
