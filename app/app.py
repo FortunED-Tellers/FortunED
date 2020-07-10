@@ -8,7 +8,7 @@ import pymongo
 from bson.json_util import dumps
 
 # Create an instance of our Flask app.
-app = Flask(__name__)
+app = Flask(__name__,static_url_path="/static")
 
 # Create connection variable
 conn = "mongodb://localhost:27017"
@@ -60,7 +60,10 @@ def results():
 @app.route("/csoptions")
 def collect_cs_params():
     return render_template("cs-search-params.html")
-    
+
+@app.route("/parents")
+def parents_data():
+    return render_template("parents.html")    
 
 
     # return render_template("cs-search-params.html")

@@ -37,10 +37,7 @@ var y = d3.scaleLinear()
 var yAxis = chartGroup.append("g")
 
 function update(label){
-  d3.csv("../../../data/processed/gender_race_employment.csv").then(function(data) {
-
-    console.log(label)
-
+  d3.csv("/static/data/processed/gender_race_employment.csv").then(function(data) {
     data.forEach(function(item){
       item.Employed = +item.Employed
       item.Unemployed = +item.Unemployed
@@ -150,7 +147,7 @@ function update(label){
     .append("g")
       .attr("transform", function(d)  { return "translate(" + x(d.degree) + ",0)"; })
     .selectAll("rect")
-    .data(function(d) { return subgroups.map(function(key) { console.log(key, d[key]); return {key: key, value: d[key]} }) })
+    .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]} }) })
     .enter()
     .append("rect")
       .attr("x", function(d) { return xSubgroup(d.key); })
