@@ -1,3 +1,4 @@
+from static.data.processed.Classification import Classify
 import os
 import json
 from flask import Flask, request, render_template, url_for, redirect, jsonify
@@ -23,27 +24,6 @@ majors = db.Majors
 coli = db.LivingCost
 university = db.Universities
 job_majors = db.Majors
-
-# university data
-# # print(type(state_wages))
-# state_wage_list = []
-# state_wage_list = list(state_wages.find())
-# result_values = [i["Alabama"]
-#                  for i in state_wage_list[0]["data"] if "Alabama" in i]
-# print(type(result_values))
-# print(result_values)
-# # create a dict to hold the major options which are currently stored as keys
-# options = {}
-# # get the list of keys from the list of dictionaries
-# options = {k for d in result_values for k in d.keys()}
-# print(options)
-# # printing the actual values major or key, these will be parametized on the templates
-# print(result_values[0]["living wage"])
-# print(result_values[0]["Management"])
-
-
-# options.update({})
-
 
 # Define routes
 @app.route("/")
@@ -72,7 +52,7 @@ def register():
         
         message= '<h4> The responses were ' + username + ', ' + profile + ', ' + option +'</h4>'
 
-        return redirect("index.html", message=message)
+        return render_template("index.html", message=message)
 
     return render_template("register.html") 
 # render a login route
@@ -109,17 +89,24 @@ def show_cs_results():
 
     # get the state we are interested in based on state parameter
     data = db.StateWage.distinct(state)
+    print(state)
+    print(major)
+    print(loan)
 
+    outcome = Classify(state, major, loan)
+    #print(outcome.keys())
+    #print(outcome)
     # store data as a dictionary
-    state_wages_dict = data[0]
+    #state_wages_dict = data[0]
+
 
     coli_data = coli.find_one({"State": state})
     jm_data = job_majors.find({"Major_Category": major})
     job_majors_list = []
     for record in jm_data:
         job_majors_list.append(record)
-    print(job_majors_list[0]["Majors"])
-    return render_template("cs-search-results.html",  coli_data=coli_data, job_majors=job_majors_list, living_wage_data=state_wages_dict)
+    
+    return render_template("cs-search-results.html",  coli_data=coli_data, job_majors=job_majors_list)
 
 
 @app.route("/hsoptions")
@@ -177,3 +164,4 @@ def show_hs_results():
 
 if __name__ == "__main__":
     app.run(debug=True)
+ß
