@@ -23,7 +23,7 @@ def Cost_of_Living_By_State():
 
 
 def universityTuition():
-    with open('../../data/processed/UniversitiesTuition.json') as json_file: 
+    with open('../static/data/processed/UniversitiesTuition.json') as json_file: 
         university_tuition = json.load(json_file)
 
     return university_tuition
@@ -43,7 +43,7 @@ majors = db['Majors']
 majors.delete_many({})
 
 def majorsInfo():
-    with open('../../data/processed/Majors.json') as json_file: 
+    with open('../static/data/processed/Majors.json') as json_file: 
         majors_info = json.load(json_file)
         majors_info_list= majors_info['MajorCategories']
 
@@ -62,7 +62,7 @@ wageByState.delete_many({})
 # -- LIVING WAGE AND MEDIAN INCOME
 
 def stateWage():
-    with open('../../data/processed/state_wage_data.json') as json_file: 
+    with open('../static/data/processed/state_wage_data_redo.json') as json_file: 
         state_wage = json.load(json_file)
         state_wage_list = state_wage["data"]
         
