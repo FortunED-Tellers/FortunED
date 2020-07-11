@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    
+    <link rel="stylesheet" href="/static/css/style.css" />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -15,11 +15,11 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/css/style.css" />
     <script
       src="https://kit.fontawesome.com/c9b3d792e6.js"
       crossorigin="anonymous"
     ></script>
+    
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     
@@ -29,7 +29,6 @@
   </head>
 
   <body>
-    <div class="container">
       <div id="logo-bar" class="navbar navbar-dark bg-dark">
         <img
           src="/static/img/logo_transparent.png"
@@ -37,30 +36,9 @@
           alt="fortunED logo"
         />
       </div>
-            
-            <div class="row" style="margin-left:auto; margin-right: auto;">
-              <div class="col-sm" style="margin-left:auto; margin-right:auto; padding-left:60px;">
-                <span class="dot"><a id="high-school" href="/hsoptions"><i class="fas fa-user-graduate"
-                      style="padding-left: 20px; font-size:100px;30px;color:rgb(86, 83, 241)"></i></a></span>
-                      <h5 style="margin-left: 20px;">High School Student</h5>
-              </div>
-              <div class="col-sm" style="margin-left:auto; margin-right:auto; padding-left:60px;">
-                <span class="dot"><a id="college" href="/csoptions"><i class="fas fa-dollar-sign"
-                      style="padding-left: 30px; font-size: 100px; color: rgb(86, 83, 241);"></i></a></span>
-                      <h5 style="margin-left: 40px;">College Student</h5>
-              </div>
-              <div class="col-sm" style="margin-left:auto; margin-right:auto; padding-left:60px;">
-                <span class="dot"><a id="guardian" href="/parents"><i class="fas fa-chalkboard-teacher"
-                      style="font-size: 100px; color: rgb(86, 83, 241);"></i></a></span>
-                      <h5 style="margin-left: 40px;">Parent/Counselor</h5>
-                    </div>
-      <br/>
-      <br/>       
-    </div>
     {% block content %}
     
     {% endblock %}
 
-   
   </body>
 </html>

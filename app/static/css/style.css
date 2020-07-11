@@ -92,3 +92,8 @@ form button {
   padding: 14px;
   text-align: center;
 }
+
+h1.user_banner{
+  background-color: gold;
+  color: rgb(50, 50, 50);
+}

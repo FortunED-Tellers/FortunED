@@ -1,5 +1,5 @@
 // build chart
-var svgWidth = 960
+var svgWidth = 1125
 var svgHeight = 500
 
 var margin = {
@@ -178,16 +178,6 @@ function update(label){
       .attr("transform", `translate(${width/2-100}, ${height + margin.top + 10})`)
       .attr("class", "aText")
       .text("Educational Attainment")
-    
-    chartGroup
-    .append("text")
-      .attr("text-anchor", "end")
-      .style("fill", "black")
-      .attr("x", svgWidth/2 +50)
-      .attr("y", 10)
-      .html("Employement Data")
-      .attr("class", "aText")
-      .style("font-size", 30)
     })
   }
   
