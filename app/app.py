@@ -1,3 +1,4 @@
+from module.functions import find_tution_cost, prepare_chart_data
 from static.data.processed.Classification import Classify
 import os
 import json
@@ -9,7 +10,7 @@ import pymongo
 from bson.json_util import dumps
 
 # Create an instance of our Flask app.
-app = Flask(__name__,static_url_path="/static")
+app = Flask(__name__, static_url_path="/static")
 
 # Create connection variable
 conn = "mongodb://localhost:27017"
@@ -22,7 +23,8 @@ db = dbconn.FortunEd
 
 majors = db.Majors
 coli = db.LivingCost
-university = db.Universities
+university = db.Universities.find()
+university_data = list(university)
 job_majors = db.Majors
 
 # Define routes
@@ -49,12 +51,13 @@ def register():
             option = "opted in"
         else:
             option = "opted out"
-        
-        message= '<h4> The responses were ' + username + ', ' + profile + ', ' + option +'</h4>'
+
+        message = '<h4> The responses were ' + username + \
+            ', ' + profile + ', ' + option + '</h4>'
 
         return render_template("index.html", message=message)
 
-    return render_template("register.html") 
+    return render_template("register.html")
 # render a login route
 @app.route("/login")
 def login():
@@ -71,15 +74,15 @@ def results():
 def collect_cs_params():
     return render_template("cs-search-params.html")
 
+
 @app.route("/parents")
 def parents_data():
-    return render_template("parents.html")    
-
+    return render_template("parents.html")
 
     # return render_template("cs-search-params.html")
 
 
-@app.route("/csresults", methods = ["POST", "GET"])
+@app.route("/csresults", methods=["POST", "GET"])
 def show_cs_results():
 
     if request.method == "POST":
@@ -94,18 +97,17 @@ def show_cs_results():
     print(loan)
 
     outcome = Classify(state, major, loan)
-    #print(outcome.keys())
-    #print(outcome)
+    # print(outcome.keys())
+    # print(outcome)
     # store data as a dictionary
     #state_wages_dict = data[0]
-
 
     coli_data = coli.find_one({"State": state})
     jm_data = job_majors.find({"Major_Category": major})
     job_majors_list = []
     for record in jm_data:
         job_majors_list.append(record)
-    
+
     return render_template("cs-search-results.html",  coli_data=coli_data, job_majors=job_majors_list)
 
 
@@ -114,7 +116,7 @@ def collect_hs_params():
     return render_template("hs-search-params.html")
 
 
-@app.route("/hsresults",  methods = ["POST", "GET"])
+@app.route("/hsresults",  methods=["POST", "GET"])
 def show_hs_results():
 
     # capture parameters / user options
@@ -122,21 +124,28 @@ def show_hs_results():
         state = request.form["state"]
         io_state = request.form["io_state"]
         major = request.form["major"]
-        timing = request.form["timing"]
-    
+        timing_pref = request.form["timing"]
+        # if the user chose < 1 Year set timing to 1
+        if request.form["timing"] == "< 1 Year":
+            timing = 1
+
+        # else set timing to 2
+        else:
+            timing = 2
+
     # track preferences for in-state vs out-of-state and timing for going to college
     pref = {}
-    pref.update({"in_vs_out": io_state, "timing": timing})
-    
-    college_data = university.find_one({"STATE_NAME": state})
+    pref.update({"in_vs_out": io_state, "timing": timing_pref})
+
+    print(state)
+    print(timing)
+
+    tuition_data = find_tution_cost(state, timing, university_data)
+    print(tuition_data)
+
+    university_cost_data = prepare_chart_data('university', university_data)
 
     coli_data = coli.find_one({"State": state})
-    if timing == "< 1 Year":
-        pref.update({"In_State_Tuition_Cost": college_data["2020-21"],
-                     "Out_State_Tuition_Cost": college_data["Out_2020_2021"]})
-    else:
-        pref.update({"In_State_Tuition_Cost": college_data["2021-22"],
-                     "Out_State_Tuition_Cost": college_data["Out_2021_2022"]})
 
     jm_data = job_majors.find({"Major_Category": major})
 
@@ -144,15 +153,12 @@ def show_hs_results():
     for record in jm_data:
         job_majors_list.append(record)
     # print(job_majors_list[0]["Majors"])
-    return render_template("hs-search-results.html",  coli_data=coli_data, job_majors=job_majors_list, college_data=college_data, pref=pref)
-
-
+    return render_template("hs-search-results.html",  tuition_data=tuition_data, university_cost_data=university_cost_data)
 
 
 # @app.route("/guardian.html")
 # def guardian():
 #     return render_template("guardian.html")
-
 
 # # @app.route("/results.html/<state>, <in_out>,<major>,<timeframe>")
 # # def HS_Visualization(major):
@@ -161,7 +167,6 @@ def show_hs_results():
 # #     options_data = db.options_analysis.find_one({"major": f"{major}"})
 # #     outlook_data = db.outlook_analysis.find_one({"major": f"{major}"})
 # #     predict_data = db.outlook_analysis.find_one({"major": f"{major}"})
-
 if __name__ == "__main__":
     app.run(debug=True)
 ß
