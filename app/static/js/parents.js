@@ -178,7 +178,37 @@ function update(label){
       .attr("transform", `translate(${width/2-100}, ${height + margin.top + 10})`)
       .attr("class", "aText")
       .text("Educational Attainment")
-    })
+      var title = ""
+
+      if (label === "total") {
+        title = "Overall"
+      }
+      else if (label === "men") {
+        title  = "Men"
+      }
+      else if (label === "women") {
+        title  = "Women"
+      }
+      else if (label === "white") {
+        title  = "White"
+      }
+      else if (label === "black") {
+        title  = "Black"
+      }
+      else if (label === "asian") {
+        title  = "Asian"
+      }
+      else if (label === "hispanic") {
+        title  = "Hispanic"
+      }
+      
+      chartGroup.append("text")
+      .attr("x", (width / 2))             
+      .attr("y", "5")
+      .attr("class", "aText")
+      .style("font-size", "20px") 
+      .text(title);
+      })
   }
   
 update("total")
