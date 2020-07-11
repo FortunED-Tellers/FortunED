@@ -30,18 +30,30 @@
           alt="fortunED logo"
         />
       </div>
-      <button value="total" onclick="update(this.value)">Overall</button>
-      <button value="men" onclick="update(this.value)">Men</button>
-      <button value="women" onclick="update(this.value)">Women</button>
-      <button value="white" onclick="update(this.value)">White</button>
-      <button value="black" onclick="update(this.value)">Black</button>
-      <button value="asian" onclick="update(this.value)">Asian</button>
-      <button value="hispanic" onclick="update(this.value)">Hispanic</button>
+      <br>
+      <button type="button" class="btn btn-warning" value="total" onclick="update(this.value)">Overall</button>
+      <button type="button" class="btn btn-warning" value="men" onclick="update(this.value)">Men</button>
+      <button type="button" class="btn btn-warning" value="women" onclick="update(this.value)">Women</button>
+      <button type="button" class="btn btn-warning" value="white" onclick="update(this.value)">White</button>
+      <button type="button" class="btn btn-warning" value="black" onclick="update(this.value)">Black</button>
+      <button type="button" class="btn btn-warning" value="asian" onclick="update(this.value)">Asian</button>
+      <button type="button" class="btn btn-warning" value="hispanic" onclick="update(this.value)">Hispanic</button>
       <div class="row">
-        <div class="col-xs-12  col-md-9">
+        <div class="table-responsive">
           <div id="scatter">
             <!-- We append our chart here. -->
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center">For More Information on Your Child's Options:</h3>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/hsoptions"><button type="button" class="btn btn-warning btn-lg">Click for High School Student</button></a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/csoptions"><button type="button" class="btn btn-warning btn-lg">Click for College Student</button></a>
         </div>
       </div>
     </div>
