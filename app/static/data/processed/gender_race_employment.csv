@@ -1,43 +1,43 @@
-﻿Degree_Attainment,Employed,Unemployed
-Total_Less_than_high_school,43.7,5.4
-Total_High_school_graduate,55.8,3.7
-Total_some_college_no_degree,63.1,3
-Total_associates_degree,67.5,2.7
-Total_Bachelors_degree,71.6,2.2
-Total_Advanced_degree,73.2,1.9
-Men_Less_than_high_school,55.8,4.9
-Men_High_school_graduate,65.3,3.6
-Men_some_college_no_degree,69.9,2.8
-Men_associates_degree,73.9,2.5
-Men_Bachelors_degree,76.8,2.2
-Men_Advanced_degree,75.2,1.8
-Women_Less_than_high_school,31.4,6.2
-Women_High_school_graduate,46.2,3.8
-Women_some_college_no_degree,57.3,3.3
-Women_associates_degree,62.6,2.9
-Women_Bachelors_degree,67,2.2
-Women_Advanced_degree,71.5,1.9
-White_Less_than_high_school,45.8,4.9
-White_High_school_graduate,55.6,3.2
-White_some_college_no_degree,62.3,2.7
-White_associates_degree,67,2.5
-White_Bachelors_degree,71.2,2.1
-White_Advanced_degree,72.1,1.7
-Black_Less_than_high_school,33.6,9.9
-Black_High_school_graduate,55.3,6.2
-Black_some_college_no_degree,66,4.4
-Black_associates_degree,70.7,3.8
-Black_Bachelors_degree,75,3.1
-Black_Advanced_degree,76.1,2.3
-Asian_Less_than_high_school,37.3,3
-Asian_High_school_graduate,57.2,1.9
-Asian_some_college_no_degree,66,2.6
-Asian_associates_degree,68.3,2.5
-Asian_Bachelors_degree,70,2.5
-Asian_Advanced_degree,78.2,2
-Hispanic_Less_than_high_school,56.1,4.4
-Hispanic_High_school_graduate,68.2,3.2
-Hispanic_some_college_no_degree,72.7,3.4
-Hispanic_associates_degree,74.3,3.3
-Hispanic_Bachelors_degree,76.5,2.8
-Hispanic_Advanced_degree,78.6,2
+﻿Category,Degree_Attainment,Employed,Unemployed
+Total,Less than a High School Diploma,43.7,5.4
+Total,High School Graduate,55.8,3.7
+Total,"Some college, No Degree",63.1,3
+Total,Associate's Degree,67.5,2.7
+Total,Bachelor's Degree,71.6,2.2
+Total,Advanced Degree,73.2,1.9
+Men,Less than a High School Diploma,55.8,4.9
+Men,High School Graduate,65.3,3.6
+Men,"Some college, No Degree",69.9,2.8
+Men,Associate's Degree,73.9,2.5
+Men,Bachelor's Degree,76.8,2.2
+Men,Advanced Degree,75.2,1.8
+Women,Less than a High School Diploma,31.4,6.2
+Women,High School Graduate,46.2,3.8
+Women,"Some college, No Degree",57.3,3.3
+Women,Associate's Degree,62.6,2.9
+Women,Bachelor's Degree,67,2.2
+Women,Advanced Degree,71.5,1.9
+White,Less than a High School Diploma,45.8,4.9
+White,High School Graduate,55.6,3.2
+White,"Some college, No Degree",62.3,2.7
+White,Associate's Degree,67,2.5
+White,Bachelor's Degree,71.2,2.1
+White,Advanced Degree,72.1,1.7
+Black,Less than a High School Diploma,33.6,9.9
+Black,High School Graduate,55.3,6.2
+Black,"Some college, No Degree",66,4.4
+Black,Associate's Degree,70.7,3.8
+Black,Bachelor's Degree,75,3.1
+Black,Advanced Degree,76.1,2.3
+Asian,Less than a High School Diploma,37.3,3
+Asian,High School Graduate,57.2,1.9
+Asian,"Some college, No Degree",66,2.6
+Asian,Associate's Degree,68.3,2.5
+Asian,Bachelor's Degree,70,2.5
+Asian,Advanced Degree,78.2,2
+Hispanic,Less than a High School Diploma,56.1,4.4
+Hispanic,High School Graduate,68.2,3.2
+Hispanic,"Some college, No Degree",72.7,3.4
+Hispanic,Associate's Degree,74.3,3.3
+Hispanic,Bachelor's Degree,76.5,2.8
+Hispanic,Advanced Degree,78.6,2
