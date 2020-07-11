@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Boostrap & Our CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
 
     <!-- d3 JavaScript -->
@@ -12,14 +13,21 @@
     
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+
     <title>COVID Analysis</title>
   </head>
   <body>
     <!-- header / top nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="http://127.0.0.1:5000/"
-        ><img src="../static/img/logo_transparent.svg"
-      /></a>
+      <a class="navbar-brand" href="http://127.0.0.1:5000/">
+        <!-- <img src="../static/img/logo_transparent.svg"/> -->
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -120,7 +128,15 @@
           </div>
           <div class="col mb-4">
             <div class="card">
-              <canvas id="all_occ_swati"></canvas>
+              <table class="table" id="all_occ_swati">
+                <thead class="bg-warning">
+                  <tr>
+                      <th data-field="id">#</th>
+                      <th data-field="name">Item Name</th>
+                      <th data-field="price">Item Price</th>
+                  </tr>
+              </thead>
+              </table>
               <div class="card-body">
                 <h5 class="card-title">ALL Occupations and low-med-high salary by major_category (given) (TABLE) (Swati)</h5>
                 <p class="card-text">#</p>
@@ -141,35 +157,18 @@
     {% block javascript %}
     <script>
         // javascript goes here
+        $('#all_occ_swati').bootstrapTable({
+          data: [{
+            id: 1,
+            name: 'Item 1',
+            price: '$1'
+          }, {
+            id: 2,
+            name: 'Item 2',
+            price: '$2'
+          }]
+        })
     </script>
-    {% endblock %}
-
-    <!-- example of a chart -->
-    <!-- //Horizontal Bars
-  new Chart(document.getElementById('barChartHorizontal'), {
-    type: 'horizontalBar',
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: 'Median Income',
-          backgroundColor: ['pink', 'lightblue',"coral",'red', 'teal', 'purple','lightgreen'],
-          data: median,
-        },
-      ],
-    },
-    options: {
-      legend: { display: false },
-      title: {
-        display: true,
-        text: 'Median Income by Race',
-      },
-    },
-  }); -->
-  
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-      </body>
-    </html>
+    {% endblock %}  
+  </body>
+</html>
