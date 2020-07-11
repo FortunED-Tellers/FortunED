@@ -71,3 +71,10 @@ def prepare_chart_data(subject, university_data):
                            'out_state_labels': out_state_labels, 'out_state_values': out_state_values})
 
     return chart_data
+
+def get_state_wage(state, state_wages):
+    state_wage_list = []
+    state_wage_list = list(state_wages.find())
+    result_values = [i[state] for i in state_wage_list if state in i]
+    result =result_values[0]
+    return result

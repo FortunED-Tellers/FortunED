@@ -1,4 +1,4 @@
-from module.functions import find_tution_cost, prepare_chart_data
+from module.functions import find_tution_cost, prepare_chart_data, get_state_wage
 from static.data.processed.Classification import Classify
 import os
 import json
@@ -26,6 +26,7 @@ coli = db.LivingCost
 university = db.Universities.find()
 university_data = list(university)
 job_majors = db.Majors
+state_wages = db.StateWage
 
 # Define routes
 @app.route("/")
@@ -91,7 +92,8 @@ def show_cs_results():
         loan = request.form["loan"]
 
     # get the state we are interested in based on state parameter
-    data = db.StateWage.distinct(state)
+    data_living_wage = get_state_wage(state, state_wages)
+    print(data_living_wage)
     print(state)
     print(major)
     print(loan)
@@ -144,6 +146,7 @@ def show_hs_results():
     print(tuition_data)
 
     university_cost_data = prepare_chart_data('university', university_data)
+    print(university_cost_data)
 
     coli_data = coli.find_one({"State": state})
 
@@ -153,7 +156,7 @@ def show_hs_results():
     for record in jm_data:
         job_majors_list.append(record)
     # print(job_majors_list[0]["Majors"])
-    return render_template("hs-search-results.html",  tuition_data=tuition_data, university_cost_data=university_cost_data)
+    return render_template("hs-search-results.html",  tuition_data=tuition_data, university_cost_data=university_cost_data, pref=pref)
 
 
 # @app.route("/guardian.html")
@@ -169,4 +172,3 @@ def show_hs_results():
 # #     predict_data = db.outlook_analysis.find_one({"major": f"{major}"})
 if __name__ == "__main__":
     app.run(debug=True)
-ß

@@ -4,7 +4,7 @@ import pprint as pp
 
 def Classify(State,Major_Category,Debt):
     # Read Algo input csv
-    Algo_input = pd.read_csv("Algo_data_input.csv")
+    Algo_input = pd.read_csv("static/data/processed/Algo_data_input.csv")
     
     target = Algo_input["decision"]
     target_names = ["Yes", "No"]
@@ -50,9 +50,10 @@ def Classify(State,Major_Category,Debt):
         low_25_pct_income = ''.join(map(str, low_25_income_split))
         recommended_ed = data['Recommended_Education']
         high_25_income_split = data['High_25_Occ_Salary'].split(",")
-        high_25_pct_income =''.join(map(str, high_25_income_split)) 
+        high_25_pct_income =''.join(map(str, high_25_income_split))
+        # pd.to_numeric(''.join(map(str, wage_split)),errors='coerce') 
         Income_dict[Occ] ={"Occ":Occ,
-                          "median_income":int(income),
+                          "median_income":int(pd.to_numeric(income,errors='coerce')),
                           "low_25_pct_income":int(low_25_pct_income),
                           "high_25_pct_income":int(high_25_pct_income),
                           "recommended_education":recommended_ed}
