@@ -19,10 +19,9 @@
       src="https://kit.fontawesome.com/c9b3d792e6.js"
       crossorigin="anonymous"
     ></script>
-    <title>Welcome to FortunED</title>
+    <title>FortunED - know your worth</title>
   </head>
   <body>
-    <div class="container">
       <div id="logo-bar" class="navbar navbar-dark bg-dark">
         <img
           src="../static/img/logo_transparent.png"
@@ -30,14 +29,20 @@
           alt="fortunED logo"
         />
       </div>
-      <br>
-      <button type="button" class="btn btn-warning" value="total" onclick="update(this.value)">Overall</button>
-      <button type="button" class="btn btn-warning" value="men" onclick="update(this.value)">Men</button>
-      <button type="button" class="btn btn-warning" value="women" onclick="update(this.value)">Women</button>
-      <button type="button" class="btn btn-warning" value="white" onclick="update(this.value)">White</button>
-      <button type="button" class="btn btn-warning" value="black" onclick="update(this.value)">Black</button>
-      <button type="button" class="btn btn-warning" value="asian" onclick="update(this.value)">Asian</button>
-      <button type="button" class="btn btn-warning" value="hispanic" onclick="update(this.value)">Hispanic</button>
+      <h1 class="user_banner text-center">Welcome Parent/Guardian</h1>
+      <div class="container">
+      <h4 class="text-center">Employment Data by Demographic</h3>
+      <div class="row">
+        <div class="d-flex justify-content-around col-12">
+          <button type="button" class="btn btn-warning" value="total" onclick="update(this.value)">Overall</button>
+          <button type="button" class="btn btn-warning" value="men" onclick="update(this.value)">Men</button>
+          <button type="button" class="btn btn-warning" value="women" onclick="update(this.value)">Women</button>
+          <button type="button" class="btn btn-warning" value="white" onclick="update(this.value)">White</button>
+          <button type="button" class="btn btn-warning" value="black" onclick="update(this.value)">Black</button>
+          <button type="button" class="btn btn-warning" value="asian" onclick="update(this.value)">Asian</button>
+          <button type="button" class="btn btn-warning" value="hispanic" onclick="update(this.value)">Hispanic</button>
+        </div>
+      </div>
       <div class="row">
         <div class="table-responsive">
           <div id="scatter">
@@ -57,6 +62,8 @@
         </div>
       </div>
     </div>
+    <br>
+    <hr />
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -75,7 +82,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script> -->
     <script src="{{ url_for('static', filename='js/parents.js') }}"></script>
     <!-- <script type="text/javascript" src="../static/js/parents.js"></script> -->
   </body>
