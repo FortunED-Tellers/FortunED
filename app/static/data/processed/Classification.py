@@ -46,7 +46,16 @@ def Classify(State,Major_Category,Debt):
         Occ = data["Occupation"]
         income_split =data["Median_Occ_Salary"].split(",")
         income = ''.join(map(str, income_split))
-        Income_dict[Occ] =int(income)  
+        low_25_income_split =data['Low_25_Occ_Salary'].split(",")
+        low_25_pct_income = ''.join(map(str, low_25_income_split))
+        recommended_ed = data['Recommended_Education']
+        high_25_income_split = data['High_25_Occ_Salary'].split(",")
+        high_25_pct_income =''.join(map(str, high_25_income_split)) 
+        Income_dict[Occ] ={"Occ":Occ,
+                          "median_income":int(income),
+                          "low_25_pct_income":int(low_25_pct_income),
+                          "high_25_pct_income":int(high_25_pct_income),
+                          "recommended_education":recommended_ed}
 
     state_wages = db.StateWage
 
@@ -59,10 +68,11 @@ def Classify(State,Major_Category,Debt):
 
 
 
-    output_df = pd.DataFrame(Income_dict.items())
-    output_df.columns = ["Occupation","Median_Income"]
+    output_df = pd.DataFrame(Income_dict.values())
+    output_df.columns = ["Occupation","Median_Income","Low_25_pct_income","High_25_pct_income","Recommended_Education"]
     output_df["debt"] = Debt
     output_df["living_wage"] = wage_join
+    output_df["major_category"] = Major_Category
 
     X = output_df.loc[:,["living_wage","Median_Income","debt"]]
 
