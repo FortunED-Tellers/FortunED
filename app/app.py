@@ -128,7 +128,7 @@ def show_hs_results():
         major = request.form["major"]
         timing_pref = request.form["timing"]
         # if the user chose < 1 Year set timing to 1
-        if request.form["timing"] == "< 1 Year":
+        if request.form["timing"] == "Less than 1 Year":
             timing = 1
 
         # else set timing to 2
@@ -140,6 +140,8 @@ def show_hs_results():
     pref.update({"in_vs_out": io_state, "timing": timing_pref})
 
     print(state)
+    print(io_state)
+    print(major)
     print(timing)
 
     tuition_data = find_tution_cost(state, timing, university_data)

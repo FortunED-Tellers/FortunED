@@ -132,14 +132,16 @@
                 <thead class="bg-warning">
                   <tr>
                       <th data-field="id">#</th>
-                      <th data-field="name">Item Name</th>
-                      <th data-field="price">Item Price</th>
+                      <th data-field="occ">Occupation</th>
+                      <th data-field="low">Low</th>
+                      <th data-field="med">Median</th>
+                      <th data-field="high">High</th>
                   </tr>
               </thead>
               </table>
               <div class="card-body">
-                <h5 class="card-title">ALL Occupations and low-med-high salary by major_category (given) (TABLE) (Swati)</h5>
-                <p class="card-text">#</p>
+                <h5 class="card-title">Occupations for {{major}}</h5>
+                <p class="card-text">Low, Median, and High represent the 25th percentile, the median, and the 75th percentile of entry-level salary for the Occupation.</p>
               </div>
             </div>
           </div>
@@ -157,17 +159,61 @@
     {% block javascript %}
     <script>
         // javascript goes here
+        job_specs = {'First-line supervisors of farming, fishing, and forestry workers': {'p25th': 30000,
+                  'median': 46000,
+                  'p75th': 72000.0},
+                'Agricultural inspectors': {'p25th': 40000,
+                  'median': 63000,
+                  'p75th': 98000.0},
+                'Animal breeders': {'p25th': 37100, 'median': 52000, 'p75th': 75000.0},
+                'Graders and sorters, agricultural products': {'p25th': 35000,
+                  'median': 50000,
+                  'p75th': 75000.0},
+                'Agricultural equipment operators': {'p25th': 35000,
+                  'median': 50000,
+                  'p75th': 75000.0},
+                'Farmworkers and laborers, crop, nursery, and greenhouse': {'p25th': 35000,
+                  'median': 52000,
+                  'p75th': 75000.0},
+                'Farmworkers, farm, ranch, and aquacultural animals': {'p25th': 40000,
+                  'median': 63000,
+                  'p75th': 98000.0},
+                'Agricultural workers, all other': {'p25th': 39400,
+                  'median': 63000,
+                  'p75th': 88000.0},
+                'Forest and conservation workers': {'p25th': 37100,
+                  'median': 52000,
+                  'p75th': 75000.0},
+                'Fallers': {'p25th': 36000, 'median': 54000, 'p75th': 80000.0},
+                'Logging equipment operators': {'p25th': 35000,
+                  'median': 52000,
+                  'p75th': 75000.0},
+                'Log graders and scalers': {'p25th': 35000,
+                  'median': 50000,
+                  'p75th': 75000.0},
+                'Logging workers, all other': {'p25th': 37100,
+                  'median': 52000,
+                  'p75th': 75000.0}}
+        var occ_table = []
+
+        var counter = 0
+
+        for (key in job_specs) {
+          var value = job_specs[key]
+          occ_table.push({
+            id: counter+1,
+            occ: key,
+            low: value['p25th'],
+            med: value['median'],
+            high: value['p75th']
+          })
+          counter = counter+1
+        }
+
         $('#all_occ_swati').bootstrapTable({
-          data: [{
-            id: 1,
-            name: 'Item 1',
-            price: '$1'
-          }, {
-            id: 2,
-            name: 'Item 2',
-            price: '$2'
-          }]
+          data: occ_table
         })
+        
     </script>
     {% endblock %}  
   </body>
