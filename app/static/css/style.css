@@ -97,3 +97,7 @@ h1.user_banner{
   background-color: gold;
   color: rgb(50, 50, 50);
 }
+
+ol#estimated_cost_swati {
+  font-size: 60px;
+}

@@ -92,10 +92,13 @@
         </div>
         <div class="col mb-4">
           <div class="card">
-            <canvas id="estimated_cost_swati"></canvas>
+            <!-- <canvas id="estimated_cost_swati"></canvas> -->
+            <ol class="text-center text-warning bg-dark" id="estimated_cost_swati"></ol>
             <div class="card-body">
-              <h5 class="card-title">Estimated Cost based on time frame (SUMMARY CARD) (Swati)</h5>
-              <p class="card-text">#</p>
+              <h5 class="card-title">Estimated Cost of Tuition at {{Uni}}</h5>
+              <p class="card-text">The number is the {{io_state}} tuition price for {{year}} multiplied by 4.
+                The total cost you end up paying may change because tuition prices can go up a little every year.
+              </p>
             </div>
           </div>
         </div>
@@ -141,7 +144,7 @@
               </table>
               <div class="card-body">
                 <h5 class="card-title">Occupations for {{major}}</h5>
-                <p class="card-text">Low, Median, and High represent the 25th percentile, the median, and the 75th percentile of entry-level salary for the Occupation.</p>
+                <p class="card-text">Low, Median, and High represent the 25th percentile, the median, and the 75th percentile of salary for the Occupation.</p>
               </div>
             </div>
           </div>
@@ -198,14 +201,20 @@
 
         var counter = 0
 
+        const formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          minimumFractionDigits: 0
+        })
+        
         for (key in job_specs) {
           var value = job_specs[key]
           occ_table.push({
             id: counter+1,
             occ: key,
-            low: value['p25th'],
-            med: value['median'],
-            high: value['p75th']
+            low: formatter.format(value['p25th']),
+            med: formatter.format(value['median']),
+            high: formatter.format(value['p75th'])
           })
           counter = counter+1
         }
@@ -213,7 +222,10 @@
         $('#all_occ_swati').bootstrapTable({
           data: occ_table
         })
-        
+
+        var cost = 111716
+
+        $('#estimated_cost_swati').append(formatter.format(cost))
     </script>
     {% endblock %}  
   </body>
