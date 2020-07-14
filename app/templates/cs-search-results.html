@@ -1,119 +1,276 @@
-{% extends "base.html" %} {% block content %}
-<h2
-  style="
-    margin-top: 50px;
-    margin-bottom: 20px;
-    margin-right: 5%;
-    color: rgb(234, 212, 15);
-  "
->
-  Summary
-</h2>
-<h4>
-  Based on your desire to live and work in
-  <span style="color: blue; font-size: larger; font-weight: 700;"
-    >{{ coli_data.State }}</span
-  >, the living wage for that state is:
-  <span style="color: blue; font-size: larger; font-weight: 700;"
-    >{{ wage}}</span
-  >
-  .Below are some metrics for consideration. We have included some major categories for comparison with your major:
-  <span style="color: blue; font-size: larger; font-weight: 700;"
-    >{{ coli_data.Utilities }}</span
-  >.
-</h4>
+<!DOCTYPE html>
+<html lang="en">
 
-<hr/>
-<br/>
-<br/>
-<div id="results">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Major</th>
-        <th scope="col">Career Option</th>
-        <th scope="col">Low Salary Range</th>
-        <th scope="col">Median Income</th>
-        <th scope="col">High Salary Range</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for jm in job_majors[0].Majors %}
-  
-      <tr>
-        <th scope="row">i</th>
-        <td>{{ job_majors[0].Major_Category }}</td>
-        <td>{{ jm.Major }}</td>
-        <td>{{ jm.Low_25_Salary }}</td>
-        <td>{{ jm.Median_Salary }}</td>
-        <td>{{ jm.High_25_Salary }}</td>
-      </tr>
-  
-      {% endfor %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Boostrap & Our CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+
+    <title>COVID Analysis</title>
+</head>
+
+<body>
+    <!-- header / top nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">
+            <!-- <img src="../static/img/logo_transparent.svg"/> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <span class="navbar-text">
+                A deep dive analysis into the impact COVID-19 has had on New York's
+                Counties.
+            </span>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../team.html">Our Team</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4">
+                <div class="card">
+                    <!-- <canvas id="pay_off_over_time_waterfall_salvador"></canvas> -->
+                    <canvas id="pay_off_over_time_waterfall_cs"></canvas>
+                    <div class="card-body">
+                        <h5 class="card-title">Loan Payback Period</h5>
+                        <p class="card-text">This chart shows the remaining debt on your loan throughout the years
+                            considering a yearly payment of 30% of residual
+                            income and assuming the national average of college loan interest rates of 6%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                  <!-- <canvas id="list_major_income_top_five_smiti"></canvas> -->
+                  <div class="card-body">
+                      <h5 class="card-title">Top 5 Majors for {{major}}</h5>
+                      <p class="card-text">
+                          <ol class="content" id="list_top_5_majors_by_income_cs">
+                          </ol>
+                          <p>These are the Top 5 majors in your area of study, ranked by median income.</p>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+                <!-- <canvas id="top_five_state_fastest_pay_off_smiti"></canvas> -->
+                <div class="card-body">
+                    <h5 class="card-title">Top 5 States to Pay Off Loan faster</h5>
+                    <p class="card-text">
+                        <ol class="content" id="list_top_5_states_fastest_pay_off_cs">
+                        </ol>
+                        <p>These are the Top 5 States, where annual salary for your area of study is higher, enabling you to pay off your loan faster.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <!-- <canvas id="pay_off_vs_percent_smiti"></canvas> -->
+                <canvas id="pay_off_vs_percent_cs"></canvas>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">pay off period vs percent being paid</h5> -->
+                    <p class="card-text">This chart shows how loan pay off period would vary with varied percentages of income being applied towards loan repayment.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    <hr>
+    <div id="results">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Major</th>
+              <th scope="col">Career Option</th>
+              <th scope="col">Low Salary Range</th>
+              <th scope="col">Median Income</th>
+              <th scope="col">High Salary Range</th>
+              <th scope="col">State Living Wage</th>
+              <th scope="col">Your Debt</th>
+              <th scope="col">Option Recommended?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for oc in outcome %}
+            <tr>
+              <th scope="row">i</th>
+              <td>{{ oc.major_category }}</td>
+              <td>{{ oc.occupation }}</td>
+              <td>{{ oc.Low_25_pct_income }}</td>
+              <td>{{ oc.Median_Income }}</td>
+              <td>{{ oc.High_25_pct_income }}</td>
+              <td>{{ oc.living_wage }}</td>
+              <td>{{oc.debt }}</td>
+              <td>{{ oc.decision }}</td>
+            </tr>
+            {% endfor %}
     </tbody>
   </table>
-  <br />
-  <br />
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-   
-  </div>
-<br/>
-<br/>
-<hr>
-<br/>
-<br/>
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
+            </div>
+{% block javascript %}
+<script>
+  var waterfall = {{whaterfall_data | tojson}}
+  var years = []
+            var bars = []
+            var backgroundColors = []
 
-  </div>
+            Object.entries(waterfall).forEach(function ([key, value]) {
+                years.push(key)
+                if (key == "Year 0") {
+                    year0_arr = [value.Remaining, value.Payed]
+                    bars.push(year0_arr)
+                    backgroundColors.push('#ff6e80')
+                } else {
+                    from = value.Remaining - value.Payed;
+                    to = value.Remaining
+                    year_arr = [from, to]
+                    bars.push(year_arr)
+                    backgroundColors.push('#a1ffb3')
+                }
+            });
 
-  
-</div>
-
+            new Chart(document.getElementById('pay_off_over_time_waterfall_cs'), {
+                type: 'bar',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Years after college',
+                        backgroundColor: backgroundColors,
+                        data: bars
+                    }],
+                },
+                options: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Loan Amortization',
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Years after college'
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Debt Amount'
+                            }
+                        }]
+                    }
+                }
+            });          
     
-    </div>
-    <hr />
-  
+            var top_5_majors_list = {{ best_majors | tojson }}
+            
+            var resultcontent = '';
+        for (i = 0; i < top_5_majors_list.length; i++) {
+            majors_split = top_5_majors_list[i].split(" ")
+            majors_camel_case = majors_split.map(data => data.toLowerCase().charAt(0).toUpperCase() + data.toLowerCase().slice(1).toLowerCase())
+            major = majors_camel_case.join(' ')
+            resultcontent += '<li>' + major + '</li>'
+
+        }
+
+        $("#list_top_5_majors_by_income_cs").append(resultcontent);
+
+        var top_5_states_list = {{ best_states | tojson }}
+
+        var resultcontent = '';
+        for (i = 0; i < top_5_states_list.length; i++) {
+            resultcontent += '<li>' + top_5_states_list[i] + '</li>'
+        }
+
+        $("#list_top_5_states_fastest_pay_off_cs").append(resultcontent);
+
+        // var pay_off_data = {{ pay_off_options }}
+        // console.log({{ pay_off_options["Percentages"] }})
+
+        var Percentages = {{ pay_off_options["Percentages"] }}
+        var time_to_repay = {{ pay_off_options['time_to_repay'] }}
+
+        new Chart(document.getElementById('pay_off_vs_percent_cs'), {
+            type: 'horizontalBar',
+            data: {
+                labels: Percentages,
+                datasets: [{
+                    label: 'Years to Repay Loan',
+                    backgroundColor: ['orange', 'yellow', 'lightgreen'],
+                    data: time_to_repay
+                }],
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Pay Off Period Variation',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: false
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Years to Repay Loan'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: '% of Income towards Loan Repay'
+                        }
+                    }]
+                }
+            }
+        });
+
+</script>
+
 {% endblock %}
-</body>
-</html>
+      </body>
+
+      </html>

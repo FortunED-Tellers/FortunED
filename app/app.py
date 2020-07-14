@@ -1,4 +1,5 @@
-from module.functions import find_tution_cost, prepare_chart_data, get_state_wage
+from module.functions import *
+# find_tution_cost, prepare_chart_data, get_state_wage, get_job_specs, four_year_cost, bestIncomeStates, whaterfall, get_top_5_majors_list,get_top_5_states_for_loan_repay
 from static.data.processed.Classification import Classify
 import os
 import json
@@ -93,10 +94,16 @@ def show_cs_results():
 
     # get the state we are interested in based on state parameter
     data_living_wage = get_state_wage(state, state_wages)
-    print(data_living_wage)
-    print(state)
-    print(major)
+    # print(data_living_wage)
+    # print(state)
+    # print(major)
     print(loan)
+
+    whaterfall_data = whaterfall(db, state, major, loan)
+    best_majors = get_top_5_majors_list(db, major)
+    best_states = get_top_5_states_for_loan_repay(db, major, loan)
+    pay_off_options = get_pay_off_period_variation(db, state, major, loan)
+    print(pay_off_options['Percentages'])
 
     outcome = Classify(state, major, loan)
     # print(outcome.keys())
@@ -110,7 +117,8 @@ def show_cs_results():
     for record in jm_data:
         job_majors_list.append(record)
 
-    return render_template("cs-search-results.html",  coli_data=coli_data, job_majors=job_majors_list)
+    return render_template("cs-search-results.html",  coli_data=coli_data, job_majors=job_majors_list, whaterfall_data=whaterfall_data,
+    best_majors=best_majors, best_states=best_states, pay_off_options=pay_off_options, outcome=outcome)
 
 
 @app.route("/hsoptions")
@@ -144,11 +152,16 @@ def show_hs_results():
     print(major)
     print(timing)
 
+    job_specs = get_job_specs(db, major)
+    top_states = bestIncomeStates(db, major)
+    dict_ = four_year_cost(db, state, io_state, timing)
+    print(dict_)
+
     tuition_data = find_tution_cost(state, timing, university_data)
     print(tuition_data)
 
     university_cost_data = prepare_chart_data('university', university_data)
-    print(university_cost_data)
+    # print(university_cost_data)
 
     coli_data = coli.find_one({"State": state})
 
@@ -158,7 +171,8 @@ def show_hs_results():
     for record in jm_data:
         job_majors_list.append(record)
     # print(job_majors_list[0]["Majors"])
-    return render_template("hs-search-results.html",  tuition_data=tuition_data, university_cost_data=university_cost_data, pref=pref)
+    return render_template("hs-search-results.html",  tuition_data=tuition_data, university_cost_data=university_cost_data, pref=pref,
+                                                        job_specs=job_specs, top_states=top_states, dict_=dict_)
 
 
 # @app.route("/guardian.html")

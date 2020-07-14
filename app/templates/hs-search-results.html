@@ -1,111 +1,171 @@
-{% extends "base.html" %} {% block content %}
-<h2
-  style="
-    margin-top: 50px;
-    margin-bottom: 20px;
-    margin-right: 5%;
-    color: rgb(234, 212, 15);
-  "
->
-  Summary
-</h2>
-<hr>
-<h4>
-  Based on your desire to attend college in
-  <span style="color: blue; font-size: larger; font-weight: 500;"
-    >{{ tuition_data.STATE_NAME }}</span
-  >, the Cost is projected to be: <br/><br/>
-  <span style="color: blue; font-size: larger; font-weight: 500;"
-    >{{ pref.In_State_Tuition_Cost}}</span
-  > for In-State Tuition rate and <span style="color: blue; font-size: larger; font-weight: 500;"
-    >{{ pref.Out_State_Tuition_Cost}}</span
-  > for Out-Of-State Tuition rate. <br/><br/>
-  If you decide to attend {{tuition_data.University}}, here are some possible career occupations that match your <span style="color: blue; font-size: larger; font-weight: 700;">{{tuition_data.InState}}</span> major you selected:
-</h4>
-
-<hr />
-
-<div id="results">
-
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Boostrap & Our CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+      <link rel="stylesheet" href="../static/css/style.css">
+  
+      <!-- d3 JavaScript -->
+      <script src="https://d3js.org/d3.v4.min.js"></script>
+      
+      <!-- Chart JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  
+      <!-- JS, Popper.js, and jQuery -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+  
+      <title>COVID Analysis</title>
+    </head>
+    <body>
+      <!-- header / top nav -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">
+          <!-- <img src="../static/img/logo_transparent.svg"/> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <span class="navbar-text">
+            A deep dive analysis into the impact COVID-19 has had on New York's
+            Counties.
+          </span>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../team.html">Our Team</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
   <div class="row" style="margin-bottom: 30px; margin-top:30px;">
-      <div class="col-sm">
-        <div class="card" style="width: 18rem; margin:10px;">
-          <img src="..." class="card-img-top" alt="...">
+    <div class="col mb-4">
+      <div class="card">
+        <!-- <canvas id="estimated_cost_swati"></canvas> -->
+        <ol class="text-center text-warning bg-dark" id="estimated_cost_swati"></ol>
+        <div class="card-body">
+          <h5 class="card-title">Estimated Cost of Tuition at {{Uni}}</h5>
+          <p class="card-text">The number is the {{io_state}} tuition price for {{year}} multiplied by 4.
+            The total cost you end up paying may change because tuition prices can go up a little every year.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card">
+          <canvas id="tuition_change_firzana"></canvas>
           <div class="card-body">
-            <p class="card-text">Visualization # 1 goes here.
-            </p>
+            <h5 class="card-title">How tuition has changed over time (LINE GRAPH) (Firzana)</h5>
+            <p class="card-text">#</p>
           </div>
         </div>
       </div>
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+      <div class="col mb-4">
+        <div class="card">
+          <canvas id="median_income_by_all_major_firzana"></canvas>
           <div class="card-body">
-            <p class="card-text">Visualization # 2 goes here.
-            </p>
+            <h5 class="card-title">Median Income by major (TABLE with ranges) (Firzana) (ALL MAJORS)</h5>
+            <p class="card-text">#</p>
           </div>
         </div>
       </div>
+      <div class="col mb-4">
+        <div class="card">
+          <canvas id="five_states_for_work_firzana"></canvas>
+          <div class="card-body">
+            <h5 class="card-title">5 best states to work in for major_category (LIST) (Firzana)</h5>
+            <p class="card-text">#</p>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <table class="table" id="all_occ_swati">
+            <thead class="bg-warning">
+              <tr>
+                  <th data-field="id">#</th>
+                  <th data-field="occ">Occupation</th>
+                  <th data-field="low">Low</th>
+                  <th data-field="med">Median</th>
+                  <th data-field="high">High</th>
+              </tr>
+          </thead>
+          </table>
+          <div class="card-body">
+            <h5 class="card-title">Occupations for {{major}}</h5>
+            <p class="card-text">Low, Median, and High represent the 25th percentile, the median, and the 75th percentile of salary for the Occupation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+            <!-- <canvas id="list_best_state_wage_salvador"></canvas> -->
+            <div class="card-body">
+                <h5 class="card-title">States with highest income:</h5>
+                <p class="card-text">
+                <ol class="content" id="list_top_5_states_by_salary_hs">
+                </ol>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
   
     </div>
-    <div class="row" style="margin-bottom: 30px; margin-top:30px;">
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Visualization # 3 goes here.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Visualization # 4 goes here..
-            </p>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Major</th>
-          <th scope="col">Career Option</th>
-          <th scope="col">Low Salary Range</th>
-          <th scope="col">Median Income</th>
-          <th scope="col">High Salary Range</th>
-        </tr>
-      </thead>
-      <tbody>
-    
-        <tr>
-          <th scope="row">i</th>
-          <td>{{ tuition_data.University }}</td>
-          <td>{{ tuition_data.University }}</td>         
-          <td>{{ tuition_data.University }}</td>
-          <td>{{ tuition_data.University }}</td>
-          <td>{{ tuition_data.University }}</td>
-        </tr>
-    
-      </tbody>
-    </table>
-    </div>
-    <hr />
-  
-{% endblock %}
 
 {% block javascript %}
 <script>
-      // load the objects like you would with a normal jinja template i.e. {{ object }}, but add | tojson
-      // pass it into the parse function
-      // labels = {{ pop_label | tojson }};
-      // data = {{ population | tojson }};
+    console.log("hello")
 
+  var occ_table = []
+
+  var counter = 0
+
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  })
+
+  var job_specs = {{ job_specs | tojson}}
+
+
+  for (key in job_specs) {
+    var value = job_specs[key]
+    occ_table.push({
+      id: counter+1,
+      occ: key,
+      low: formatter.format(value['p25th']),
+      med: formatter.format(value['median']),
+      high: formatter.format(value['p75th'])
+    })
+    counter = counter+1
+  }
+
+  $('#all_occ_swati').bootstrapTable({
+          data: occ_table
+        })
+  
+  var top_states = {{ top_states | tojson }}
+
+  var resultcontent = '';
+    Object.entries(top_states).forEach(function ([key, value]) {
+      state=key
+      income = `$${Math.round(value,0)}`
+      resultcontent += '<li>' + `${state} - ${income}` + '</li>'
+    });
+
+  $("#list_top_5_states_by_salary_hs").append(resultcontent);
+
+  var dict_ = {{ dict_ | tojson }}
+
+  $('#estimated_cost_swati').append(formatter.format(dict_.cost))
 
 </script>
 
