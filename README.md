@@ -36,7 +36,6 @@ A parent/guardian would be interested in:
 - All of the data is based on state universities only. It was easy to find In-State and Out-of-State tuition prices over time.
 - Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
 
-## The analysis was done using the ETL model.
 ![approach.png](model/images/FortunEd-3-Stage_Approach.png)
 
 ## Ingest
