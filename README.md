@@ -55,7 +55,7 @@ We used Google Sheets to split up the work of finding datasets that would allow 
   <br>![linear-regression.png](model/images/Logistic_Regression_CR.PNG)
 6. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 7. We created `Python` functions to pull the specific data we need for specific charts and tables.
-  <br>a. We split the work on `Zoom` and used `Slack` to log our discussion.
+  <br>a. We discussed and assigned work on `Zoom` and used `Slack` to log our discussion.
   <br>![work-split.png](model/images/slack_group_split.png)
   <br>b. We created specific sample `HTML` pages for each group member so we could each make and test our charts/tables without overriding each other's work when pushing to `Github`.
   <br>![sample-html.jpg](model/images/sample_html.jpg)
