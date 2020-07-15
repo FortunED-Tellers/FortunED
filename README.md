@@ -53,7 +53,9 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 5. Lastly, we used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 
 ## Digest
-The final data was stored in a `Mongo` database, which was pulled from to obtain our demographic and socio-economic results.
+The final data was stored in a `Mongo` database, which was pulled from to obtain our various datasets for the charts and tables we want to display.
+
+We split the work on `Slack`.
 
 We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. `Leaflet JS` and `Mapbox API` were used in `HTML` to create the map of our counties with the COVID case data used for coloring. Both the `Bootstrap`, and `ChartJS` libraries were used to beautify our website and create dynamic graphs.
 
