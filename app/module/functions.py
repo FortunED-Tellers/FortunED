@@ -108,7 +108,7 @@ def get_job_specs(db, major):
     for i in jobs:
         for document in cursor:
             if (i  == document['occ_title']):
-                job_specs[i] = {'p25th':document['p25th'], 'median':document['median'], 'p75th':document['p75th']}
+                job_specs[i] = {'degree_req':document['degree_required'], 'p25th':document['p25th'], 'median':document['median'], 'p75th':document['p75th']}
                 break
     
     return job_specs

@@ -56,11 +56,12 @@
   > for Out-Of-State Tuition rate.<br><br>
   If you decide to attend <span style="color: blue;"
   >{{tuition_data.University}}</span> here are possible career occupations for your major - <span style="color: blue;">{{ major }}</span>:</h4>
-  <table class="table" id="all_occ_swati">
+  <table class="table" id="all_occ">
     <thead class="thead-dark">
       <tr>
         <th data-field="id">#</th>
         <th data-field="occ">Occupation</th>
+        <th data-field="deg">Degree Required</th>
         <th data-field="low">Low Salary</th>
         <th data-field="med">Median Salary</th>
         <th data-field="high">High Salary</th>
@@ -85,7 +86,7 @@
     </table><hr>
       <div class="col-12">
         <div class="card">
-          <ol class="text-center text-warning bg-dark" id="estimated_cost_swati"></ol>
+          <ol class="text-center text-warning bg-dark" id="estimated_cost"></ol>
           <div class="card-body">
             <h5 class="card-title">What you'll pay for 4 years at {{dict_.uni}}</h5>
             <p class="card-text">The number is based on your choice of {{io_state}} tuition.
@@ -125,6 +126,7 @@
     occ_table.push({
       id: counter+1,
       occ: key,
+      deg: value['degree_req'],
       low: formatter.format(value['p25th']),
       med: formatter.format(value['median']),
       high: formatter.format(value['p75th'])
@@ -132,7 +134,7 @@
     counter = counter+1
   }
 
-  $('#all_occ_swati').bootstrapTable({
+  $('#all_occ').bootstrapTable({
           data: occ_table,
           pagination: true,
           search: true
@@ -169,7 +171,7 @@
 
   var dict_ = {{ dict_ | tojson }}
 
-  $('#estimated_cost_swati').append(formatter.format(dict_.cost))
+  $('#estimated_cost').append(formatter.format(dict_.cost))
 
   var university_over_time = {{ state_college_cost_over_time | tojson }} 
 

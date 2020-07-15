@@ -98,8 +98,16 @@ h1.user_banner{
   color: rgb(50, 50, 50);
 }
 
-ol#estimated_cost_swati {
+ol#estimated_cost {
   font-size: 60px;
+}
+
+ol#list_top_5_majors_by_income_cs{
+  color: blue;
+}
+
+ol#list_top_5_states_fastest_pay_off_cs{
+  color: blue;
 }
 
 footer {
