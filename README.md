@@ -37,6 +37,7 @@ A parent/guardian would be interested in:
 - Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
 
 ![approach.png](model/images/FortunEd-3-Stage_Approach.png)
+<br>
 ![detailed-approach.png](model/images/FortunEd-Architecture.png)
 
 ## Ingest
