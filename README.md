@@ -1,5 +1,5 @@
 # FortunED
-### The FortunED App provides analytics for prospective students, college students, and parents to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
+### The FortunED App provides analytics for prospective students, college students, and parents/guardians to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
 <hr>
 
 **Team:** Karl Ramsay, Swati Dontamsetti, Firzana Razak, Smiti Swain, Salvador Neves
@@ -20,7 +20,7 @@ A college student would be interested in:
 3. What the living wage is for the state they are thinking about working in and whether there are better state's to work in for their major.
 4. What the top 5 paying majors are for their chosen major/career category.
 
-A parent would be interested in:
+A parent/guardian would be interested in:
 1. What the employment likelihood is for their child based on their gender and race in comparison to various levels of educational attainment.
 2. How college tuition prices have changes for In-State and Out-of-State over time.
 3. A way to access the high school or college student page to compare options for their child's future.
@@ -36,21 +36,31 @@ A parent would be interested in:
 - All of the data is based on state universities only. It was easy to find In-State and Out-of-State tuition prices over time.
 - Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
 
-## The analysis was done using the ETL model.
-![approach.png](app/static/img/approach.png)
+![approach.png](model/images/FortunEd-3-Stage_Approach.png)
+<br>
+![detailed-approach.png](model/images/FortunEd-Architecture.png)
 
-## Extract
-We downloaded our data from different sources. We use Census data from the <a href="https://www.labor.ny.gov/stats/nys/statewide-population-data.shtm">NY Dept of Labor</a>, the Dow Jones Index from <a href="https://finance.yahoo.com/quote/%5EDJI/history?p=%5EDJI">Yahoo Finance</a>, COVID cases and deaths from <a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/">USA Facts</a>, Free and Reduced-price Lunch data from <a href="https://www.nyskwic.org/get_data/indicator_data.cfm">NY State KWIC</a>, NY County Median Income by Race from the <a href="https://www.census.gov/topics/income-poverty/income/data/tables.html">Census Bureau</a>,and the GeoJSON for NY Counties from <a href="https://github.com/johan/world.geo.json/tree/master/countries/USA/NY">Github</a>.
+## Ingest
+We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employement, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed median income per occupation that matched the BLS categories.
 
-## Transform
-1. We used `VBA` to do a basic clean
-2. We loaded everything into `Postgres DB` for more extensive cleaning and combining of data sources.
-3. Then in `Jupyter Notebook` we used `Pandas` and the `OS` module to import our CSVs and do a final cleaning of column names, once we finalized the datasets we needed.
-4. And then we performed a final merge of all the columns into one master dataset.
-5. Lastly, we used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
+## Process
+1. We used `Jupyter Notebook` to clean our datasets to just the data we are using.
+2. We created mapping tables to link college majors to career categories.
+3. We use `Pandas` to join the tables so that we have a link from major category to specific majors, and major category to occupation category to specific occupations.
+4. We use `Sklearn` to create two different machine learning algorithms.
+  <br>a. One is a classification that determines whether a chosen state is a good place to work based on student loan and living wage.
+  <br>![classification.png](model/images/SVM_model_CR.PNG)
+  <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
+  <br>![linear-regression.png](model/images/Logistic_Regression_CR.PNG)
+5. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
+6. We created `Python` functions to pull the specific data we need for specific charts and tables.
+  <br>a. We split the work on `Zoom` and used `Slack` to log our discussion.
+  <br>![work-split.png](model/images/slack_group_split.png)
+  <br>b. We created specific sample `HTML` pages for each group member so we could each make and test our charts/tables without overriding each other's work when pushing to `Github`.
+  <br>![sample-html.jpg](model/images/sample_html.jpg)
 
-## Load
-The final data was stored in a `Mongo` database, which was pulled from to obtain our demographic and socio-economic results.
+## Digest
+The final data was stored in a `Mongo` database, which was pulled from to obtain our various datasets for the charts and tables we want to display.
 
 We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. `Leaflet JS` and `Mapbox API` were used in `HTML` to create the map of our counties with the COVID case data used for coloring. Both the `Bootstrap`, and `ChartJS` libraries were used to beautify our website and create dynamic graphs.
 
