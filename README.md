@@ -6,7 +6,7 @@
 <hr>
 
 ## Overview
-As a team, some of use are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look on the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
+As a team, some of us are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look at the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
 
 A high school student would be interested in:
 1. The career options for a chosen major and the minimum degree required for each profession.
@@ -15,20 +15,20 @@ A high school student would be interested in:
 4. How much tuition they might have to pay for 4 years of college.
 
 A college student would be interested in:
-1. The career options for their major along with entry level salary range for each profession.
+1. The career options for their major along with entry-level salary range for each profession.
 2. How long it would take to pay off their student loan.
-3. What the living wage is for the state they are thinking about working in and whether there are better state's to work in for their major.
+3. What the living wage is for the state they are thinking about working in and whether there are better states to work in for their major.
 4. What the top 5 paying majors are for their chosen major/career category.
 
 A parent/guardian would be interested in:
 1. What the employment likelihood is for their child based on their gender and race in comparison to various levels of educational attainment.
-2. How college tuition prices have changes for In-State and Out-of-State over time.
+2. How college tuition prices have changed for In-State and Out-of-State over time.
 3. A way to access the high school or college student page to compare options for their child's future.
 
 ### Instructions
 1. Open app/module folder in terminal or Git Bash.
 2. Run **python manageData.py**. 
-3. Open app folder.
+3. Open the app folder.
 4. Run **python app.py**. 
 5. Open browser window and type http://127.0.0.1:5000/
 
@@ -41,15 +41,15 @@ A parent/guardian would be interested in:
 ![detailed-approach.png](model/images/FortunEd-Architecture.png)
 
 ## Ingest
-We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employement, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed median income per occupation that matched the BLS categories.
+We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employment, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed a median income per occupation that matched the BLS categories.
 
 ## Process
 1. A lot of files were `Excel` or `CSV` files. We did use `Beautiful Soup` to scrape the MIT Living Wage Calculator for each state's living wage and the state's median income salary for each occupation category.
 2. We used `Jupyter Notebook` to clean our datasets to just the data we are using.
 3. We created mapping tables to link college majors to career categories.
-4. We use `Pandas` to join the tables so that we have a link from major category to specific majors, and major category to occupation category to specific occupations.
+4. We use `Pandas` to join the tables so that we have a link from major category to specific majors and major category to occupation category to specific occupations.
 5. We use `Sklearn` to create two different machine learning algorithms.
-  <br>a. One is a classification that determines whether a chosen state is a good place to work based on student loan and living wage.
+  <br>a. One is a classification that determines whether a chosen state is a good place to work based on the student's loan and the state's living wage.
   <br>![classification.png](model/images/SVM_model_CR.PNG)
   <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
   <br>![linear-regression.png](model/images/Logistic_Regression_CR.PNG)
@@ -66,7 +66,7 @@ The final data was stored in a `Mongo` database, which was pulled from to obtain
 
 We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. We use the `Bootstrap`, `ChartJS`, and `D3JS` libraries were used to beautify our website and create dynamic graphs.
 
-As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user actvity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metric collected and offered to users.
+As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user activity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metrics collected and offered to users.
 
 ## Final Website:
 ### Home Page
