@@ -33,10 +33,8 @@ A parent would be interested in:
 5. Open browser window and type http://127.0.0.1:5000/
 
 ### Some Considerations
-- All of the data was collected on May 22nd, and was analyzed for that date.
-- All the demographic and socio-economic data is from the Census, which is a self-reported entity. So the numbers for racial groups may not be completely accurate.
-- Hispanic/Latino on the Census is more of an ethnicity than a racial group. There can be white-hispanics, black-hispanics, etc. We used the non-hispanic data for all the racial groups except for other, and subtracted the total county population from all those data points to get the hispanic data point (so it may be skewed).
-- Other is an ambiguous grouping that includes two-or-more races, so a half-white, or half-asian, etc. is not broken down nor included in the other groups. This also skews graph for the median income, since family/inhereted wealth is a big part of the incomes people end up reaching. In short, the other racial group does not provide a detailed picture, and can alter the perception of the results in some counties.
+- All of the data is based on state universities only. It was easy to find In-State and Out-of-State tuition prices over time.
+- Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
 
 ## The analysis was done using the ETL model.
 ![approach.png](app/static/img/approach.png)
