@@ -27,7 +27,7 @@ A parent would be interested in:
 
 ### Instructions
 1. Open app/module folder in terminal or Git Bash.
-2. Run **python load_mongo_db.py**. 
+2. Run **python manageData.py**. 
 3. Open app folder.
 4. Run **python app.py**. 
 5. Open browser window and type http://127.0.0.1:5000/
