@@ -35,7 +35,7 @@ def get_pay_off_period_variation(State,Major_Category,Debt):
             salary=pd.to_numeric(''.join(map(str,salaryUnformated)),errors='coerce')
             salary_list.append(salary)
     annual_salary = mean(salary_list)
-    Percentages = [20, 30, 50]
+    Percentages = [20, 30,50]
     time_to_repay = []
     for percent in Percentages:
         debtCount = Debt*(-1)
@@ -47,7 +47,8 @@ def get_pay_off_period_variation(State,Major_Category,Debt):
                 debtCount=debtCount+pay
                 paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
                 count+=1
-        paymentYear[year]={'Payed':round(paymentYear[f'Year {count-2}']['Remaining']*(-1),2),"Remaining":0}
+                
+        paymentYear[year]={'Payed':round(Debt*(-1),2),"Remaining":0}
         time_to_repay.append(len(paymentYear))
     pay_off_dict = {"state":State,
                    "living_wage":living_wage,
@@ -59,4 +60,4 @@ def get_pay_off_period_variation(State,Major_Category,Debt):
 
     return pay_off_dict
 
-# print(get_pay_off_period_variation("Alaska","Agriculture & Natural Resources",50000))
+print(get_pay_off_period_variation("Alaska","Agriculture & Natural Resources",10000))
