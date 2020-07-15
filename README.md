@@ -68,30 +68,4 @@ We used the micro-framework `Flask` inside of `Python` to create our website tha
 
 As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user actvity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metric collected and offered to users.
 
-![map.png](app/static/img/map.png)
-
-![charts.png](app/static/img/charts.png)
-
-## Final Results & Analysis
-In general, our hypothesis is correct: as harder hit counties are more racially diverse and economically poor.
-
-In the graphs presented here we'll compare Queens (the worst-hit county) with Hamilton (the least-hit county):
-
-### Demographics
-Queens is a lot **more** racially diverse compared to the state statistics.
-![demoQ.png](app/static/img/demoQ.png)
-Hamilton is a lot **less** racially diverse compared to the state statistics.
-![demoH.png](app/static/img/demoH.png)
-
-### Cases/Deaths & Poverty Levels
-Queens had **60,236** COVID cases and is **above** the state poverty percentage.
-![povQ.png](app/static/img/povQ.png)
-Hamilton had **5** COVID cases and is well **below** the state poverty percentage.
-![povH.png](app/static/img/povH.png)
-
-### Median Income & Dow Jones Index
-Queens is more racially diverse but the money is not spread out evenly. The white racial group tends to hold almost double the wealth of any other group, except for other (which is an ambiguous grouping with little info).
-![incomeQ.png](app/static/img/incomeQ.png)
-Hamilton doesn't even show data on the median income levels of the other racial groups in its county. But the white group makes about the same in Hamilton as it does in Queens, even though Queens is much poorer than Hamilton - which only makes the other racial groups in Queens that much poorer.
-![incomeH.png](app/static/img/incomeH.png)
-The Dow Jones Index drops in February as NY starts showing cases, it is at its lowest at end of March as we start to see the uptick in cases. But the Dow Jones Index almost immediately starts picking back up even though the COVID cases are still rising. It plateaus in April after the stimulus check is sent out on 4/9. COVID cases have seemingly (not confirmed) also platued but has not decreased yet. The stimulus may have played an effect in stabilizing the Dow Jones Index, but so too might the global control of COVID cases. There are many variables we weren't able to consider for this graph. All we know is that COVID is still on the rises, and yet the Dow Jones Index is picking up.
+## Final Website:
