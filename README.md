@@ -37,7 +37,7 @@ A parent/guardian would be interested in:
 - Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
 
 ## The analysis was done using the ETL model.
-![approach.png](app/static/img/approach.png)
+![approach.png](model/images/FortunEd-3-Stage_Approach.png)
 
 ## Ingest
 We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employement, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed median income per occupation that matched the BLS categories.
