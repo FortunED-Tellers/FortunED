@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Boostrap & Our CSS -->
@@ -10,7 +11,7 @@
 
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    
+
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.0/Chart.min.js"></script>
 
@@ -21,37 +22,33 @@
     <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
 
     <title>FortunED - College</title>
-  </head>
+</head>
 
-  <body>
-      <div id="logo-bar" class="navbar navbar-dark bg-dark d-flex justify-content">
+<body>
+    <div id="logo-bar" class="navbar navbar-dark bg-dark d-flex justify-content">
         <p></p>
         <a href="/hsoptions"><button type="button" class="btn btn-warning">High School</button></a>
-        <a href="/"><img
-          src="/static/img/logo_transparent.png"
-          id="logo"
-          alt="fortunED logo"></a>
+        <a href="/"><img src="/static/img/logo_transparent.png" id="logo" alt="fortunED logo"></a>
         <a href="/parents"><button type="button" class="btn btn-warning">Parents</button></a>
         <p></p>
-      </div>
-      <div class="container">
-        <h2 class="text-center"
-  style="
+    </div>
+    <div class="container">
+        <h2 class="text-center" style="
     margin-top: 25px;
     margin-bottom: 20px;
     margin-right: 5%;
     color: rgb(234, 212, 15);
-  "
->
-  Summary
-</h2><hr>
-<h4>
-    Based on your desire to live and work in
-    <span style="color: blue;">{{ coli_data.State }}</span>, the living wage for that state is:
-    <span style="color: blue;">${{ outcome[0]['living_wage'] }}</span>.
-    <br><Br>Below are some metrics for consideration. We have included some career options for comparison with your major:
-    <span style="color: blue;"
-      >{{ major }}</span
+  ">
+            Summary
+        </h2>
+        <hr>
+        <h4>
+            Based on your desire to live and work in
+            <span style="color: blue;">{{ coli_data.State }}</span>, the living wage for that state is:
+            <span style="color: blue;">${{ outcome[0]['living_wage'] }}</span>.
+            <br>
+            <Br>Below are some metrics for consideration. We have included some career options for comparison with your major:
+            <span style="color: blue;">{{ major }}</span
     >.
   </h4>  
 <hr>
@@ -161,7 +158,7 @@
 
             Object.entries(waterfall).forEach(function ([key, value]) {
                 years.push(key)
-                if (key == "Year 0") {
+                if (key == 0) {
                     year0_arr = [value.Remaining, value.Payed]
                     bars.push(year0_arr)
                     backgroundColors.push('#ff6e80')
