@@ -7,30 +7,38 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/c9b3d792e6.js"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Boostrap & Our CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <title>FortunED - know your worth</title>
   </head>
   <body>
-      <div id="logo-bar" class="navbar navbar-dark bg-dark">
-        <img
-          src="../static/img/logo_transparent.png"
-          id="logo"
-          alt="fortunED logo"
-        />
-      </div>
+    <div id="logo-bar" class="navbar navbar-dark bg-dark d-flex justify-content">
+      <p></p>
+      <a href="/hsoptions"><button type="button" class="btn btn-warning">High School Student</button></a>
+      <a href="/"><img
+        src="/static/img/logo_transparent.png"
+        id="logo"
+        alt="fortunED logo"></a>
+      <a href="/csoptions"><button type="button" class="btn btn-warning">College Student</button></a>
+      <p></p>
+    </div>
       <h1 class="user_banner text-center">Welcome Parent/Guardian</h1>
       <div class="container">
+        <h2 class="text-center"
+        style="
+          margin-top: 25px;
+          margin-bottom: 20px;
+          margin-right: 5%;
+          color: rgb(214, 198, 52);
+        "
+      >Here is some data based on your child's demographics:</h1>
       <h4 class="text-center">Employment Data by Demographic</h3>
       <div class="row">
         <div class="d-flex justify-content-around col-12">
@@ -52,17 +60,50 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <h3 class="text-center">For More Information on Your Child's Options:</h3>
-        </div>
-        <div class="col-6 text-center">
-          <a href="/hsoptions"><button type="button" class="btn btn-warning btn-lg">Click for High School Student</button></a>
-        </div>
-        <div class="col-6 text-center">
-          <a href="/csoptions"><button type="button" class="btn btn-warning btn-lg">Click for College Student</button></a>
+          <div class="card">
+            <canvas id="tuition_over_time"></canvas>
+            <div class="card-body">
+              <h5 class="card-title">The above chart tracks the national average for Tuition Rate over time measured across 50 states.</h5>
+              <p class="card-text">The rate of increase for the average Out-of-State cost of tuition continues to outpace the In-State tuition cost increase.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <hr />
+    <footer>© 2020 Team</footer>
+    {% block javascript %}
+    <script>
+        new Chart(document.getElementById("tuition_over_time"), {
+          type: 'bar',
+          data: {
+            labels: ['2007-08', '2008-09', '2009-10', '2010-11', '2011-12', '2012-13', '2013-14', '2014-15', '2015-16', '2016-17', '2017-18', '2018-19', '2019-20', '2020-21', '2021-22'],
+            datasets: [{
+                label: "In-State",
+                type: "line",
+                borderColor: "#8e5ea2",
+                data: [7028, 7488, 8009, 8576, 9218, 9676, 9998, 10264, 10620, 10909, 11256, 11543, 11828, 12361, 12858],
+                fill: false
+              }, {
+                label: "Out-of-State",
+                type: "line",
+                borderColor: "#3e95cd",
+                data: [18694, 19841, 21203, 22332, 23614, 24672, 25520, 26449, 27349, 28351, 29274, 30097, 30673, 32006, 32812],
+                fill: false
+              }
+              
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Average Annual Tuition Rate (thousands): across 51 States'
+            },
+            legend: { display: true }
+          }
+      });
+    </script>
+    {% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -80,9 +121,6 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script> -->
     <script src="{{ url_for('static', filename='js/parents.js') }}"></script>
-    <!-- <script type="text/javascript" src="../static/js/parents.js"></script> -->
   </body>
 </html>

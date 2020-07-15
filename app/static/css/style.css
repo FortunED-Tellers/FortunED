@@ -1,9 +1,9 @@
 #logo-bar {
-  height: 200px;
+  height: 150px;
   background-color: rgb(42, 41, 41);
 }
 #logo {
-  height: 200px;
+  height: 160px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -100,4 +100,11 @@ h1.user_banner{
 
 ol#estimated_cost_swati {
   font-size: 60px;
+}
+
+footer {
+  /* position: relative; */
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }

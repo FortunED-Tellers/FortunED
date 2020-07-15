@@ -2,8 +2,6 @@ import pandas as pd
 from pprint import pprint
 import json
 
-
-
 # -- COST OF LIVING
 
 def Cost_of_Living_By_State():
