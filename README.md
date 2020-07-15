@@ -6,7 +6,7 @@
 <hr>
 
 ## Overview
-As a team, some of use are parents, some of us are teachers, and all of us are continuing education students. We are all passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look on the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
+As a team, some of use are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look on the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
 
 A high school student would be interested in:
 1. The career options for a chosen major and the minimum degree required for each profession.
