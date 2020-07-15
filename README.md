@@ -6,19 +6,24 @@
 <hr>
 
 ## Overview
-As a team, some of use are parents, some of us are teachers, and all of us are continuing education students. We are all passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look on the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
+As a team, some of use are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look on the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
 
 A high school student would be interested in:
-1. Career options for a chosen major
-2. 
+1. The career options for a chosen major and the minimum degree required for each profession.
+2. How their major might stack up financially against other majors.
+3. What might be the most profitable state to work in for their major.
+4. How much tuition will be for what they might have to pay for 4 years of college.
 
-With a potential plateau in COVID-19 cases in NY, but no definite decrease as of yet, we are interested into seeing what the impact has been on the different counties of NY. We look into the demographic and socio-economic breakdown of each county, while keeping in mind how the impact has varied from county to county.
+A college student would be interested in:
+1. The career options for their major along with entry level salary range for each profession.
+2. How long it would take to pay off their student loan.
+3. What the living wage is for the state they are thinking about working in and whether there are better state's to work in for their major.
+4. What the top 5 paying majors are for their chosen major/career category.
 
-*Hypothesis: Harder hit counties are poorer and more racially diverse.*
-
-We also wanted to see what the correlation is between Wall St and Main St. We know that the stock market crashed pretty severely but is picking back up again, which is disconnected from the way every day people are dealing with COVID-19 since cases have yet to decrease.
-
-*Hypothesis: The stimulus has a stabilizing effect on the market, even though cases are still rising.*
+A parent would be interested in:
+1. What the employment likelihood is for their child based on their gender and race in comparison to various levels of educational attainment.
+2. How college tuition prices have changes for In-State and Out-of-State over time.
+3. A way to access the high school or college student page to compare options for their child's future.
 
 ### Instructions
 1. Open app/module folder in terminal or Git Bash.
