@@ -69,3 +69,22 @@ We used the micro-framework `Flask` inside of `Python` to create our website tha
 As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user actvity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metric collected and offered to users.
 
 ## Final Website:
+### Home Page
+![homepage.png](model/images/home.png)
+
+### High School Student Page
+![highschool.png](model/images/hs-home.png)
+![hs1.png](model/images/hs1.png)
+![hs2.png](model/images/hs2.png)
+![hs3.png](model/images/hs3.png)
+
+### College Student Page
+![college.png](model/images/cs-home.png)
+![cs1.png](model/images/cs1.png)
+![cs2.png](model/images/cs2.png)
+![cs3.png](model/images/cs3.png)
+
+### Parent/Guardian Page
+![parents.png](model/images/parents-home.png)
+![parents1.png](model/images/parents1.png)
+![parents2.png](model/images/parents2.png)
