@@ -42,10 +42,12 @@ A parent/guardian would be interested in:
 We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employement, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed median income per occupation that matched the BLS categories.
 
 ## Process
-1. We used `VBA` to do a basic clean
-2. We loaded everything into `Postgres DB` for more extensive cleaning and combining of data sources.
-3. Then in `Jupyter Notebook` we used `Pandas` and the `OS` module to import our CSVs and do a final cleaning of column names, once we finalized the datasets we needed.
-4. And then we performed a final merge of all the columns into one master dataset.
+1. We used `Jupyter Notebook` to clean our datasets to just the data we are using.
+2. We created mapping tables to link college majors to career categories.
+3. We use `Pandas` to join the tables so that we have a link from major category to specific majors, and major category to occupation category to specific occupations.
+4. We use `Sklearn` to create two different machine learning algorithms.
+  a. One is a classification that determines whether a chosen state is a good place to work based on student loan and living wage.
+  b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
 5. Lastly, we used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 
 ## Digest
