@@ -178,12 +178,13 @@ def whaterfall(db, state, majorCategory, debt):
 
     state_wages = db.StateWage
 
-    state_wage_list = []
     state_wage_list = list(state_wages.find())
     result_values = [i[state] for i in state_wage_list if state in i]
     result =result_values[0]
     living_wage_split = result['living wage'].split("$")[1].split(",")
     wage_state =pd.to_numeric(''.join(map(str, living_wage_split)),errors='coerce') 
+
+    wage_state
 
     MClist=[]
     majorCatList=list(result.values())
@@ -199,20 +200,20 @@ def whaterfall(db, state, majorCategory, debt):
     # salary, wage_state & debt
 
     paymentYear={}
-    paymentYear['Year 0']={"Payed":0,
-                    'Remaining':(int(debt)*(-1))}
+    paymentYear[0]={"Payed":0,
+                    'Remaining':debt*(-1)}
 
     # time_to_repay = debt/((salary - wage_state)*0.3)
     # time_to_repay=round(time_to_repay,0)
-    debtCount = (int(debt)*(-1))
+    debtCount = debt*(-1)
     count=1
     while (debtCount<0):
-        year=f'Year {count}'
+        year=count
         pay = (salary-wage_state)*0.3 - (debtCount*(-1)*0.06)
         debtCount=debtCount+pay
         paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
         count+=1
-    paymentYear[year]={'Payed':round(paymentYear[f'Year {count-2}']['Remaining']*(-1),2),"Remaining":0}
+    paymentYear[year]={'Payed':round(paymentYear[(count-2)]['Remaining']*(-1),2),"Remaining":0}
     
     return paymentYear
 
