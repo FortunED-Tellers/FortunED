@@ -1,5 +1,5 @@
 # FortunED
-### The FortunED App provides analytics for prospective students, college students, and parents to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
+### The FortunED App provides analytics for prospective students, college students, and parents/guardians to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
 <hr>
 
 **Team:** Karl Ramsay, Swati Dontamsetti, Firzana Razak, Smiti Swain, Salvador Neves
@@ -20,7 +20,7 @@ A college student would be interested in:
 3. What the living wage is for the state they are thinking about working in and whether there are better state's to work in for their major.
 4. What the top 5 paying majors are for their chosen major/career category.
 
-A parent would be interested in:
+A parent/guardian would be interested in:
 1. What the employment likelihood is for their child based on their gender and race in comparison to various levels of educational attainment.
 2. How college tuition prices have changes for In-State and Out-of-State over time.
 3. A way to access the high school or college student page to compare options for their child's future.
@@ -39,17 +39,17 @@ A parent would be interested in:
 ## The analysis was done using the ETL model.
 ![approach.png](app/static/img/approach.png)
 
-## Extract
+## Ingest
 We downloaded our data from different sources. We use Census data from the <a href="https://www.labor.ny.gov/stats/nys/statewide-population-data.shtm">NY Dept of Labor</a>, the Dow Jones Index from <a href="https://finance.yahoo.com/quote/%5EDJI/history?p=%5EDJI">Yahoo Finance</a>, COVID cases and deaths from <a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/">USA Facts</a>, Free and Reduced-price Lunch data from <a href="https://www.nyskwic.org/get_data/indicator_data.cfm">NY State KWIC</a>, NY County Median Income by Race from the <a href="https://www.census.gov/topics/income-poverty/income/data/tables.html">Census Bureau</a>,and the GeoJSON for NY Counties from <a href="https://github.com/johan/world.geo.json/tree/master/countries/USA/NY">Github</a>.
 
-## Transform
+## Process
 1. We used `VBA` to do a basic clean
 2. We loaded everything into `Postgres DB` for more extensive cleaning and combining of data sources.
 3. Then in `Jupyter Notebook` we used `Pandas` and the `OS` module to import our CSVs and do a final cleaning of column names, once we finalized the datasets we needed.
 4. And then we performed a final merge of all the columns into one master dataset.
 5. Lastly, we used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 
-## Load
+## Digest
 The final data was stored in a `Mongo` database, which was pulled from to obtain our demographic and socio-economic results.
 
 We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. `Leaflet JS` and `Mapbox API` were used in `HTML` to create the map of our counties with the COVID case data used for coloring. Both the `Bootstrap`, and `ChartJS` libraries were used to beautify our website and create dynamic graphs.
