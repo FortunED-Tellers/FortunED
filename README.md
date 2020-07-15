@@ -49,7 +49,9 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 3. We use `Pandas` to join the tables so that we have a link from major category to specific majors, and major category to occupation category to specific occupations.
 4. We use `Sklearn` to create two different machine learning algorithms.
   <br>a. One is a classification that determines whether a chosen state is a good place to work based on student loan and living wage.
+  <br>![classification.png](model/images/SVM_model_CR.PNG)
   <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
+  <br>![linear-regression.png](model/images/Logistic_Regression_CR.PNG)
 5. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 6. We created `Python` functions to pull the specific data we need for specific charts and tables.
   <br>a. We split the work on `Zoom` and used `Slack` to log our discussion.
