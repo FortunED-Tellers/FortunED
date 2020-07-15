@@ -44,26 +44,29 @@ A parent/guardian would be interested in:
 We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employement, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed median income per occupation that matched the BLS categories.
 
 ## Process
-1. We used `Jupyter Notebook` to clean our datasets to just the data we are using.
-2. We created mapping tables to link college majors to career categories.
-3. We use `Pandas` to join the tables so that we have a link from major category to specific majors, and major category to occupation category to specific occupations.
-4. We use `Sklearn` to create two different machine learning algorithms.
+1. A lot of files were `Excel` or `CSV` files. We did use `Beautiful Soup` to scrape the MIT Living Wage Calculator for each state's living wage and the state's median income salary for each occupation category.
+2. We used `Jupyter Notebook` to clean our datasets to just the data we are using.
+3. We created mapping tables to link college majors to career categories.
+4. We use `Pandas` to join the tables so that we have a link from major category to specific majors, and major category to occupation category to specific occupations.
+5. We use `Sklearn` to create two different machine learning algorithms.
   <br>a. One is a classification that determines whether a chosen state is a good place to work based on student loan and living wage.
   <br>![classification.png](model/images/SVM_model_CR.PNG)
   <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
   <br>![linear-regression.png](model/images/Logistic_Regression_CR.PNG)
-5. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
-6. We created `Python` functions to pull the specific data we need for specific charts and tables.
+6. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
+7. We created `Python` functions to pull the specific data we need for specific charts and tables.
   <br>a. We split the work on `Zoom` and used `Slack` to log our discussion.
   <br>![work-split.png](model/images/slack_group_split.png)
   <br>b. We created specific sample `HTML` pages for each group member so we could each make and test our charts/tables without overriding each other's work when pushing to `Github`.
   <br>![sample-html.jpg](model/images/sample_html.jpg)
-7. We then met up over `Zoom` to join all our `ChartJS` scripts and `Python` functions on their corresponding `HTML`, `functions.py`, and `app.py` sections.
+8. We then met up over `Zoom` to join all our `ChartJS` scripts and `Python` functions on their corresponding `HTML`, `functions.py`, and `app.py` sections.
 
 ## Digest
 The final data was stored in a `Mongo` database, which was pulled from to obtain our various datasets for the charts and tables we want to display.
 
-We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. `Leaflet JS` and `Mapbox API` were used in `HTML` to create the map of our counties with the COVID case data used for coloring. Both the `Bootstrap`, and `ChartJS` libraries were used to beautify our website and create dynamic graphs.
+We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. We use the `Bootstrap`, `ChartJS`, and `D3JS` libraries were used to beautify our website and create dynamic graphs.
+
+As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user actvity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metric collected and offered to users.
 
 ![map.png](app/static/img/map.png)
 
