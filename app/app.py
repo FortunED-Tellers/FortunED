@@ -156,14 +156,17 @@ def show_hs_results():
     dict_ = four_year_cost(db, state, io_state, timing)
     state_wage_data = get_state_wage(state, state_wages)
     median_income_majors = get_median_income_by_majors(db, major)
-    print(state_wage_data)
-    print(median_income_majors)
+    # print(state_wage_data)
+    # print(median_income_majors)
 
     tuition_data = find_tution_cost(state, timing, university_data)
     # print(tuition_data)
 
     university_cost_data = prepare_chart_data('university', university_data)
     # print(university_cost_data)
+    
+    state_college_cost_over_time = state_uni_cost_over_time(university_data, state)
+    print(state_college_cost_over_time)
 
     coli_data = coli.find_one({"State": state})
 
@@ -175,12 +178,12 @@ def show_hs_results():
     # print(job_majors_list[0]["Majors"])
     return render_template("hs-search-results.html",  tuition_data=tuition_data, university_cost_data=university_cost_data, pref=pref,
                                                         job_specs=job_specs, top_states=top_states, dict_=dict_, io_state=io_state,
-                                                        major=major, state_wage_data=state_wage_data)
+                                                        major=major, median_income_majors=median_income_majors, state_college_cost_over_time=state_college_cost_over_time)
 
 
-# @app.route("/guardian.html")
-# def guardian():
-#     return render_template("guardian.html")
+@app.route("/team")
+def team():
+    return render_template("team.html")
 
 # # @app.route("/results.html/<state>, <in_out>,<major>,<timeframe>")
 # # def HS_Visualization(major):

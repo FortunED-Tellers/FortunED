@@ -108,3 +108,8 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+#list_top_5_states_by_salary_hs>li{
+  font-size: larger;
+  color: blue;
+}

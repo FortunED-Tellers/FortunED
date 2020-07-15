@@ -46,83 +46,68 @@
   Summary
 </h2>
 <hr>
-<h4>
+  <h4>
   Based on your desire to attend college in
-  <span style="color: blue;">{{ tuition_data.State }}</span>
-  , the cost is projected to be: <br/><br/>
+  <span style="color: blue;">{{ tuition_data.State }}</span>, the cost is projected to be: <br/><br/>
   <span style="color: blue;"
     >${{ tuition_data.InState }}</span
   > for In-State Tuition rate and <span style="color: blue;"
     >${{ tuition_data.OutState }}</span
-  > for Out-Of-State Tuition rate. <br/><br/>
+  > for Out-Of-State Tuition rate.<br><br>
   If you decide to attend <span style="color: blue;"
-  >{{tuition_data.University}}</span>, here are some possible career occupations that match your <span style="color: blue;">{{ major }}</span> major you selected:
-</h4>
-
-<hr /><div id="results">
-      <table class="table" id="all_occ_swati">
-        <thead class="thead-dark">
-          <tr>
-            <th data-field="id">#</th>
-            <th data-field="occ">Occupation</th>
-            <th data-field="low">Low Salary</th>
-            <th data-field="med">Median Salary</th>
-            <th data-field="high">High Salary</th>
+  >{{tuition_data.University}}</span> here are possible career occupations for your major - <span style="color: blue;">{{ major }}</span>:</h4>
+  <table class="table" id="all_occ_swati">
+    <thead class="thead-dark">
+      <tr>
+        <th data-field="id">#</th>
+        <th data-field="occ">Occupation</th>
+        <th data-field="low">Low Salary</th>
+        <th data-field="med">Median Salary</th>
+        <th data-field="high">High Salary</th>
+    </tr>
+    </thead>
+  </table>
+<hr>
+<h4 class="text-center">Here are the 5 Best States to work in based on median income:</h4>
+    <div class="d-flex justify-content-center"><ol class="content" id="list_top_5_states_by_salary_hs">
+    </ol></div><hr>
+  <h4>Here are other majors for your consideration:</h4>
+      <table class="table" id="median_income_by_all_major">
+      <thead class="thead-dark">
+        <tr>
+          <th data-field="id">#</th>
+          <th data-field="maj">Major</th>
+          <th data-field="low">Low Salary</th>
+          <th data-field="med">Median Salary</th>
+          <th data-field="high">High Salary</th>
         </tr>
-        </thead>
-      </table>
-      </div>
-      <hr />
-        <div class="row" style="margin-bottom: 30px; margin-top:30px;">
-          <div class="col-6">
-            <div class="card">
-              <!-- <canvas id="estimated_cost_swati"></canvas> -->
-              <ol class="text-center text-warning bg-dark" id="estimated_cost_swati"></ol>
-              <div class="card-body">
-                <h5 class="card-title">Estimated Cost of Tuition at {{dict_.uni}}</h5>
-                <p class="card-text">The number is the {{io_state}} tuition price for {{year}} multiplied by 4.
-                  The total cost you end up paying may change because tuition prices can go up a little every year.
-                </p>
-              </div>
-            </div>
+      </thead>
+    </table><hr>
+      <div class="col-12">
+        <div class="card">
+          <ol class="text-center text-warning bg-dark" id="estimated_cost_swati"></ol>
+          <div class="card-body">
+            <h5 class="card-title">What you'll pay for 4 years at {{dict_.uni}}</h5>
+            <p class="card-text">The number is based on your choice of {{io_state}} tuition.
+              The total cost you end up paying may change because tuition prices can go up a little every year.
+            </p>
           </div>
-          <div class="col-6">
+        </div>
+      </div><hr>
+          <div class="col-12">
               <div class="card">
                 <canvas id="tuition_change"></canvas>
                 <div class="card-body">
-                  <h5 class="card-title">How tuition has changed over time (LINE GRAPH) (Firzana)</h5>
-                  <p class="card-text">#</p>
+                  <p class="card-text">This graphs shows how tuition costs have gone up for both In-State and Out-of-State prices.
+                    Keep this in mind when deciding when to enroll.
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="card">
-                <canvas id="median_income_by_all_major_firzana"></canvas>
-                <div class="card-body">
-                  <h5 class="card-title">Median Income by major (TABLE with ranges) (Firzana) (ALL MAJORS)</h5>
-                  <p class="card-text">#</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="card">
-                  <!-- <canvas id="list_best_state_wage_salvador"></canvas> -->
-                  <div class="card-body">
-                      <h5 class="card-title">5 Best States to work in by Income:</h5>
-                      <p class="card-text">
-                      <ol class="content" id="list_top_5_states_by_salary_hs">
-                      </ol>
-                      </p>
-                  </div>
-              </div>
-          </div>
-        </div>
     </div>
 
 {% block javascript %}
 <script>
-    console.log("hello")
-
   var occ_table = []
 
   var counter = 0
@@ -134,7 +119,6 @@
   })
 
   var job_specs = {{ job_specs | tojson}}
-
 
   for (key in job_specs) {
     var value = job_specs[key]
@@ -153,13 +137,31 @@
           pagination: true,
           search: true
         })
+
+  var major_income_range = {{median_income_majors|tojson}}
+  var newmajor_income_range = []
+
+  for (oc in major_income_range){
+    newmajor_income_range.push({
+            id: parseInt(oc)+1,
+            maj: major_income_range[oc]['Major'],
+            low: formatter.format(major_income_range[oc]['Low_25_Salary']),
+            med: formatter.format(major_income_range[oc]['Median_Salary']),
+            high: formatter.format(major_income_range[oc]['High_25_Salary'])
+        })
+    }
+
+  $('#median_income_by_all_major').bootstrapTable({
+    data: newmajor_income_range
+  })
+
   
   var top_states = {{ top_states | tojson }}
 
   var resultcontent = '';
     Object.entries(top_states).forEach(function ([key, value]) {
       state=key
-      income = `$${Math.round(value,0)}`
+      income = formatter.format(Math.round(value,0))
       resultcontent += '<li>' + `${state} - ${income}` + '</li>'
     });
 
@@ -169,21 +171,21 @@
 
   $('#estimated_cost_swati').append(formatter.format(dict_.cost))
 
+  var university_over_time = {{ state_college_cost_over_time | tojson }} 
 
-  var state_wage_
   var tuitionChange = document.getElementById("tuition_change");
   Chart.defaults.global.defaultFontFamily = "Lato";
   Chart.defaults.global.defaultFontSize = 16;
   var dataFirst = {
       label: "In State Tuition",
-      data: [4496, 4828, 5133, 5316, 5570, 5898, 5988, 6182, 6804,  7184,  7518, 8087, 8538, 8657, 8551],
+      data: university_over_time["In-State"],
       lineTension: 0,
       fill: false,
       borderColor: 'gray'
     };
   var dataSecond = {
       label: "Out of State Tuition",
-      data: [8551, 13466, 14248, 15036, 15906, 17210, 18348, 18948, 19502, 20784, 21854, 22908, 24257, 26208, 26671],
+      data: university_over_time["Out-of-State"],
       lineTension: 0,
       fill: false,
     borderColor: 'orange'
@@ -193,6 +195,10 @@
     datasets: [dataFirst, dataSecond]
   };
   var chartOptions = {
+    title: {
+      display: true,
+      text: "Tuition Change Over Time for {{ tuition_data.University }}"
+    },
     legend: {
       display: true,
       position: 'top',
