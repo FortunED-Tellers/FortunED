@@ -1,11 +1,17 @@
 # FortunED
-### The FortunED App provides analytics for professionals, students and parents to project the Return on Investment (ROI) when considering student loans and other funding for college education.
+### The FortunED App provides analytics for prospective students, college students, and parents to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
 <hr>
 
 **Team:** Karl Ramsay, Swati Dontamsetti, Firzana Razak, Smiti Swain, Salvador Neves
 <hr>
 
 ## Overview
+As a team, some of use are parents, some of us are teachers, and all of us are continuing education students. We are all passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look on the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
+
+A high school student would be interested in:
+1. Career options for a chosen major
+2. 
+
 With a potential plateau in COVID-19 cases in NY, but no definite decrease as of yet, we are interested into seeing what the impact has been on the different counties of NY. We look into the demographic and socio-economic breakdown of each county, while keeping in mind how the impact has varied from county to county.
 
 *Hypothesis: Harder hit counties are poorer and more racially diverse.*
