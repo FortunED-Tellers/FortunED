@@ -64,7 +64,7 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 ## Digest
 The final data was stored in a `Mongo` database, which was pulled from to obtain our various datasets for the charts and tables we want to display.
 
-We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. Both the `Bootstrap` and `ChartJS` libraries were used to beautify our website and create dynamic graphs.
+We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. We use the `Bootstrap`, `ChartJS`, and `D3JS` libraries were used to beautify our website and create dynamic graphs.
 
 As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user actvity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metric collected and offered to users.
 
