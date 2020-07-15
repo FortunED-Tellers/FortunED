@@ -34,44 +34,6 @@ state_wages = db.StateWage
 def welcome():
     return render_template("index.html")
 
-# # render a login route
-# @app.route("/register", methods=["POST", "GET"])
-# def register():
-#     if request.method == "POST":
-#         username = request.form["username"]
-#         email = request.form["email"]
-#         #password = request.form["password"]
-#         if request.form["radProfile"] == "1":
-#             profile = "High school Student"
-#         elif request.form["radProfile"] == "2":
-#             profile = "College Student"
-#         elif request.form["radProfile"] == "1":
-#             profile = "Parent / Advisor"
-#         else:
-#             profile = "Browser"
-#         if request.form["cbOptIn"] == "on":
-#             option = "opted in"
-#         else:
-#             option = "opted out"
-
-#         message = '<h4> The responses were ' + username + \
-#             ', ' + profile + ', ' + option + '</h4>'
-
-#         return render_template("index.html", message=message)
-
-#     return render_template("register.html")
-# # render a login route
-# @app.route("/login")
-# def login():
-#     return render_template("login.html")
-
-
-@app.route("/results")
-def results():
-    majors_data = majors.find_one()
-    return render_template("results.html", master_major_data=majors_data)
-
-
 @app.route("/csoptions")
 def collect_cs_params():
     return render_template("cs-search-params.html")
@@ -185,12 +147,5 @@ def show_hs_results():
 def team():
     return render_template("team.html")
 
-# # @app.route("/results.html/<state>, <in_out>,<major>,<timeframe>")
-# # def HS_Visualization(major):
-# #     cost_data = db.cost_analysis.find_one({"major": f"{major}", "state"})
-# #     income_data = db.income_analysis.find_one({"major": f"{major}"})
-# #     options_data = db.options_analysis.find_one({"major": f"{major}"})
-# #     outlook_data = db.outlook_analysis.find_one({"major": f"{major}"})
-# #     predict_data = db.outlook_analysis.find_one({"major": f"{major}"})
 if __name__ == "__main__":
     app.run(debug=True)
