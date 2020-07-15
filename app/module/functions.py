@@ -201,19 +201,19 @@ def whaterfall(db, state, majorCategory, debt):
 
     paymentYear={}
     paymentYear[0]={"Payed":0,
-                    'Remaining':int(debt)*(-1)}
+                    'Remaining':int(debt)*(1)}
 
     # time_to_repay = debt/((salary - wage_state)*0.3)
     # time_to_repay=round(time_to_repay,0)
-    debtCount =int(debt)*(-1)
+    debtCount =int(debt)*(1)
     count=1
-    while (debtCount<0):
+    while (debtCount>0):
         year=count
-        pay = (salary-wage_state)*0.3 - (debtCount*(-1)*0.06)
-        debtCount=debtCount+pay
+        pay = (salary-wage_state)*0.3 - (debtCount*(1)*0.06)
+        debtCount=debtCount-pay
         paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
         count+=1
-    paymentYear[year]={'Payed':round(paymentYear[(count-2)]['Remaining']*(-1),2),"Remaining":0}
+    paymentYear[year]={'Payed':round(paymentYear[(count-2)]['Remaining']*(1),2),"Remaining":0}
     
     return paymentYear
 

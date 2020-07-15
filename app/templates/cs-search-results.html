@@ -163,9 +163,9 @@
                     bars.push(year0_arr)
                     backgroundColors.push('#ff6e80')
                 } else {
-                    from = value.Remaining - value.Payed;
+                    from = value.Remaining + value.Payed;
                     to = value.Remaining
-                    year_arr = [from, to]
+                    year_arr = [to,from]
                     bars.push(year_arr)
                     backgroundColors.push('#a1ffb3')
                 }
