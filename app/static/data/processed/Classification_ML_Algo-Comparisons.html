@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Classification_ML_data</title>
+<title>Classification_ML_Algo-Comparisons</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13080,10 +13080,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">pprint</span> <span class="k">as</span> <span class="nn">pp</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">st</span>
 </pre></div>
 
     </div>
@@ -13096,30 +13093,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Read State Living Wage and generate 50 random numbers from livingWage</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;state_wage_data_redo.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span> 
-        <span class="n">state_wage</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
-
-<span class="n">Living_Wage</span> <span class="o">=</span> <span class="p">{}</span>        
-<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">state_wage</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">values</span>  <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="c1">#             majors = value.keys()</span>
-            <span class="n">wage_split</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s2">&quot;living wage&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-            <span class="n">wage_join</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">wage_split</span><span class="p">)),</span><span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>  
-            <span class="n">Living_Wage</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">wage_join</span>
-            
-<span class="n">Living_Wage_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Living_Wage</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="n">Living_Wage_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="s2">&quot;living_wage&quot;</span><span class="p">]</span>
-<span class="n">l_min</span> <span class="o">=</span> <span class="n">Living_Wage_df</span><span class="p">[</span><span class="s2">&quot;living_wage&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">l_max</span> <span class="o">=</span> <span class="n">Living_Wage_df</span><span class="p">[</span><span class="s2">&quot;living_wage&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-
-<span class="n">living_wage_random</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">num</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">l_min</span><span class="p">,</span> <span class="n">l_max</span><span class="p">)</span>
-    <span class="n">living_wage_random</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-    
-<span class="n">living_wage_random</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read Algo input csv</span>
+<span class="n">Algo_input</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Algo_data_input.csv&quot;</span><span class="p">)</span>
+<span class="n">Algo_input</span>
 </pre></div>
 
     </div>
@@ -13133,318 +13109,6 @@ div#notebook {
 <div class="output_area">
 
     <div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[31069,
- 31317,
- 22238,
- 26978,
- 31939,
- 34628,
- 24891,
- 25712,
- 27954,
- 29653,
- 32371,
- 31325,
- 27202,
- 32102,
- 26771,
- 26610,
- 32486,
- 34223,
- 22090,
- 34418,
- 25989,
- 24344,
- 30466,
- 26148,
- 25801,
- 22249,
- 32554,
- 34082,
- 31236,
- 23411,
- 30284,
- 28885,
- 31798,
- 28495,
- 30255,
- 31268,
- 26349,
- 33993,
- 23809,
- 34547,
- 23551,
- 23245,
- 33180,
- 23247,
- 28453,
- 30323,
- 33040,
- 30110,
- 26900,
- 32418]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Read majors and occupation data and generate 50 random numbers from income</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;majors.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span> 
-        <span class="n">majors_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
-
-
-<span class="n">income_data</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">majors_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">Major_Category</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Major_Category&#39;</span><span class="p">]</span>
-        <span class="n">Possible_occupation</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Possible_Occupations&#39;</span><span class="p">]</span>
-       
-        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">Possible_occupation</span><span class="p">:</span>
-            <span class="n">Occupation</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;Occupation&#39;</span><span class="p">]</span>
-            <span class="n">Median_sal_split</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;Median_Occ_Salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-            <span class="n">Median_sal</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Median_sal_split</span><span class="p">))</span>
-            <span class="n">Income</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">Median_sal</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>  
-            <span class="n">income_data</span><span class="p">[</span><span class="n">Occupation</span><span class="p">]</span> <span class="o">=</span> <span class="n">Income</span>
-            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Occ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">income_data</span>
-
-            
-<span class="n">income_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">income_data</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="n">income_data_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Occupation&quot;</span><span class="p">,</span><span class="s2">&quot;Median_income&quot;</span><span class="p">]</span>
-<span class="n">income_data_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-<span class="n">i_min</span> <span class="o">=</span> <span class="n">income_data_df</span><span class="p">[</span><span class="s2">&quot;Median_income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">i_max</span> <span class="o">=</span> <span class="n">income_data_df</span><span class="p">[</span><span class="s2">&quot;Median_income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-
-<span class="n">income_data_random</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">num</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">i_min</span><span class="p">,</span> <span class="n">i_max</span><span class="p">)</span>
-    <span class="n">income_data_random</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-
-<span class="n">income_data_random</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[40072,
- 97098,
- 52020,
- 67321,
- 33782,
- 92843,
- 129671,
- 90210,
- 58939,
- 75145,
- 63333,
- 39081,
- 84508,
- 78429,
- 54086,
- 82244,
- 104194,
- 96114,
- 133618,
- 128765,
- 113246,
- 48235,
- 58789,
- 43569,
- 134905,
- 137114,
- 129539,
- 33259,
- 113791,
- 105194,
- 52327,
- 128181,
- 91977,
- 76729,
- 67564,
- 64068,
- 106545,
- 73430,
- 31759,
- 114569,
- 89119,
- 49496,
- 77141,
- 51510,
- 48268,
- 79085,
- 131966,
- 60994,
- 92480,
- 123687]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Read University Tuition data and generate 50 random numbers from out-of-state Tuition</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;UniversitiesTuition.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span> 
-        <span class="n">univ_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
-
-<span class="n">univ_Tuition</span> <span class="o">=</span> <span class="p">{}</span>       
-<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">univ_data</span><span class="p">:</span>
-    <span class="n">curr_tuition</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s1">&#39;Out_2020_2021&#39;</span><span class="p">])</span>
-    <span class="n">university</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;University&#39;</span><span class="p">]</span>
-    <span class="n">univ_Tuition</span><span class="p">[</span><span class="n">university</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_tuition</span>  
-
-<span class="n">univ_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">univ_Tuition</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="n">univ_data_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Univ&quot;</span><span class="p">,</span><span class="s2">&quot;Curr_Tuition&quot;</span><span class="p">]</span>
-
-
-<span class="n">u_min</span> <span class="o">=</span> <span class="n">univ_data_df</span><span class="p">[</span><span class="s2">&quot;Curr_Tuition&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">u_max</span> <span class="o">=</span> <span class="n">univ_data_df</span><span class="p">[</span><span class="s2">&quot;Curr_Tuition&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">100000</span>
-
-<span class="n">debt_data_random</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">num</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">u_min</span><span class="p">,</span> <span class="n">u_max</span><span class="p">)</span>
-    <span class="n">debt_data_random</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-
-<span class="n">debt_data_random</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[119961,
- 36830,
- 18930,
- 21526,
- 90643,
- 82407,
- 92205,
- 31536,
- 139883,
- 49691,
- 97563,
- 41510,
- 55485,
- 110607,
- 127847,
- 74873,
- 45104,
- 112760,
- 94585,
- 108186,
- 51519,
- 47096,
- 104323,
- 74612,
- 149460,
- 51170,
- 118034,
- 109594,
- 20161,
- 128731,
- 14291,
- 54269,
- 71397,
- 111910,
- 126125,
- 128571,
- 141754,
- 70471,
- 147710,
- 77925,
- 148202,
- 18726,
- 106821,
- 28722,
- 18810,
- 124435,
- 132873,
- 72038,
- 151368,
- 35401]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Algo_data_input</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;living_wage&quot;</span><span class="p">:</span><span class="n">living_wage_random</span><span class="p">,</span>
-                               <span class="s2">&quot;income&quot;</span><span class="p">:</span><span class="n">income_data_random</span><span class="p">,</span>
-                               <span class="s2">&quot;debt&quot;</span><span class="p">:</span><span class="n">debt_data_random</span><span class="p">})</span>
-
-<span class="n">Algo_data_input</span><span class="p">[</span><span class="s2">&quot;time_to_repay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Algo_data_input</span><span class="p">[</span><span class="s2">&quot;debt&quot;</span><span class="p">]</span><span class="o">/</span><span class="p">((</span><span class="n">Algo_data_input</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">Algo_data_input</span><span class="p">[</span><span class="s2">&quot;living_wage&quot;</span><span class="p">])</span><span class="o">*</span><span class="mf">0.3</span><span class="p">)</span>
-
-<span class="n">Algo_data_input</span><span class="p">[</span><span class="s1">&#39;decision&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Yes&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span>  <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;No&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Algo_data_input</span><span class="p">[</span><span class="s1">&#39;time_to_repay&#39;</span><span class="p">]]</span>
-
-<span class="n">Algo_data_input</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13477,402 +13141,402 @@ div#notebook {
   <tbody>
     <tr>
       <th>0</th>
-      <td>31069</td>
-      <td>40072</td>
-      <td>119961</td>
-      <td>44.415195</td>
+      <td>26297</td>
+      <td>40294</td>
+      <td>138610</td>
+      <td>33.009454</td>
       <td>No</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>31317</td>
-      <td>97098</td>
-      <td>36830</td>
-      <td>1.866294</td>
+      <td>32045</td>
+      <td>108063</td>
+      <td>26505</td>
+      <td>1.162225</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>22238</td>
-      <td>52020</td>
-      <td>18930</td>
-      <td>2.118729</td>
+      <td>31906</td>
+      <td>122851</td>
+      <td>32086</td>
+      <td>1.176022</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>26978</td>
-      <td>67321</td>
-      <td>21526</td>
-      <td>1.778582</td>
+      <td>27015</td>
+      <td>105584</td>
+      <td>93505</td>
+      <td>3.967001</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>31939</td>
-      <td>33782</td>
-      <td>90643</td>
-      <td>163.941038</td>
-      <td>No</td>
+      <td>33978</td>
+      <td>130011</td>
+      <td>152594</td>
+      <td>5.296582</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>34628</td>
-      <td>92843</td>
-      <td>82407</td>
-      <td>4.718543</td>
+      <td>22930</td>
+      <td>66470</td>
+      <td>108591</td>
+      <td>8.313505</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>24891</td>
-      <td>129671</td>
-      <td>92205</td>
-      <td>2.933289</td>
-      <td>Yes</td>
+      <td>31798</td>
+      <td>32804</td>
+      <td>108947</td>
+      <td>360.990722</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>25712</td>
-      <td>90210</td>
-      <td>31536</td>
-      <td>1.629818</td>
+      <td>24324</td>
+      <td>127375</td>
+      <td>75291</td>
+      <td>2.435396</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>27954</td>
-      <td>58939</td>
-      <td>139883</td>
-      <td>15.048464</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>29653</td>
-      <td>75145</td>
-      <td>49691</td>
-      <td>3.641006</td>
+      <td>34131</td>
+      <td>129529</td>
+      <td>95407</td>
+      <td>3.333648</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>32371</td>
-      <td>63333</td>
-      <td>97563</td>
-      <td>10.503520</td>
+      <th>9</th>
+      <td>30265</td>
+      <td>27166</td>
+      <td>105967</td>
+      <td>-113.979778</td>
       <td>No</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>28771</td>
+      <td>101262</td>
+      <td>122283</td>
+      <td>5.622905</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>31325</td>
-      <td>39081</td>
-      <td>41510</td>
-      <td>17.839952</td>
-      <td>No</td>
+      <td>31662</td>
+      <td>131020</td>
+      <td>128273</td>
+      <td>4.303394</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>27202</td>
-      <td>84508</td>
-      <td>55485</td>
-      <td>3.227411</td>
+      <td>22110</td>
+      <td>124753</td>
+      <td>63588</td>
+      <td>2.065021</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>32102</td>
-      <td>78429</td>
-      <td>110607</td>
-      <td>7.958426</td>
-      <td>Yes</td>
+      <td>28083</td>
+      <td>41476</td>
+      <td>111526</td>
+      <td>27.757286</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>26771</td>
-      <td>54086</td>
-      <td>127847</td>
-      <td>15.601562</td>
+      <td>32869</td>
+      <td>28485</td>
+      <td>25579</td>
+      <td>-19.448753</td>
       <td>No</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>26610</td>
-      <td>82244</td>
-      <td>74873</td>
-      <td>4.486046</td>
+      <td>31447</td>
+      <td>110308</td>
+      <td>21882</td>
+      <td>0.924919</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>32486</td>
-      <td>104194</td>
-      <td>45104</td>
-      <td>2.096651</td>
+      <td>27132</td>
+      <td>124549</td>
+      <td>41798</td>
+      <td>1.430209</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>34223</td>
-      <td>96114</td>
-      <td>112760</td>
-      <td>6.073042</td>
-      <td>Yes</td>
+      <td>30063</td>
+      <td>58629</td>
+      <td>128179</td>
+      <td>14.957059</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>22090</td>
-      <td>133618</td>
-      <td>94585</td>
-      <td>2.826943</td>
+      <td>34526</td>
+      <td>73969</td>
+      <td>47548</td>
+      <td>4.018288</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>34418</td>
-      <td>128765</td>
-      <td>108186</td>
-      <td>3.822273</td>
+      <td>30409</td>
+      <td>58402</td>
+      <td>75085</td>
+      <td>8.940926</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>25989</td>
-      <td>113246</td>
-      <td>51519</td>
-      <td>1.968094</td>
+      <td>25236</td>
+      <td>93251</td>
+      <td>26876</td>
+      <td>1.317160</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>24344</td>
-      <td>48235</td>
-      <td>47096</td>
-      <td>6.570954</td>
+      <td>24228</td>
+      <td>134611</td>
+      <td>139096</td>
+      <td>4.200405</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>30466</td>
-      <td>58789</td>
-      <td>104323</td>
-      <td>12.277772</td>
+      <td>30008</td>
+      <td>51309</td>
+      <td>95802</td>
+      <td>14.991784</td>
       <td>No</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>26148</td>
-      <td>43569</td>
-      <td>74612</td>
-      <td>14.276257</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>25801</td>
-      <td>134905</td>
-      <td>149460</td>
-      <td>4.566285</td>
+      <td>25391</td>
+      <td>124680</td>
+      <td>143737</td>
+      <td>4.825543</td>
       <td>Yes</td>
     </tr>
     <tr>
+      <th>24</th>
+      <td>28928</td>
+      <td>42707</td>
+      <td>117628</td>
+      <td>28.455863</td>
+      <td>No</td>
+    </tr>
+    <tr>
       <th>25</th>
-      <td>22249</td>
-      <td>137114</td>
-      <td>51170</td>
-      <td>1.484932</td>
+      <td>23834</td>
+      <td>98891</td>
+      <td>118950</td>
+      <td>5.282652</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>32554</td>
-      <td>129539</td>
-      <td>118034</td>
-      <td>4.056779</td>
+      <td>27781</td>
+      <td>136243</td>
+      <td>131380</td>
+      <td>4.037666</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>34082</td>
-      <td>33259</td>
-      <td>109594</td>
-      <td>-443.880113</td>
-      <td>No</td>
+      <td>27619</td>
+      <td>49393</td>
+      <td>29806</td>
+      <td>4.562934</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>31236</td>
-      <td>113791</td>
-      <td>20161</td>
-      <td>0.814043</td>
+      <td>26100</td>
+      <td>89715</td>
+      <td>102230</td>
+      <td>5.356703</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>23411</td>
-      <td>105194</td>
-      <td>128731</td>
-      <td>5.246852</td>
+      <td>26556</td>
+      <td>107191</td>
+      <td>116685</td>
+      <td>4.823588</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>30284</td>
-      <td>52327</td>
-      <td>14291</td>
-      <td>2.161079</td>
+      <td>34182</td>
+      <td>118946</td>
+      <td>66920</td>
+      <td>2.631620</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>28885</td>
-      <td>128181</td>
-      <td>54269</td>
-      <td>1.821792</td>
+      <td>30781</td>
+      <td>125798</td>
+      <td>36141</td>
+      <td>1.267878</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>31798</td>
-      <td>91977</td>
-      <td>71397</td>
-      <td>3.954702</td>
+      <td>29169</td>
+      <td>89772</td>
+      <td>144656</td>
+      <td>7.956482</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>28495</td>
-      <td>76729</td>
-      <td>111910</td>
-      <td>7.733825</td>
+      <td>33035</td>
+      <td>88015</td>
+      <td>62439</td>
+      <td>3.785558</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>30255</td>
-      <td>67564</td>
-      <td>126125</td>
-      <td>11.268505</td>
-      <td>No</td>
+      <td>30149</td>
+      <td>67943</td>
+      <td>85385</td>
+      <td>7.530737</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>31268</td>
-      <td>64068</td>
-      <td>128571</td>
-      <td>13.066159</td>
-      <td>No</td>
+      <td>25417</td>
+      <td>59082</td>
+      <td>85895</td>
+      <td>8.504876</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>26349</td>
-      <td>106545</td>
-      <td>141754</td>
-      <td>5.891981</td>
+      <td>23473</td>
+      <td>73092</td>
+      <td>97071</td>
+      <td>6.521091</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>33993</td>
-      <td>73430</td>
-      <td>70471</td>
-      <td>5.956420</td>
+      <td>34890</td>
+      <td>102890</td>
+      <td>47993</td>
+      <td>2.352598</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>23809</td>
-      <td>31759</td>
-      <td>147710</td>
-      <td>61.932914</td>
-      <td>No</td>
+      <td>29799</td>
+      <td>60356</td>
+      <td>50613</td>
+      <td>5.521157</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>34547</td>
-      <td>114569</td>
-      <td>77925</td>
-      <td>3.245982</td>
+      <td>33831</td>
+      <td>128282</td>
+      <td>84941</td>
+      <td>2.997710</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>23551</td>
-      <td>89119</td>
-      <td>148202</td>
-      <td>7.534265</td>
-      <td>Yes</td>
+      <td>25978</td>
+      <td>40677</td>
+      <td>53950</td>
+      <td>12.234392</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>23245</td>
-      <td>49496</td>
-      <td>18726</td>
-      <td>2.377814</td>
+      <td>28170</td>
+      <td>114276</td>
+      <td>29105</td>
+      <td>1.126712</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>33180</td>
-      <td>77141</td>
-      <td>106821</td>
-      <td>8.099679</td>
+      <td>27600</td>
+      <td>100027</td>
+      <td>33657</td>
+      <td>1.549008</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>23247</td>
-      <td>51510</td>
-      <td>28722</td>
-      <td>3.387468</td>
-      <td>Yes</td>
+      <td>32536</td>
+      <td>53183</td>
+      <td>113238</td>
+      <td>18.281591</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>28453</td>
-      <td>48268</td>
-      <td>18810</td>
-      <td>3.164269</td>
+      <td>25848</td>
+      <td>60414</td>
+      <td>69412</td>
+      <td>6.693668</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>30323</td>
-      <td>79085</td>
-      <td>124435</td>
-      <td>8.506282</td>
+      <td>27311</td>
+      <td>113932</td>
+      <td>70836</td>
+      <td>2.725898</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>46</th>
-      <td>33040</td>
-      <td>131966</td>
-      <td>132873</td>
-      <td>4.477185</td>
+      <td>25064</td>
+      <td>118164</td>
+      <td>43162</td>
+      <td>1.545363</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>30110</td>
-      <td>60994</td>
-      <td>72038</td>
-      <td>7.775115</td>
+      <td>22581</td>
+      <td>73165</td>
+      <td>115676</td>
+      <td>7.622700</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>26900</td>
-      <td>92480</td>
-      <td>151368</td>
-      <td>7.693809</td>
+      <td>32333</td>
+      <td>96071</td>
+      <td>112011</td>
+      <td>5.857887</td>
       <td>Yes</td>
     </tr>
     <tr>
       <th>49</th>
-      <td>32418</td>
-      <td>123687</td>
-      <td>35401</td>
-      <td>1.292918</td>
+      <td>29520</td>
+      <td>124569</td>
+      <td>101461</td>
+      <td>3.558200</td>
       <td>Yes</td>
     </tr>
   </tbody>
@@ -13888,13 +13552,313 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Algo_data_input</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Algo_data_input.csv&quot;</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">Algo_input</span><span class="p">[</span><span class="s2">&quot;decision&quot;</span><span class="p">]</span>
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">]</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Algo_input</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;decision&quot;</span><span class="p">,</span><span class="s2">&quot;time_to_repay&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>living_wage</th>
+      <th>income</th>
+      <th>debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>26297</td>
+      <td>40294</td>
+      <td>138610</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32045</td>
+      <td>108063</td>
+      <td>26505</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>31906</td>
+      <td>122851</td>
+      <td>32086</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27015</td>
+      <td>105584</td>
+      <td>93505</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>33978</td>
+      <td>130011</td>
+      <td>152594</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Support vector machine linear classifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> 
+<span class="n">model_SVM</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">model_SVM</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Model Accuracy</span>
+<span class="c1"># print(&#39;Test Acc: %.3f&#39; % model.score(X_test, y_test))</span>
+
+<span class="c1"># Calculate classification report</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="n">predictions_SVM</span> <span class="o">=</span> <span class="n">model_SVM</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVM Model Classification Report&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions_SVM</span><span class="p">,</span>
+                            <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>SVM Model Classification Report
+------------------------------------------------------
+              precision    recall  f1-score   support
+
+         Yes       1.00      1.00      1.00         2
+          No       1.00      1.00      1.00        11
+
+    accuracy                           1.00        13
+   macro avg       1.00      1.00      1.00        13
+weighted avg       1.00      1.00      1.00        13
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+              <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]}</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model_SVM</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">predictions_grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVM Model Classification Report with GridSearch&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions_grid</span><span class="p">,</span>
+                            <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV] C=1, gamma=0.0001 ...............................................
+[CV] ................... C=1, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.0001 ...............................................
+[CV] ................... C=1, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.0001 ...............................................
+[CV] ................... C=1, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.0001 ...............................................
+[CV] ................... C=1, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.0001 ...............................................
+[CV] ................... C=1, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.001 ................................................
+[CV] .................... C=1, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.001 ................................................
+[CV] .................... C=1, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.001 ................................................
+[CV] .................... C=1, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.001 ................................................
+[CV] .................... C=1, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=1, gamma=0.001 ................................................
+[CV] .................... C=1, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.0001 ...............................................
+[CV] ................... C=5, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.0001 ...............................................
+[CV] ................... C=5, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.0001 ...............................................
+[CV] ................... C=5, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.0001 ...............................................
+[CV] ................... C=5, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.0001 ...............................................
+[CV] ................... C=5, gamma=0.0001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.001 ................................................
+[CV] .................... C=5, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.001 ................................................
+[CV] .................... C=5, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.001 ................................................
+[CV] .................... C=5, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.001 ................................................
+[CV] .................... C=5, gamma=0.001, score=1.000, total=   0.0s
+[CV] C=5, gamma=0.001 ................................................
+[CV] .................... C=5, gamma=0.001, score=1.000, total=   0.0s
+SVM Model Classification Report with GridSearch
+              precision    recall  f1-score   support
+
+         Yes       1.00      1.00      1.00         2
+          No       1.00      1.00      1.00        11
+
+    accuracy                           1.00        13
+   macro avg       1.00      1.00      1.00        13
+weighted avg       1.00      1.00      1.00        13
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done  20 out of  20 | elapsed:    0.0s finished
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">model_LR</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">model_LR</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">predictions_LR</span> <span class="o">=</span> <span class="n">model_LR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logistic Regression Model Classification Report&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions_LR</span><span class="p">,</span>
+                            <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Logistic Regression Model Classification Report
+------------------------------------------------------
+              precision    recall  f1-score   support
+
+         Yes       1.00      1.00      1.00         2
+          No       1.00      1.00      1.00        11
+
+    accuracy                           1.00        13
+   macro avg       1.00      1.00      1.00        13
+weighted avg       1.00      1.00      1.00        13
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
