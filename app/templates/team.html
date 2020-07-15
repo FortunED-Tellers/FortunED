@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Boostrap & Our CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <title>FortunED - know your worth</title>
+  </head>
+  <body>
+    <div id="logo-bar" class="navbar navbar-dark bg-dark d-flex justify-content-center">
+      <a href="/"><img
+        src="/static/img/logo_transparent.png"
+        id="logo"
+        alt="fortunED logo"></a>
+    </div>
+      <h1 class="user_banner text-center">Meet the FortunED Team</h1>
+      <div class="container">
+        <div class="row">
+          <div class="card-deck">
+            <div class="card col-4">
+                <img src="/static/img/kramsay.jpg" class="card-img-top" alt="..."/>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="https://informidas.github.io/">Karl Ramsay</a></h5>
+                  <p class="card-text">Data Engineer (Back-End)</p>
+                  <p class="card-text">
+                    <small class="text-muted">Toolkit: flask, jupyter notebook, mongo db</small>
+                  </p>
+                </div>
+            </div>
+            <div class="card col-4">
+              <img
+                src="/static/img/sdontemsetti.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title"><a href="https://swati-dontamsetti.github.io/">Swati Dontamsetti</a></h5>
+                <p class="card-text">Data Engineer (Front-End)</p>
+                <p class="card-text">
+                  <small class="text-muted">Toolkit: html-css-javascript, leaflet, d3</small>
+                </p>
+              </div>
+            </div>
+            <div class="card col-4">
+              <img src="/static/img/arazak.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title"><a href="https://github.com/frazak30/">Firzana Razak</a></h5>
+                <p class="card-text">Data Engineer (Front-End)</p>
+                <p class="card-text">
+                  <small class="text-muted">Toolkit: html-css-javascript, leaflet, d3</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="padding: 10px 0 10px 0;"></p>
+        <div class="row">
+          <div class="card-deck">
+            <div class="card col-4">
+              <img src="/static/img/smiti.jpg" class="card-img-top" alt="..." width="300" height="300"/>
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Amber Martin</a></h5>
+                <p class="card-text">Data Engineer (Back-End)</p>
+                <p class="card-text">
+                  <small class="text-muted">Toolkit: flask, jupyter notebook, mongo db</small>
+                </p>
+              </div>
+            </div>
+            <div class="card col-4">
+              <img src="/static/img/salvador.jpg" class="card-img-top" alt="..." width="300" height="300"/>
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Ozzie Moreno</a></h5>
+                <p class="card-text">Data Engineer (Back-End)</p>
+                <p class="card-text">
+                  <small class="text-muted">Toolkit: flask, jupyter notebook, mongo db</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="padding: 10px 0 10px 0;"></p>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='js/parents.js') }}"></script>
+  </body>
+</html>

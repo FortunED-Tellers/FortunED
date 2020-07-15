@@ -178,13 +178,12 @@ def whaterfall(db, state, majorCategory, debt):
 
     state_wages = db.StateWage
 
+    state_wage_list = []
     state_wage_list = list(state_wages.find())
     result_values = [i[state] for i in state_wage_list if state in i]
     result =result_values[0]
     living_wage_split = result['living wage'].split("$")[1].split(",")
     wage_state =pd.to_numeric(''.join(map(str, living_wage_split)),errors='coerce') 
-
-    wage_state
 
     MClist=[]
     majorCatList=list(result.values())
@@ -200,20 +199,20 @@ def whaterfall(db, state, majorCategory, debt):
     # salary, wage_state & debt
 
     paymentYear={}
-    paymentYear[0]={"Payed":0,
+    paymentYear['Year 0']={"Payed":0,
                     'Remaining':int(debt)*(1)}
 
     # time_to_repay = debt/((salary - wage_state)*0.3)
     # time_to_repay=round(time_to_repay,0)
-    debtCount =int(debt)*(1)
+    debtCount =int(debt)
     count=1
     while (debtCount>0):
-        year=count
-        pay = (salary-wage_state)*0.3 - (debtCount*(1)*0.06)
+        year=f'Year {count}'
+        pay = (salary-wage_state)*0.3 - (debtCount*0.06)
         debtCount=debtCount-pay
         paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
         count+=1
-    paymentYear[year]={'Payed':round(paymentYear[(count-2)]['Remaining']*(1),2),"Remaining":0}
+    paymentYear[year]={'Payed':round(paymentYear[f'Year {count-2}']['Remaining'],2),"Remaining":0}
     
     return paymentYear
 
@@ -377,14 +376,6 @@ def prepare_chart_data(subject, university_data):
                            'out_state_labels': out_state_labels, 'out_state_values': out_state_values})
     return chart_data
 
-def get_state_wage(state, state_wages):
-    state_wage_list = []
-    state_wage_list = list(state_wages.find())
-    result_values = [i[state] for i in state_wage_list if state in i]
-    result =result_values[0]
-    
-    return result
-
 def get_median_income_by_majors(db, Majors):
     majors_income = []
     majors_list = []
@@ -396,3 +387,49 @@ def get_median_income_by_majors(db, Majors):
         majors_income.append(majors_list[index]['Majors'][0])
         
     return majors_income
+
+def state_uni_cost_over_time(university_data, state):
+    instatevalues = []
+
+    outstatevalues = []
+
+    for i in university_data:
+        if ([i][0]["STATE_NAME"] == state):
+            print(i)
+            instatevalues.append(i["2007-08"])
+            instatevalues.append(i["2008-09"])
+            instatevalues.append(i["2009-10"])
+            instatevalues.append(i["2010-11"])
+            instatevalues.append(i["2011-12"])
+            instatevalues.append(i["2012-13"])
+            instatevalues.append(i["2013-14"])
+            instatevalues.append(i["2014-15"])
+            instatevalues.append(i["2015-16"])
+            instatevalues.append(i["2016-17"])
+            instatevalues.append(i["2017-18"])
+            instatevalues.append(i["2018-19"])
+            instatevalues.append(i["2019-20"])
+            instatevalues.append(i["2020-21"])
+            instatevalues.append(i["2021-22"])
+            outstatevalues.append(i["Out_2007_08"])
+            outstatevalues.append(i["Out_2008_09"])
+            outstatevalues.append(i["Out_2009_10"])
+            outstatevalues.append(i["Out_2010_11"])
+            outstatevalues.append(i["Out_2011_12"])
+            outstatevalues.append(i["Out_2012_13"])
+            outstatevalues.append(i["Out_2013_14"])
+            outstatevalues.append(i["Out_2014_2015"])
+            outstatevalues.append(i["Out_2015_2016"])
+            outstatevalues.append(i["Out_2016_2017"])
+            outstatevalues.append(i["Out_2017_2018"])
+            outstatevalues.append(i["Out_2018_2019"])
+            outstatevalues.append(i["Out_2019_2020"])
+            outstatevalues.append(i["Out_2020_2021"])
+            outstatevalues.append(i["Out_2021_2022"])
+    
+    state_cost_over_time = {}
+
+    state_cost_over_time['In-State'] = instatevalues
+    state_cost_over_time['Out-of-State'] = outstatevalues
+
+    return state_cost_over_time
