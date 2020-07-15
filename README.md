@@ -50,12 +50,15 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 4. We use `Sklearn` to create two different machine learning algorithms.
   <br>a. One is a classification that determines whether a chosen state is a good place to work based on student loan and living wage.
   <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
-5. Lastly, we used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
+5. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
+6. We created `Python` functions to pull the specific data we need for specific charts and tables.
+  <br>a. We split the work on `Slack`.
+  <br>![work-split.png](model/images/slack_group_split.png)
+  <br>b. We created specific sample `HTML` pages for each group member so we could each make and test our charts/tables without overriding each other's work when pushing to `Github`.
+  <br>![sample-html.png](model/images/sample_html.png)
 
 ## Digest
 The final data was stored in a `Mongo` database, which was pulled from to obtain our various datasets for the charts and tables we want to display.
-
-We split the work on `Slack`.
 
 We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. `Leaflet JS` and `Mapbox API` were used in `HTML` to create the map of our counties with the COVID case data used for coloring. Both the `Bootstrap`, and `ChartJS` libraries were used to beautify our website and create dynamic graphs.
 
