@@ -72,7 +72,7 @@
 <h4 class="text-center">Here are the 5 Best States to work in based on median income:</h4>
     <div class="d-flex justify-content-center"><ol class="content" id="list_top_5_states_by_salary_hs">
     </ol></div><hr>
-  <h4>Here are other majors for your consideration:</h4>
+  <h4>Here are specfic majors in the category {{major}}:</h4>
       <table class="table" id="median_income_by_all_major">
       <thead class="thead-dark">
         <tr>
@@ -81,6 +81,7 @@
           <th data-field="low">Low Salary</th>
           <th data-field="med">Median Salary</th>
           <th data-field="high">High Salary</th>
+          <th data-field="unemp">Unemployment</th>
         </tr>
       </thead>
     </table><hr>
@@ -149,12 +150,15 @@
             maj: major_income_range[oc]['Major'],
             low: formatter.format(major_income_range[oc]['Low_25_Salary']),
             med: formatter.format(major_income_range[oc]['Median_Salary']),
-            high: formatter.format(major_income_range[oc]['High_25_Salary'])
+            high: formatter.format(major_income_range[oc]['High_25_Salary']),
+            unemp: `${parseFloat(((major_income_range[oc]['Unemployment_Rate'])*100).toFixed(1))}%`
         })
     }
 
   $('#median_income_by_all_major').bootstrapTable({
-    data: newmajor_income_range
+    data: newmajor_income_range,
+    pagination: true,
+    search: true
   })
 
   

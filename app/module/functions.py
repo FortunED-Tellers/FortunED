@@ -366,17 +366,18 @@ def prepare_chart_data(subject, university_data):
                            'out_state_labels': out_state_labels, 'out_state_values': out_state_values})
     return chart_data
 
-def get_median_income_by_majors(db, Majors):
-    majors_income = []
-    majors_list = []
-    majors = db.Majors.find()
-    i = 0
-    for record in majors:
-        majors_list.append(record)
-    for index in range(len(majors_list)-1):
-        majors_income.append(majors_list[index]['Majors'][0])
+def get_median_income_by_majors(db, major):
+    cursor = db.Majors.find({})
+
+    alt_majors = []
+
+    for document in cursor: 
+    #     print(document)
+        if document['Major_Category'] == major:
+            for i in document['Majors']:
+                alt_majors.append(i)
         
-    return majors_income
+    return alt_majors
 
 def state_uni_cost_over_time(university_data, state):
     instatevalues = []

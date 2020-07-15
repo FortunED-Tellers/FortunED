@@ -119,7 +119,7 @@ def show_hs_results():
     state_wage_data = get_state_wage(state, state_wages)
     median_income_majors = get_median_income_by_majors(db, major)
     # print(state_wage_data)
-    # print(median_income_majors)
+    print(median_income_majors)
 
     tuition_data = find_tution_cost(state, timing, university_data)
     # print(tuition_data)
@@ -128,7 +128,7 @@ def show_hs_results():
     # print(university_cost_data)
     
     state_college_cost_over_time = state_uni_cost_over_time(university_data, state)
-    print(state_college_cost_over_time)
+    # print(state_college_cost_over_time)
 
     coli_data = coli.find_one({"State": state})
 
