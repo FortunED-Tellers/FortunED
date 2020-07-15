@@ -1,5 +1,5 @@
 # FortunED
-### The FortunED App provides analytics for prospective students, college students, and parents/guardians to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
+### The FortunED App provides analytics for high school students, college students, and parents/guardians to project the Return on Investment (ROI) when considering majors, careers, and student loans for a college education.
 <hr>
 
 **Team:** Karl Ramsay, Swati Dontamsetti, Firzana Razak, Smiti Swain, Salvador Neves
