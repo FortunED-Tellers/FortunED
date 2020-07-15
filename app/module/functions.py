@@ -200,7 +200,7 @@ def whaterfall(db, state, majorCategory, debt):
 
     paymentYear={}
     paymentYear[0]={"Payed":0,
-                    'Remaining':int(debt)*(1)}
+                    'Remaining':int(debt)}
 
     # time_to_repay = debt/((salary - wage_state)*0.3)
     # time_to_repay=round(time_to_repay,0)
@@ -208,7 +208,7 @@ def whaterfall(db, state, majorCategory, debt):
     count=1
     while (debtCount>0):
         year= count
-        pay = (salary-wage_state)*0.3 - (debtCount*0.06)
+        pay = (salary-wage_state)*0.3
         debtCount=debtCount-pay
         paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
         count+=1
@@ -239,8 +239,7 @@ def get_top_5_majors_list(db, Major_Category):
 
 def get_top_5_states_for_loan_repay(db, Major_Category,Debt):
     import pandas as pd
-    from statistics import mean 
-
+    
     Income_dict = {}
 
     state_wages = db.StateWage
@@ -261,7 +260,7 @@ def get_top_5_states_for_loan_repay(db, Major_Category,Debt):
                         salaryUnformated=MC['Average_Annual_Salary'].split("$")[1].split(",")
                         salary=pd.to_numeric(''.join(map(str,salaryUnformated)),errors='coerce')
                         salary_list.append(salary)
-                annual_salary = mean(salary_list)
+                annual_salary = sum(salary_list)/len(salary_list)
                 Income_dict[key] = {"state":State,
                                "Major_category":Major_Category,
                                "Living_wage":living_wage,
@@ -283,8 +282,8 @@ def get_top_5_states_for_loan_repay(db, Major_Category,Debt):
 
 def get_pay_off_period_variation(db, State,Major_Category,Debt):
     import pandas as pd
-    from statistics import mean
-
+    import math
+    
     state_wages = db.StateWage
 
     state_wage_list = list(state_wages.find())
@@ -300,21 +299,12 @@ def get_pay_off_period_variation(db, State,Major_Category,Debt):
             salaryUnformated=MC['Average_Annual_Salary'].split("$")[1].split(",")
             salary=pd.to_numeric(''.join(map(str,salaryUnformated)),errors='coerce')
             salary_list.append(salary)
-    annual_salary = mean(salary_list)
+    annual_salary = sum(salary_list)/len(salary_list)
     Percentages = [20, 30, 50]
     time_to_repay = []
     for percent in Percentages:
-        debtCount = (int(Debt)*(-1))
-        count=1
-        paymentYear = {}
-        while (debtCount<0):
-                year=f'Year {count}'
-                pay = (annual_salary-living_wage)*percent/100 - (debtCount*(-1)*0.06)
-                debtCount=debtCount+pay
-                paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
-                count+=1
-        paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
-        time_to_repay.append(len(paymentYear))
+        time = math.ceil(int(Debt)/((annual_salary-living_wage)*percent/100))
+        time_to_repay.append(time)
     pay_off_dict = {"state":State,
                    "living_wage":living_wage,
                    "major_category":Major_Category,

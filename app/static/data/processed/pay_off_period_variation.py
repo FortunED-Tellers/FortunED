@@ -38,18 +38,8 @@ def get_pay_off_period_variation(State,Major_Category,Debt):
     Percentages = [20, 30,50]
     time_to_repay = []
     for percent in Percentages:
-        debtCount = Debt*(-1)
-        count=1
-        paymentYear = {}
-        while (debtCount<0):
-                year=f'Year {count}'
-                pay = (annual_salary-living_wage)*percent/100 - (debtCount*(-1)*0.06)
-                debtCount=debtCount+pay
-                paymentYear[year]={'Payed':round(pay,2),"Remaining":round(debtCount,2)}
-                count+=1
-                
-        paymentYear[year]={'Payed':round(Debt*(-1),2),"Remaining":0}
-        time_to_repay.append(len(paymentYear))
+        time = int(round(int(Debt)/((annual_salary-living_wage)*percent/100)))
+        time_to_repay.append(time)
     pay_off_dict = {"state":State,
                    "living_wage":living_wage,
                    "major_category":Major_Category,
@@ -60,4 +50,4 @@ def get_pay_off_period_variation(State,Major_Category,Debt):
 
     return pay_off_dict
 
-print(get_pay_off_period_variation("Alaska","Agriculture & Natural Resources",10000))
+# print(get_pay_off_period_variation("Alaska","Agriculture & Natural Resources",10000))
