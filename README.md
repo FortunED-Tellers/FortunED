@@ -10,9 +10,9 @@ As a team, some of use are parents, some of us are teachers, and all of us are c
 
 A high school student would be interested in:
 1. The career options for a chosen major and the minimum degree required for each profession.
-2. How their major might stack up financially against other majors.
+2. Specific majors under their major category along with the salary range over time and the unemployment rate.
 3. What might be the most profitable state to work in for their major.
-4. How much tuition will be for what they might have to pay for 4 years of college.
+4. How much tuition they might have to pay for 4 years of college.
 
 A college student would be interested in:
 1. The career options for their major along with entry level salary range for each profession.
