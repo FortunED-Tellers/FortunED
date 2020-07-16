@@ -80,17 +80,6 @@ def get_state_wage(state, state_wages):
     return result
 
 def get_job_specs(db, major):
-    import json
-
-    m_j = db["majors_to_occ"]
-
-    with open("static/data/processed/majors_to_jobs.json") as json_file:
-        data_json = json.load(json_file)
-        
-    #Insert Data
-    m_j.remove()
-    m_j.insert(data_json)
-
     cursor = db.majors_to_occ.find({})
 
     jobs = []

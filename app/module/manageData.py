@@ -72,6 +72,15 @@ def stateWage():
 
 stateWage()
 
+m_j = db["majors_to_occ"]
+
+with open("../static/data/processed/majors_to_jobs.json") as json_file:
+    data_json = json.load(json_file)
+        
+#Insert Data
+m_j.remove()
+m_j.insert(data_json)
+
 
 tuitionUniversity = db['Universities']
 tuitionUniversity.delete_many({})

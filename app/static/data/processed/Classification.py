@@ -53,9 +53,9 @@ def Classify(State,Major_Category,Debt):
         high_25_pct_income =''.join(map(str, high_25_income_split))
         # pd.to_numeric(''.join(map(str, wage_split)),errors='coerce') 
         Income_dict[Occ] ={"Occ":Occ,
-                          "median_income":int(pd.to_numeric(income,errors='coerce')),
-                          "low_25_pct_income":int(low_25_pct_income),
-                          "high_25_pct_income":int(high_25_pct_income),
+                          "median_income":pd.to_numeric(income,errors='coerce'),
+                          "low_25_pct_income":pd.to_numeric(low_25_pct_income,errors='coerce'),
+                          "high_25_pct_income":pd.to_numeric(high_25_pct_income,errors='coerce'),
                           "recommended_education":recommended_ed}
 
     state_wages = db.StateWage
@@ -65,11 +65,12 @@ def Classify(State,Major_Category,Debt):
     result_values = [i[State] for i in state_wage_list if State in i]
     result =result_values[0]
     living_wage_split = result['living wage'].split("$")[1].split(",")
-    wage_join =pd.to_numeric(''.join(map(str, living_wage_split)),errors='coerce')  
+    wage_join =pd.to_numeric(''.join(map(str, living_wage_split)))  
 
 
 
     output_df = pd.DataFrame(Income_dict.values())
+    output_df = output_df.dropna()
     output_df.columns = ["Occupation","Median_Income","Low_25_pct_income","High_25_pct_income","Recommended_Education"]
     output_df["debt"] = Debt
     output_df["living_wage"] = wage_join
@@ -83,4 +84,4 @@ def Classify(State,Major_Category,Debt):
     outcome = output_df.to_dict("records")
     return outcome
 
-# pp.pprint(Classify("Alaska","Agriculture & Natural Resources",50000))
+# pp.pprint(Classify("Alaska","Arts",50000))
