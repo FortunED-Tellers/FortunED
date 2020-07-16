@@ -68,7 +68,6 @@ We used the micro-framework `Flask` inside of `Python` to create our website tha
 
 As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user activity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metrics collected and offered to users.
 
-#### Tableau
 ![tableau](model/images/tableau.png)
 https://public.tableau.com/profile/smiti8274#!/vizhome/FortunED-UsageReport/FortunEDStory
 
