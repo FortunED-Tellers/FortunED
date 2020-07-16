@@ -100,9 +100,7 @@
               <div class="card">
                 <canvas id="tuition_change"></canvas>
                 <div class="card-body">
-                  <p class="card-text">This graphs shows how tuition costs have gone up for both In-State and Out-of-State prices.
-                    Keep this in mind when deciding when to enroll.
-                  </p>
+                  <p class="card-text">This graphs shows how tuition costs have gone up for both In-State and Out-of-State prices, which is something to be mindful of when considering your options.</p>
                 </div>
               </div>
             </div>
@@ -162,15 +160,11 @@
   })
 
   
-  var top_states = {{ top_states | tojson }}
-
+  var topStates = {{ top_states | tojson }}
   var resultcontent = '';
-    Object.entries(top_states).forEach(function ([key, value]) {
-      state=key
-      income = formatter.format(Math.round(value,0))
-      resultcontent += '<li>' + `${state} - ${income}` + '</li>'
-    });
-
+  for (i = 0; i < topStates.length; i++) {
+      resultcontent += '<li>' + topStates[i] + '</li>'
+    };
   $("#list_top_5_states_by_salary_hs").append(resultcontent);
 
   var dict_ = {{ dict_ | tojson }}

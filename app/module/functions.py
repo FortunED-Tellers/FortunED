@@ -141,11 +141,8 @@ def bestIncomeStates(db, majorCategory):
     import pandas as pd
 
     state_wages = db.StateWage
-
     state_wage_list = list(state_wages.find())
-
     incomeByState={}
-
     for state in state_wage_list:
         for key, value in state.items():
             if key == "_id":
@@ -160,18 +157,19 @@ def bestIncomeStates(db, majorCategory):
                         salaryUnformated=MC['Average_Annual_Salary'].split("$")[1].split(",")
                         salary_list=pd.to_numeric(''.join(map(str,salaryUnformated)),errors='coerce')
                         majorsCatList.append(salary_list)
-
                 salary=sum(majorsCatList)/len(majorsCatList)
-
                 incomeByState[state]=salary
-
     incomeByState=sorted(incomeByState.items(), key=lambda x: x[1],reverse=True)
-
     stateAndIncome={}
     for i in range(5):
         stateAndIncome[incomeByState[i][0]]=incomeByState[i][1]
-
-    return stateAndIncome
+    finalArray=[]
+    for key, value in stateAndIncome.items():
+        thounsandsValue=int(value)
+        conc=f'{key} - ${thounsandsValue:,d}'
+        finalArray.append(conc)
+    
+    return finalArray
 
 def whaterfall(db, state, majorCategory, debt):
     import pandas as pd
