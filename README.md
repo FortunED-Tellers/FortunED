@@ -90,4 +90,3 @@ https://public.tableau.com/profile/smiti8274#!/vizhome/FortunED-UsageReport/Fort
 ### Parent/Guardian Page
 ![parents.png](images/parents-home.png)
 ![parents1.png](images/parents1.png)
-![parents2.png](images/parents2.png)
