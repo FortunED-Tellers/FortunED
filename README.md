@@ -50,9 +50,9 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 4. We use `Pandas` to join the tables so that we have a link from major category to specific majors and major category to occupation category to specific occupations.
 5. We use `Sklearn` to create two different machine learning algorithms.
   <br>a. One is a classification that determines whether a chosen state is a good place to work based on the student's loan and the state's living wage. As you can see we got two different accuracies. We used the SVM model that has a 92% accuracy.
-  <br>![classification.png](model/images/SVM_model_CR.PNG)![linear-regression.png](model/images/Logistic_Regression_CR.PNG)
+  <br>![classification.png](model/images/SVM_model_CR.PNG)![classification2.png](model/images/Logistic_Regression_CR.PNG)
   <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
-  <br>
+  <br>![linear-regression.png](model/images/lin-regress.png)
 6. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 7. We created `Python` functions to pull the specific data we need for specific charts and tables.
   <br>a. We discussed and assigned work on `Zoom` and used `Slack` to log our discussion.
@@ -67,6 +67,10 @@ The final data was stored in a `Mongo` database, which was pulled from to obtain
 We used the micro-framework `Flask` inside of `Python` to create our website that would showcase our data. We use the `Bootstrap`, `ChartJS`, and `D3JS` libraries were used to beautify our website and create dynamic visualization.
 
 As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user activity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metrics collected and offered to users.
+
+#### Tableau
+![tableau](model/images/tableau.png)
+https://public.tableau.com/profile/smiti8274#!/vizhome/FortunED-UsageReport/FortunEDStory
 
 ## Final Website:
 ### Home Page
