@@ -209,6 +209,17 @@ function update(label){
       .style("font-size", "20px") 
       .text(title);
       })
+
+      // Handmade legend
+      svg.selectAll(".bText").remove()
+
+      chartGroup.append("circle").attr("class", "bText").attr("cx",30).attr("cy",30).attr("r", 6).style("fill", "#9DC183")
+      chartGroup.append("circle").attr("class", "bText").attr("cx",30).attr("cy",60).attr("r", 6).style("fill", "#ED2939")
+      chartGroup.append("text").attr("class", "bText").attr("x", 40).attr("y", 30).text("Employed").style("font-size", "15px").style("fill", "#9DC183").attr("alignment-baseline","middle")
+      chartGroup.append("text").attr("class", "bText").attr("x", 40).attr("y", 60).text("Unemployed").style("font-size", "15px").style("fill", "#ED2939").attr("alignment-baseline","middle")
+
+
+
   }
   
 update("total")
