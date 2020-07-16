@@ -6,19 +6,19 @@
 <hr>
 
 ## Overview
-As a team, some of us are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look at the ROI of attending college for a chosen major. We approached this by first thinking about what each prong of our userbase would be interested in.
+As a team, some of us are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look at the ROI of attending college for a chosen field of study. We approached this by first thinking about what each prong of our userbase would be interested in.
 
 A high school student would be interested in:
-1. The career options for a chosen major and the minimum degree required for each profession.
-2. Specific majors under their major category along with the salary range over time and the unemployment rate.
-3. What might be the most profitable state to work in for their major.
+1. The career options for a chosen field of study and the minimum degree required for each profession.
+2. Specific majors under their field of study along with the salary range over time and the unemployment rate.
+3. What might be the most profitable state to work in for their field of study.
 4. How much tuition they might have to pay for 4 years of college.
 
 A college student would be interested in:
-1. The career options for their major along with entry-level salary range for each profession.
+1. The career options for their field of study along with entry-level salary range for each profession.
 2. How long it would take to pay off their student loan.
-3. What the living wage is for the state they are thinking about working in and whether there are better states to work in for their major.
-4. What the top 5 paying majors are for their chosen major/career category.
+3. What the living wage is for the state they are thinking about working in and whether there are better states to work in for their field of study.
+4. What the top 5 paying majors are for their chosen field of study.
 
 A parent/guardian would be interested in:
 1. What the employment likelihood is for their child based on their gender and race in comparison to various levels of educational attainment.
@@ -34,7 +34,9 @@ A parent/guardian would be interested in:
 
 ### Some Considerations
 - All of the data is based on state universities only. It was easy to find In-State and Out-of-State tuition prices over time.
-- Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
+- Since we only have one University per State, we are assuming that every University offers some version of our 13 
+
+categories.
 
 ![approach.png](images/FortunEd-3-Stage_Approach.png)
 <br>
@@ -47,7 +49,7 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 1. A lot of files were `Excel` or `CSV` files. We did use `Beautiful Soup` to scrape the MIT Living Wage Calculator for each state's living wage and the state's median income salary for each occupation category.
 2. We used `Jupyter Notebook` to clean our datasets to just the data we are using.
 3. We created mapping tables to link college majors to career categories.
-4. We use `Pandas` to join the tables so that we have a link from major category to specific majors and major category to occupation category to specific occupations.
+4. We use `Pandas` to join the tables so that we have a link from field of study to specific majors and field of study to occupation category to specific occupations.
 5. We use `Sklearn` to create two different machine learning algorithms.
   <br>a. One is a classification that determines whether a chosen state is a good place to work based on the student's loan and the state's living wage. As you can see we got two different accuracies. We used the SVM model that has a 92% accuracy.
   <br>![classification.png](images/SVM_model_CR.PNG)![classification2.png](images/Logistic_Regression_CR.PNG)
