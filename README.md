@@ -34,9 +34,8 @@ A parent/guardian would be interested in:
 
 ### Some Considerations
 - All of the data is based on state universities only. It was easy to find In-State and Out-of-State tuition prices over time.
-- Since we only have one University per State, we are assuming that every University offers some version of our 13 
-
-categories.
+- Since we only have one University per State, we are assuming that every University offers some version of our 13 fields of study.
+- Living wage is based on a single person, without any children, numbers.
 
 ![approach.png](images/FortunEd-3-Stage_Approach.png)
 <br>
