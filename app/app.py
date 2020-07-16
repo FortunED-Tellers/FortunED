@@ -125,10 +125,16 @@ def show_hs_results():
         loan = None
         time_to_college = timing_pref
         time_of_access = datetime.datetime.now()
-        
+        io_state_metric = io_state
+        if len(io_state_metric) == 0:
+            io_state_metric = "in"
+        elif io_state_metric == "in-state":
+            io_state_metric = "in"
+        elif io_state_metric == "out-of-state":
+            io_state_metric = "out"
         
         # set the data as as a list array for loading dataframe based on position
-        metrics=[None, student_type,state, io_state, major,time_to_college, loan, time_of_access]
+        metrics=[None, student_type,state, io_state_metric, major,time_to_college, loan, time_of_access]
         
         
         # Populate the metrics 
