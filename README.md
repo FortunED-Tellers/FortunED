@@ -36,9 +36,9 @@ A parent/guardian would be interested in:
 - All of the data is based on state universities only. It was easy to find In-State and Out-of-State tuition prices over time.
 - Since we only have one University per State, we are assuming that every University offers some version of our 13 major categories.
 
-![approach.png](model/images/FortunEd-3-Stage_Approach.png)
+![approach.png](images/FortunEd-3-Stage_Approach.png)
 <br>
-![detailed-approach.png](model/images/FortunEd-Architecture.png)
+![detailed-approach.png](images/FortunEd-Architecture.png)
 
 ## Ingest
 We used Google Sheets to split up the work of finding datasets that would allow us to present our users with thorough information. We use a lot of education, employment, and career data from the <a href="https://www.bls.gov/emp/tables.htm">US Bureau of Labor Statistics</a> (BLS). Our university tuition data comes from the <a href="https://research.collegeboard.org/trends/college-pricing">CollegeBoard</a>. Our college majors dataset comes from <a href="https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset/data?select=majors-list.csv">FiveThirtyEight</a>'s Kaggle dataset. Our living wage data comes from <a href="https://livingwage.mit.edu/">MIT's Living Wage Calculator</a>, which also displayed a median income per occupation that matched the BLS categories.
@@ -50,15 +50,15 @@ We used Google Sheets to split up the work of finding datasets that would allow 
 4. We use `Pandas` to join the tables so that we have a link from major category to specific majors and major category to occupation category to specific occupations.
 5. We use `Sklearn` to create two different machine learning algorithms.
   <br>a. One is a classification that determines whether a chosen state is a good place to work based on the student's loan and the state's living wage. As you can see we got two different accuracies. We used the SVM model that has a 92% accuracy.
-  <br>![classification.png](model/images/SVM_model_CR.PNG)![classification2.png](model/images/Logistic_Regression_CR.PNG)
+  <br>![classification.png](images/SVM_model_CR.PNG)![classification2.png](images/Logistic_Regression_CR.PNG)
   <br>b. The other is a linear regression that extrapolated what university tuition will be for In-State and Out-of-State for the next two years.
-  <br>![linear-regression.png](model/images/lin-regress.png)
+  <br>![linear-regression.png](images/lin-regress.png)
 6. We used `pymongo` and `MongoClient` to create dictionaries of all our records and then load it into `Mongo DB`.
 7. We created `Python` functions to pull the specific data we need for specific charts and tables.
   <br>a. We discussed and assigned work on `Zoom` and used `Slack` to log our discussion.
-  <br>![work-split.png](model/images/slack_group_split.png)
+  <br>![work-split.png](images/slack_group_split.png)
   <br>b. We created specific sample `HTML` pages for each group member so we could each make and test our charts/tables without overriding each other's work when pushing to `Github`.
-  <br>![sample-html.jpg](model/images/sample_html.jpg)
+  <br>![sample-html.jpg](images/sample_html.jpg)
 8. We then met up over `Zoom` to join all our `ChartJS` scripts and `Python` functions on their corresponding `HTML`, `functions.py`, and `app.py` sections.
 
 ## Digest
@@ -68,26 +68,26 @@ We used the micro-framework `Flask` inside of `Python` to create our website tha
 
 As users interface with our website the function `backend.py` tracks the selections made by a user on the front end and writes that activity to an `Excel` file. Using this logged activity, we generate a `Tableau` report to analyze user activity, engagement, and which areas we are getting the most traction. This will help in further enhancing the services and metrics collected and offered to users.
 
-![tableau](model/images/tableau.png)
+![tableau](images/tableau.png)
 https://public.tableau.com/profile/smiti8274#!/vizhome/FortunED-UsageReport/FortunEDStory
 
 ## Final Website:
 ### Home Page
-![homepage.png](model/images/home.png)
+![homepage.png](images/home.png)
 
 ### High School Student Page
-![highschool.png](model/images/hs-home.png)
-![hs1.png](model/images/hs1.png)
-![hs2.png](model/images/hs2.png)
-![hs3.png](model/images/hs3.png)
+![highschool.png](images/hs-home.png)
+![hs1.png](images/hs1.png)
+![hs2.png](images/hs2.png)
+![hs3.png](images/hs3.png)
 
 ### College Student Page
-![college.png](model/images/cs-home.png)
-![cs1.png](model/images/cs1.png)
-![cs2.png](model/images/cs2.png)
-![cs3.png](model/images/cs3.png)
+![college.png](images/cs-home.png)
+![cs1.png](images/cs1.png)
+![cs2.png](images/cs2.png)
+![cs3.png](images/cs3.png)
 
 ### Parent/Guardian Page
-![parents.png](model/images/parents-home.png)
-![parents1.png](model/images/parents1.png)
-![parents2.png](model/images/parents2.png)
+![parents.png](images/parents-home.png)
+![parents1.png](images/parents1.png)
+![parents2.png](images/parents2.png)
