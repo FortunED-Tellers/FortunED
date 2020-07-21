@@ -14,7 +14,7 @@ from bson.json_util import dumps
 app = Flask(__name__, static_url_path="/static")
 
 # Create connection variable
-conn = "mongodb://localhost:27017"
+conn = os.environ['MONGODB_URI']
 
 # Pass connection to the pymongo instance.
 dbconn = pymongo.MongoClient(conn)

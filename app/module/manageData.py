@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from pprint import pprint
 import pymongo
@@ -35,9 +36,8 @@ def universityTuition():
 # Loading MONGO
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient(os.environ['MONGODB_URI'])
 
-#client = pymongo.MongoClient("mongodb+srv://fort_user:TCU7sGNl3Y3OyEnM@cluster0.wv5gd.mongodb.net/fortuned?retryWrites=true&w=majority")
 db = client.fortuned
 
 
