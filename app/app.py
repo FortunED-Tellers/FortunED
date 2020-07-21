@@ -14,7 +14,7 @@ from bson.json_util import dumps
 app = Flask(__name__, static_url_path="/static")
 
 # Create connection variable
-conn = "mongodb://localhost:27017"
+conn = "mongodb+srv://fort_user:TCU7sGNl3Y3OyEnM@cluster0.wv5gd.mongodb.net/fortuned?retryWrites=true&w=majority"
 
 # Pass connection to the pymongo instance.
 dbconn = pymongo.MongoClient(conn)
@@ -69,7 +69,7 @@ def show_cs_results():
         
 
         # Call function to transfer data for tableau reporting
-        transfer_data("KPIs.xlsx", "YTD_Status", metrics) 
+        #transfer_data("KPIs.xlsx", "YTD_Status", metrics) 
 
     
 
@@ -141,7 +141,7 @@ def show_hs_results():
         KPI.append(metrics, ignore_index=True)
 
         # Call function to transfer data for tableau reporting
-        transfer_data("KPIs.xlsx", "YTD_Status", metrics)
+        #transfer_data("KPIs.xlsx", "YTD_Status", metrics)
 
         # track preferences for in-state vs out-of-state and timing for going to college
         pref = {}
