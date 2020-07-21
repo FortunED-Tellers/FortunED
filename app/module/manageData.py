@@ -35,9 +35,9 @@ def universityTuition():
 # Loading MONGO
 from pymongo import MongoClient
 
-#client = MongoClient("mongodb://localhost:27017")
+client = MongoClient("mongodb://localhost:27017")
 
-client = pymongo.MongoClient("mongodb+srv://fort_user:TCU7sGNl3Y3OyEnM@cluster0.wv5gd.mongodb.net/fortuned?retryWrites=true&w=majority")
+#client = pymongo.MongoClient("mongodb+srv://fort_user:TCU7sGNl3Y3OyEnM@cluster0.wv5gd.mongodb.net/fortuned?retryWrites=true&w=majority")
 db = client.fortuned
 
 
