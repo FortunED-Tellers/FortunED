@@ -5,7 +5,7 @@
 **Team:** Karl Ramsay, Swati Dontamsetti, Firzana Razak, Smiti Swain, Salvador Neves
 <hr>
 
-### Deployed Heroku Link: https://fortuned-app.herokuapp.com/
+#### Deployed Heroku Link: https://fortuned-app.herokuapp.com/
 
 ## Overview
 As a team, some of us are parents, some of us are teachers, and all of us are continuing education students. We are passionate about education and the doors it can open for future career opportunities. But we understand that college can be expensive and that for some people it might not be the right route. We wanted to give a comprehensive look at the ROI of attending college for a chosen field of study. We approached this by first thinking about what each prong of our userbase would be interested in.
